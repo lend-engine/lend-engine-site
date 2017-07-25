@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lend and borrow items with the Lend Engine : Signup{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <h1>Let's get you started with a free account.</h1>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row" style="text-align:left">
+
+                <div class="col-md-5">
+                    <h4>The Lend Engine is FREE</h4>
+                    <p>
+                        Pop your details in the form and we'll create a dedicated account for you.
+                        No cost at all.
+                    </p>
+                    <p>
+                        We believe strongly in re-use and sharing. <br />
+                        We want to help people borrow more, and buy less.<br />
+                        We want organisations that lend things to be successful. <br />
+                        We want to build the best lending software system available. <br /><br />
+                    </p>
+                    <p>
+                        <strong>Join the re-use revolution.</strong>
+                    </p>
+
+                </div>
+
+                <div class="col-md-1">
+                </div>
+
+                <div class="col-md-6" id="signup-form">
+
+                    <br />
+                    {% for flash_message in app.session.flashbag.get('success') %}
+                        <div class="alert alert-success">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
+                    {% for flash_message in app.session.flashbag.get('error') %}
+                        <div class="alert alert-warning">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
+
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    {% if help is defined %}
+                        <span class="help">{{ help }}</span>
+                    {% endif %}
+
+                    {{ form_row(form.name) }}
+
+                    <div class="form-group">
+                        <label class="control-label required" for="registration_stub">Choose a short account code</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_widget(form.stub) }}
+                            </div>
+                            <div>
+                                .lend-engine-app.com
+                            </div>
+                        </div>
+                        <div class="help-block">
+                            This will be the domain where you access your Lend Engine account,
+                            and the domain for your member website.
+                            Custom domains are available on our <a style="font-size: inherit" href="{{ path('page_pricing') }}">paid plan</a>.
+                        </div>
+                    </div>
+
+                    {{ form_row(form.ownerName) }}
+
+                    {{ form_row(form.ownerEmail) }}
+
+                    <button id="modal-submit" class="btn btn-success">Create my account</button>
+
+                    <br><br>
+                    Inactive accounts will be removed after 90 days.
+
+                    {{ form_end(form) }}
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block pagescripts %}
+    <script>
+        $(document).ready(function() {
+            $("#signup-form").on("keyup", "#registration_name", function() {
+                var accountCode = $("#registration_name").val();
+                accountCode = accountCode.replace(/[\W]+/g, "").toLowerCase();
+                $("#registration_stub").val(accountCode);
+            });
+        });
+    </script>
+{% endblock %}

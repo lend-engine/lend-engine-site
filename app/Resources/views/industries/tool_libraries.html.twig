@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tool Library Software powered by The Lend Engine{% endblock %}
+
+{% block h1 %}Software for tool libraries{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <img src="/images/icons420/tools.png">
+            <h1>Software for running your <span class="color-wt">Tool Library</span></h1>
+            <p>And other Lending Library organisations ...</p>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    <p style="font-size: 24px">
+                        The Lend Engine is a web based admin system for running Tool Libraries.
+                        Use it to track your tools, members, memberships, loans, payments, fees and costs.
+                    </p>
+                    <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get a free account for your Tool Library now</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Software for lending tools</h3>
+                    <p>
+                        Who has this tool? Where is it? When is it due back? Is it ready to lend?
+                        What is it costing to repair and clean? With the Lend Engine, it’s easy to get the answers to these questions.
+                        Track tool locations, note history, assign to team members, see the repair queue, and use barcodes to make check in and check out quick and simple.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Your Tool Database Online</h3>
+                    <p>
+                        You can store everything you need to know about your tools in the online database - accessible by anyone in your team, from anywhere.
+                        Upload photos or attach files (perhaps safety procedures), and add custom fields which you can use to report on later.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Manage Members and Memberships</h3>
+                    <p>
+                        You can create as many membership types as you need, each with a fee and a duration.
+                        Contacts can only borrow items if they have an active membership.
+                        Members are sent an email a week before their membership is due to expire, to save you having to chase up.
+                        Amongst many other things, member reports let you see which members haven’t renewed.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Help with managing Loans</h3>
+                    <p>
+                        Which tools are out on loan, and when are they due back?
+                        Which members do we need to send overdue reminders to?
+                        The Lend Engine helps you answer these questions and more.
+                        With automated loan reminders via email and SMS, it also saves you time and
+                        helps your tool library share your tools in the most efficient way.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Payments and Accounting</h3>
+                    <p>
+                        The Lend Engine tracks fees, fines, payments and also any costs you incur with repairing or cleaning items.
+                        When you lend a tool, you can charge a one-off loan fee or a daily fee.
+                        Members can pay at the time of borrowing or your can put the fee on account.
+                        The payment/fee reports show you how much you have taken or charged, and can be filtered by payment method,
+                        date, member custom fields … and more.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Cleaning and Repairing</h3>
+                    <p>
+                        Between loans maybe you’ll be cleaning or repairing tools.
+                        When a member returns a tool you choose which location it is checked in to.
+                        Set up a reserved location called “repair” which would show the item as “not available” until it was moved back into an available location.
+                        Additionally, you can assign the tool to a team member.
+                        They get an email to let them know some work is due.
+                        Each of these movements can be given a cost, and you can add notes to get a complete, detailed tool history.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Public Website / Online Tool Listing</h3>
+                    <p>
+                        Included with every Lend Engine account is a public website.
+                        This shows members (and potential members!) the tools you have, and whether they are available.
+                        The site can run stand-alone, or the tool listing and search can be embedded within your main tool library website.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Web Based Admin for your Tool Library</h3>
+                    <p>
+                        Access the Lend Engine online with a web browser, any time, from anywhere.
+                        Use a desktop computer, laptop, tablet or phone.
+                        There’s nothing to download or install, which means you can log on wherever you happen to be.
+                        Your data is stored securely online, so you don’t have to worry about backups - we handle that all for you.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="divider">
+        <div class="container">
+            <h2>
+                Sign up for a free account now.
+            </h2>
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
+        </div>
+    </section>
+
+{% endblock %}

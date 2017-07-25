@@ -1,0 +1,411 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pricing : The Lend Engine{% endblock %}
+
+{% block h1 %}Pricing{% endblock %}
+
+{% block body %}
+
+    <style>
+        tr.price-header td {
+            font-weight: bold;
+            padding-top: 20px;
+            font-size: 24px;
+        }
+        tr.price-plans td {
+            font-weight: bold;
+            padding-top: 20px;
+            font-size: 24px;
+            border-top: 0;
+        }
+    </style>
+
+    <section id="title">
+        <div class="container">
+            <h1 style="text-align: center">
+                The Lend Engine is FREE to use
+            </h1>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p style="font-size: 22px; text-align: center">
+                        We believe strongly in re-use and sharing. <br/>
+                        We want to help people borrow more, and buy less.<br/>
+                        We want organisations that lend things to be successful. <br/>
+                        We want to build the best lending software system available. <br/><br/>
+                        So we don't want pricing to get in the way.<br>
+
+                        <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get started with a free account</a>
+                        <br><br>
+
+                        That said, we have servers to run and costs to pay.
+                        You can get everything you need to run a regular library on the free plan,
+                        but we also offer a paid plans which offer more capabilities.
+                        <br><br>
+                        Your account will be set up with a <strong>30 day free trial of the Plus plan</strong>.<br><br>
+                    </p>
+
+                    <table cellspacing="0" cellpadding="0" class="table">
+                        <tbody>
+                        <tr class="price-plans">
+                            <td></td>
+                            <td style="width:130px">Free</td>
+                            <td style="width:130px">Standard<br>£20 <small>/ month</small></td>
+                            <td style="width:130px">Plus<br>£30 <small>/ month</small></td>
+                        </tr>
+                        <tr>
+                            <td>Unlimited team member logins to back-end (admin)</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Member website / portal for self serve access</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Track item location within sites (eg repair)</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Take credit card payments</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Customise email content (eg loan reminders)</td>
+                            <td>-</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Manage volunteers, calendars and duty rota</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                        </tr>
+                        <tr>
+                            <td>Multiple library sites (different addresses)</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>SSL secured admin and member portal</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Your own domain name (otherwise http://you.lend-engine-app.com}</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Automated data backups</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Yes</td>
+                        </tr>
+
+                        <tr class="price-header">
+                            <td>Loans and reservations</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Online loan management software</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Unlimited loans per month</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Self serve loans via member website</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Reserve items for future dates</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Automated loan reminders</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Extend loans and charge fees for late returns</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Multiple items per loan, each with different return dates</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Check out prompts to help your team capture information, or tell members particular details
+                            </td>
+                            <td>-</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Check in prompts to help your team when items are returned.</td>
+                            <td>-</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+
+                        <tr>
+                            <td>Sell consumables</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                        </tr>
+                        <tr class="price-header">
+                            <td>Contact management</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Online contact and member database</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+
+                        <tr>
+                            <td>Membership management software</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+
+                        <tr>
+                            <td>Integrated with Mailchimp for email newsletters</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Record child information (for toy libraries)</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Add notes and comments to track your relationship with members.
+                            </td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Upload file attachments to contacts and members, such as delcarations or certifications.
+                            </td>
+                            <td>-</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Add custom fields to record specific information about your members.
+                            </td>
+                            <td>-</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Membership cards</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                        </tr>
+
+
+                        <tr class="price-header">
+                            <td>Item management / stock control</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Online item database available for all your team, anywhere.</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Override system fee or loan duration on a per-item basis</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Track your items' condition with custom options</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>See item history as things move between members and locations</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Add notes and comments to the item history</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Assign costs to items to track money spent on repairing and cleaning
+                            </td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Upload files and attachments to items, such as instructions or safety information.
+                            </td>
+                            <td>-</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Add custom fields to record extra information about your items, toys or tools.
+                            </td>
+                            <td>-</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Print item labels for barcode scanning</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                        </tr>
+
+
+                        <tr class="price-header">
+                            <td>Member website</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Members can browse items and see item availability</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Register for new memberships, paid by credit card if required</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Members with credit can reserve items online</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Add credit / view payment history</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Member choice of English, French or Dutch</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Customise look and feel with CSS</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Log in with Facebook or Google</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Waiting list for items currently unavailable</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Automated email when item becomes available</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Self serve ID verification with <a href="https://www.yoti.com/" target="_blank">YOTI</a></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Yes</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section id="divider" style="margin-top: -50px;">
+        <div class="container">
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds great! Create my account now.</a>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p style="text-align: center">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Software for your Library Of Things, powered by The Lend Engine{% endblock %}
+
+{% block h1 %}Software for your Library Of Things{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <img src="/images/icons420/tools.png">
+            <h1>
+                For your <span class="color-wt">Library Of Things</span>
+            </h1>
+            <p>Whatever you lend, we can help.</p>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    <p style="font-size: 24px">
+                        The Lend Engine software platform was built specially to help community organisations that lend things.
+                        Our features are designed to make it simple to set up and manage a <strong>Library Of Things</strong>.
+                    </p>
+                    <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get a free account for your Library Of Things now</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>An easy to use loan system</h3>
+                    <p>
+                        Create a loan for a member in just a few clicks using the admin system,
+                        or allow members to borrow items themselves using the self-serve member portal.
+                    </p>
+                    <p>
+                        Check in and check out, extend dates, add notes ... and more.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>A website for your Things</h3>
+                    <p>
+                        Lend Engine provides a modern, fast, online catalogue so that people can see all your items.
+                        Members can place reservations, borrow items, add credit, and see their borrowing history.
+                    </p>
+                    <p>
+                        Embeddable within your Library Of Things website, too.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Item & inventory management</h3>
+                    <p>
+                        Lend Engine makes it easy to tell <strong>where your items are</strong> at any moment in time,
+                        <strong>who has things on loan</strong>, and <strong>when they are due back</strong>.
+                        Add custom fields and attach files for a rich database of Things.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Manage repairs, cleaning and costs</h3>
+                    <p>
+                        Assign items to team members for repair or cleaning.
+                        Track item locations, and create reserved locations for items under repair or due to be checked before re-lending.
+                        Add notes and costs to keep a record of everything.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Automated emails & reminders</h3>
+                    <p>
+                        Lend Engine sends loan reminders automatically,
+                        and keeps your members in the loop with all the information they need as you check out items, extend loans, add fees...
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact & member management</h3>
+                    <p>
+                        Keep a record of all your members and associates, extend using custom fields, attach files, upload ID.
+                        Lend Engine can also sync your member information automatically with <a href="http://www.mailchimp.com" target="_blank">Mailchimp</a>.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Share information with your team</h3>
+                    <p>
+                        The Lend Engine lets you store data about your items in an easy to access format,
+                        so that your team, your volunteers and your members have all the information they need.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Fees & Payments</h3>
+                    <p>
+                        If you need, you can charge loan fees, daily fees and apply fines.
+                        Manage member account balances, and produce useful reports.
+                        Integrated card payments via <a href="http://www.stripe.com" target="_blank">Stripe.com</a>.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="divider">
+        <div class="container">
+            <h2><strong>And this is only just the start ...</strong></h2>
+            <h2>Sign up for a free account now.</h2>
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
+        </div>
+    </section>
+
+
+{% endblock %}

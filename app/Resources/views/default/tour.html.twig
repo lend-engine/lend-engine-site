@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Feature tour : The Lend Engine{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <h1>Software to help you lend <span style="color:#fff">things</span>.</h1>
+            <p>
+                <a href="{{ path('toy_libraries') }}">Toy Libraries</a>,
+                <a href="{{ path('tool_libraries') }}">Tool Libraries</a>,
+                <a href="{{ path('lot') }}">Library Of Things</a>,
+                <a href="{{ path('sports') }}">Sports equipment</a> ...
+            </p>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3>Loans and reservations</h3>
+                    <p>
+                        Charge check-out fees, daily fees, see what’s out on loan at the moment, when loans are due back,
+                        which loans are overdue … and more
+                    </p>
+                    <p>
+                        Create reservations (for items that are currently in stock) to prevent others from checking them out.
+                        The Lend Engine is not a booking system however; you can’t create future reservations between certain dates.
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img src="/images/web_loans.jpg" class="img-responsive" alt="feature img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="/images/web_contact_fields.jpg" class="img-responsive" alt="feature img">
+                </div>
+                <div class="col-md-7">
+                    <h3>Members and memberships</h3>
+                    <p>
+                        Keep a record of all your current and past members, what they have borrowed, how much they have paid,
+                        and any other notes you might have. Custom fields allow you to store extra details which can be used in your reporting too.
+                    </p>
+                    <p>
+                        Multiple membership levels with different prices and durations allow you to see which members are active,
+                        who is due to be renewed soon, and which membership scheme is most (or least!) popular.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3>Online item database</h3>
+                    <p>
+                        Your items are the lifeblood of your lending organisation.
+                        Record all your item information online where it can be accessed by any of your team members, at any time.
+                        </p>
+                    <p>
+                        Upload photos and add custom fields to store everything there is to know about your products.
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img src="/images/web_item_detail.jpg" class="img-responsive" alt="feature img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="/images/web_item_list.jpg" class="img-responsive" alt="feature img">
+                </div>
+                <div class="col-md-7">
+                    <h3>Stock control / inventory management</h3>
+                    <p>
+                        Accurate management of stock levels as you move items around, loan them to members,
+                        send for repair … with detailed item history updated automatically.
+                    </p>
+                    <p>
+                        Set up locations so that you know where your items are at all times. Locations can be set as "unavailable", which lets you keep items in stock, but they can't be added to loans. Useful for putting items on hold, perhaps for repair or cleaning.
+                        Each time you move items between locations, you can add notes; which can be pulled up later to see a full history of the item..
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3>Payments and fees</h3>
+                    <p>
+                        Charge a per-loan fee, a per-item fee, a per-day fee, or any combination.
+                        All fees and payments are added to the member's record, so you have a full record of the transaction history.
+                        Members can pay for loans at time of check-out using payment methods you set up, or you can allocate the fees to their account.
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img src="/images/web_report_payments.jpg" class="img-responsive" alt="feature img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature">
+        <div class="container">
+            <h2>
+                Sign up for a free account now.
+            </h2>
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <h4>Access anywhere</h4>
+                    <p>
+                        The <strong>Lend Engine</strong> is web based, which means you and your team can access everything just using a web browser, anywhere, any time, on any device.
+                        Work from a phone, a tablet or a computer (but you'll get the most features when you're using a larger screen).
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>Share with your team</h4>
+                    <p>
+                        Use the <strong>Lend Engine</strong> to track loan history; from first reservation to checking back in. Share updates with your colleagues by adding notes.
+                        The system logs important actions automatically. It's easy to pick up where someone else left off.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>Automation</h4>
+                    <p>
+                        Let <strong>Lend Engine</strong> do the work for you! Emails and text messages can be sent automatically when loans are checked out, when they go overdue, when you delay the return date, when memberships are up for renewal, and more.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

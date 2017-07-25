@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rental and Library Software powered by The Lend Engine{% endblock %}
+
+{% block h1 %}Software for rental organisations{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <img src="/images/icons420/trailer.png">
+            <h1>Track your <span class="color-wt">Plant</span> & <span class="color-wt">Machinery</span></h1>
+            <p></p>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    <p style="font-size: 24px">
+                        The Lend Engine is a web based admin system for running Tool Libraries.
+                        Use it to track your tools, members, memberships, loans, payments, fees and costs.
+                    </p>
+                    <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get a free account for your Tool Library now</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Software for lending tools</h3>
+                    <p>
+                        Who has this tool? Where is it? When is it due back? Is it ready to lend?
+                        What is it costing to repair and clean? With the Lend Engine, it’s easy to get the answers to these questions.
+                        Track tool locations, note history, assign to team members, see the repair queue, and use barcodes to make check in and check out quick and simple.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Your Tool Database Online</h3>
+                    <p>
+                        You can store everything you need to know about your tools in the online database - accessible by anyone in your team, from anywhere.
+                        Upload photos or attach files (perhaps safety procedures), and add custom fields which you can use to report on later.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="divider">
+        <div class="container">
+            <h2>
+                Sign up for a free account now.
+            </h2>
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
+        </div>
+    </section>
+
+
+{% endblock %}

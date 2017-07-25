@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <h1>Almost there ...</h1>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row" style="text-align:left">
+
+                <div class="col-md-2">
+
+                </div>
+
+                <div class="col-md-8">
+
+                    {% for flash_message in app.session.flashbag.get('success') %}
+                        <div class="alert alert-success">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
+                    {% for flash_message in app.session.flashbag.get('error') %}
+                        <div class="alert alert-warning">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
+
+                    <p>
+                        Sometimes emails can take a few minutes to arrive.
+                        If you still don't have anything after 30 minutes
+                        (don't forget to check your spam folder), then try the signup form again
+                        with the same email address and account code.
+                    </p>
+
+                    <div style="min-height: 300px;">
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

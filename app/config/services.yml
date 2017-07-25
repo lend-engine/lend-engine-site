@@ -1,0 +1,10 @@
+services:
+    doctrine.dbal.connection_factory:
+        class: AppBundle\CustomConnectionFactory
+        arguments:
+            - "@session"
+
+    loan_feed:
+        class: AppBundle\Services\LoanFeedService
+        arguments:
+            - "@doctrine.orm.entity_manager"

@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block h1 %}Contact us{% endblock %}
+
+{% block body %}
+
+    <section id="contact">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" data-wow-delay="0.6s">
+                        <h2 class="text-uppercase">Contact us</h2>
+
+                        {% for flash_message in app.session.flashbag.get('success') %}
+                            <div class="alert alert-success">
+                                {{ flash_message }}
+                            </div>
+                        {% endfor %}
+                        {% for flash_message in app.session.flashbag.get('error') %}
+                            <div class="alert alert-warning">
+                                {{ flash_message }}
+                            </div>
+                        {% endfor %}
+
+                        <p>
+                            The Lend Engine is a system built and supported by by a small team based in West Wales, United Kingdom.
+                        </p>
+
+                        <p>
+                            We're passionate about re-use; reducing consumption and making sure that we all make the most
+                            of existing goods and materials rather than buying new ones.
+                        </p>
+
+                        <p>
+                            Send us an email and we'll get back to you as soon as we can!
+                        </p>
+
+                    </div>
+                    <div class="col-md-6" data-wow-delay="0.6s">
+
+                        <div class="contact-form">
+
+                            {{ form_start(form) }}
+                            {{ form_errors(form) }}
+                            {% if help is defined %}
+                                <span class="help">{{ help }}</span>
+                            {% endif %}
+
+                            <div class="col-md-6">
+                                {{ form_widget(form.name) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="col-md-12">
+                                {{ form_widget(form.subject) }}
+                            </div>
+                            <div class="col-md-12">
+                                {{ form_widget(form.message) }}
+                            </div>
+                            <div class="col-md-8">
+                                <input type="submit" class="btn btn-success form-control text-uppercase" value="Send">
+                            </div>
+
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

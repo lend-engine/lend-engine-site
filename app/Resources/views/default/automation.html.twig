@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block h1 %}Automation{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <h1>
+                We'll give you more TIME.
+            </h1>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        One of the biggest challenges with a lending organisation, especially one that might be volunteer driven,
+                        is making the time to communicate with your members. The Lend Engine can do it for you.
+                    </p>
+                    <p>
+                        Every communication with your members is also an opportunity to remind them about new items you might have.
+                        You can customize outgoing emails to add any news or updates.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/images/software-img.png" class="img-responsive" alt="feature img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Automated emails</h3>
+                    <p>
+                        The Lend Engine can send loan reminders and membership reminders to help keep your organisation ticking along smoothly.
+                    </p>
+                    <p>
+                        Every time a loan is checked out, we'll send an email to the borrower with a bunch of useful information.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Automated SMS messages</h3>
+                    <p>
+                        If you choose, the Lend Engine can also send SMS messages when loans are due back, or when memberships are up for renewal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="divider">
+        <div class="container">
+            <h2>
+                Sign up for a free account now.
+            </h2>
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
+        </div>
+    </section>
+
+
+{% endblock %}

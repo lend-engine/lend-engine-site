@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sports Rental Software powered by The Lend Engine{% endblock %}
+
+{% block h1 %}Software for sports equipment lending & rental{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <img src="/images/icons420/bike.png">
+            <h1>
+                Lend or rent your <span class="color-wt">sports equipment</span>
+            </h1>
+            <p>Ideal for hostels, shops, activity centres, sports centres</p>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    <p style="font-size: 24px">
+                        The Lend Engine is a web based software system which helps you keep track of equipment you lend
+                        to staff, members or guests. Straightforward, functional and easy to use.
+                    </p>
+                    <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get a free account now</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Sports Equipment Tracking Software</h3>
+                    <p>
+                        If you lend kit out, then you need to know who has it, where it is, and when it's due back.
+                    </p>
+                    <p>
+                        <strong style="text-decoration: underline">Easy</strong> for your team to use - check items in or out in seconds.
+                    </p>
+                    <p>
+                        <strong style="text-decoration: underline">Powerful</strong> for you - report on pretty much anything.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Manage repairs, cleaning and costs</h3>
+                    <p>
+                        Assign items to team members for repair or cleaning - notifications are automatically sent by email or SMS.
+                        Track item locations, and create reserved locations for items under repair or due to be checked before re-lending.
+                        Add notes and costs - all tracked in a clear, easy to access online database.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Store information online</h3>
+                    <p>
+                        The Lend Engine lets you store data about your sports equipment in an easy to access format,
+                        so that your team, your guests and your members have all the information they need.
+                        Use custom fields, upload photos, record serial numbers and more.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Charge fees, take payments and track accounts</h3>
+                    <p>
+                        If you need, you can charge loan fees, daily fees and apply fines. Manage guest/member account balances, and produce
+                        useful reports to show you how the lending side of your business is going.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="divider">
+        <div class="container">
+            <h2>
+                Sign up for a free account now.
+            </h2>
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
+        </div>
+    </section>
+
+
+{% endblock %}

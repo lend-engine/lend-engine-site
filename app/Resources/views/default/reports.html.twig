@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block h1 %}Reporting{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <h1>
+                Rich, easy to access information
+            </h1>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        With flexible and powerful reporting, it's easy to see who's borrowing what, which items are popular, and which are not so popular.
+                        Instantly see what items are out on loan, when they are due back, and what's overdue.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/images/web_report_items.jpg" class="img-responsive" alt="feature img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Custom fields</h3>
+                    <p>
+                        Use item, loan and member custom fields to filter your data in ways that suit your organisation.
+                        Perhaps you want to show sponsors or donors how their items are being used,
+                        or track loans by member region for funding applications.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Export to CSV</h3>
+                    <p>
+                        If you need more advanced reporting, simply export reports, items, loans and contacts to CSV at any time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="divider">
+        <div class="container">
+            <h2>
+                Sign up for a free account now.
+            </h2>
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
+        </div>
+    </section>
+
+
+{% endblock %}

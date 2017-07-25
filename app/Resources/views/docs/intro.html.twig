@@ -1,0 +1,287 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Introduction{% endblock %}
+
+{% block body %}
+
+    <section id="feature1">
+
+        <div class="container">
+
+            <div class="row" style="text-align:left">
+
+                <div class="col-md-3" style="padding-top:100px;">
+                    <ul class="nav nav-pills" id="docs-nav">
+                        <li><a href="#items">Items</a></li>
+                        <li><a href="#loans">Loans</a></li>
+                        <li><a href="#memberships">Memberships</a></li>
+                        <li><a href="#payments">Payments &amp; Fees</a></li>
+                        <li><a href="#costs">Cost management</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-9" id="docs-content">
+
+                    <h1>How it works in a bit more detail ...</h1>
+
+                    <h3 id="items" style="padding-top: 20px">Items</h3>
+
+                    <p>
+                        The Lend Engine is built specifically to handle <strong>unique items</strong>.
+                        There is no concept of item quantity; each item is set up separately as a unit of one.
+                        For each item, we track WHO has it, and WHERE it is.
+                        If it’s been loaned, then also WHEN the loan is due to end.
+                    </p>
+
+                    <h4>Item images</h4>
+
+                    <p>
+                        Upload as many images as you like to your items. We'll re-size them into a large (about 400px)
+                        and a thumbnail (about 120px). If you need to rotate pictures, you can do that after you've
+                        uploaded. Choose the picture you want as your main image, and you're all set!
+                    </p>
+
+                    <h4>QR codes / self serve</h4>
+
+                    <p>
+                        Each item also has a unique QR code which can be printed out and put onto a label. When you open
+                        the item preview in admin, you’ll see the image which you can download and add into your label
+                        printing software.
+                    </p>
+
+                    <p>
+                        Scanning this QR code will take you to the public page for that item. If you’re logged in as a
+                        member and the item is available, you’ll have the option to borrow it. You can only borrow an
+                        item via the website using the QR code at the moment - since it confirms that you actually have
+                        the item in your possession. At the moment, borrowing via the website (self-serve) will add the
+                        loan fee to your account.
+                    </p>
+
+                    <h4>Moving / assigning items</h4>
+
+                    <p>
+                        You can move items around between locations without creating a loan - say that you found an item
+                        was damaged and you wanted to move it to the “repair” location. Some locations can be set as
+                        “not available”, so while the item is in that location, it cannot be lent out. When you move an
+                        item, you can add a note and a cost, perhaps a repair, or spare parts replaced. You can report
+                        later on the costs associated with an item, and see the notes in the item history.
+                    </p>
+
+                    <p>
+                        When you move an item you can also assign it to one of your team members. When something needs
+                        repairing or cleaning, you assign it to the relevant person with some brief instructions. They
+                        will receive an email notification, and can easily see the items assigned to them when they log
+                        in. You can assign an item to someone without moving it, too. When the repair is done, they will
+                        use the same “move / assign” process to un-assign the item, and perhaps move it to an available
+                        location. They can add a note or cost at this point, too.
+                    </p>
+
+                    <p>
+                        If an item is in a location that’s been set as “not available”, the item is shown as “on hold”.
+                    </p>
+
+                    <h4>Item locations</h4>
+
+                    <p>
+                        When you create an item you have to put it in a location.
+                        An Item is always somewhere - it’s always in one of your locations.
+                        There’s a special location called “on loan” for the times when the item has been assigned to
+                        someone (perhaps a member) and you don’t really care where it is physically.
+                    </p>
+
+                    <p>
+                        You can set locations as “unavailable” - which is handy when an item is not on loan, but you
+                        want to prevent anyone from lending it out. Typically you’d create unavailable locations for
+                        items being repaired, cleaned or checked (also see “assigning items”).
+                    </p>
+
+                    <h4>Custom fields</h4>
+
+                    <p>
+                        You can add extra database fields to items, which can be used in reports and also shown on the
+                        item list. Item fields can be set up to show on the public website too.
+                    </p>
+
+                    <h3 id="loans">Loans</h3>
+
+                    <h4>Lending items</h4>
+
+                    <p>
+                        When you want to lend items to a member, charge a fee, take payment and set a return date,
+                        create
+                        a loan. Loans can contain multiple items. Each item has its own return date and fee amount. When
+                        you first create a loan, it’s “pending” and does not affect any other part of the system. The
+                        next step would be either to start the loan, or reserve the items.
+                    </p>
+
+                    <p>
+                        Starting the loan (“checking out”) assigns all the items to the member. You can optionally
+                        choose
+                        a location to move the items to (or keep them in the same place) - if you don’t choose a
+                        location, they will be moved to “on loan”.
+                    </p>
+
+                    <p>
+                        All item fees will be added to the member’s account. When you start the loan you also have the
+                        option to record that you have taken payment.
+                    </p>
+
+                    <p>
+                        If the item was previously in an available location but assigned to a team member, you’ll be
+                        warned that starting the loan will assign the items to the member that’s borrowing the items
+                        instead.
+                    </p>
+
+                    <p>
+                        If a member already has items on loan, you can see this when you are working on any other of
+                        their loans. You can return items from other loans at the same time as lending out new items.
+                    </p>
+
+                    <p>
+                        All items on a loan are “checked out” at the same time. The loan will be marked as “on loan”.
+                        All
+                        items on the loan will also be shown as “on loan” when you view them in the item list.
+                    </p>
+
+                    <h4>Returning items</h4>
+
+                    <p>
+                        When a member has finished with their items, they “return” them. If they bring them back to
+                        headquarters, you can simply open up the loan and click “return” for each item. You’ll need to
+                        choose which location they are returned to, whether you want to assign them immediately to
+                        someone (perhaps a member of staff for repair), and add a note. In the simplest case, you just
+                        choose to return them to “in stock” and then they will be available to lend again.
+                    </p>
+
+                    <p>
+                        If you assign an item to a team member, they will receive an email to let them know.
+                    </p>
+
+                    <p>
+                        If the return due date is in the past, Lend Engine will suggest an overdue fee (fine) which you
+                        can choose to take payment for at the time, or put on the member’s account.
+                    </p>
+
+                    <p>
+                        When all items on a loan are returned, the loan is marked as “closed”. The actual return date
+                        for
+                        each item is stored separately from the return due date, which (in the future) will allow us to
+                        build reports on tardiness; whether items were returned late or early.
+                    </p>
+
+                    <h4>Overdue / extending loans</h4>
+
+                    <p>
+                        As soon as an item due date has passed, it is shown as “overdue”. The loan is also shown as
+                        overdue, even if the other items on the loan are not due back yet. For any items on a loan which
+                        is “overdue” or “on loan”, you can change the return date. Setting the return date to the future
+                        will return an overdue loan to “on loan”. When you change the return date, you can add fees to
+                        the loan (and just like when you start a loan, take payment too).
+                    </p>
+
+                    <h3 id="payments">Payments &amp; Fees</h3>
+
+                    <p>
+                        When items are lent out, you can charge a number of types of fee:
+                    </p>
+
+                    <p>
+
+                        “lending” fees - a one-off that’s applied when the loan is started, regardless of the length
+                        of the loan
+                    </p>
+
+                    <p>
+                        “daily” fees - calculated based on the number of days the item is due to be loaned. This is
+                        the amount used to calculate any extra amount you might want to charge when extending the
+                        return date.
+                    </p>
+
+
+                    <p>
+                        “fines” - when you return items later than they were due to be returned, you are prompted to
+                        charge an amount determined by the daily fine * number of days late.
+                    </p>
+
+
+                    <p>
+                        Any time a fee is added to the member’s account, you can choose to take payment at the same time
+                        (for any amount). The total of fees and payments gives the member account balance.
+                    </p>
+
+                    <p>
+                        You can take a payment “on account” from a member, which then gives them a balance which is
+                        reduced gradually as they accrue fees for borrowed items. Every time you take a payment, you
+                        choose a payment method (which is a configurable list so you can set up anything you like).
+                    </p>
+
+                    <p>
+                        To make a correction, you can add a reversal using a negative payment amount.
+                    </p>
+
+                    <h3 id="costs">Costs</h3>
+
+                    <p>
+                        When you move or assign items, you can add a cost and a note to describe what the cost was for.
+                        Typically you’d use this when repairing items, or replacing a part. The costs show on the item
+                        costs report - which can be filtered by item. Use this report to see which items are most costly
+                        to maintain.
+                    </p>
+
+                    <h3 id="contacts">Contacts / Members</h3>
+
+                    <p>
+                        The Lend Engine stores all your contact / member information online, where it can be accessed by
+                        anyone in your team. Unlike items (where only administrators can create or edit), anyone can
+                        create new contacts or make changes to contact information. Use the contact database to record
+                        contact details for anyone that you might need to get in touch with again, or for anyone you
+                        might want to record notes against … not just members.
+                    </p>
+
+                    <p>
+                        A contact is counted as a member only if they have an active membership. Only active members can
+                        borrow items.
+                    </p>
+
+                    <p>
+                        When you create a contact, you have the option to send them a password which will allow them to
+                        log into your Lend Engine site.
+                    </p>
+
+                    <h3 id="memberships">Memberships</h3>
+
+                    <p>
+                        Your database can contain many contacts (contractors, suppliers, donors, media etc) … but a
+                        contact can only borrow items if they are a member. When a contact has an active membership,
+                        they are classed as a “member”.
+                    </p>
+
+                    <p>
+                        Memberships have a duration and a price (which could be free), and you can create different
+                        membership types. Once the membership end date has passed, the membership becomes expired.
+                    </p>
+
+                    <h3 id="website">Member site</h3>
+
+                    <p>
+                        Your Lend Engine account comes with a member-facing website which lists all the toys/tools/items
+                        you have, and whether they are available or not. It shows the item images, description and any
+                        custom fields that you have chosen to show on the website. Item tags that you have chosen to be
+                        public will be shown in the website menu.
+                    </p>
+
+                    <p>
+                        Members can see item availability and reserve items online.
+                        Volunteers or staff just need to check out these reservations when the member comes in to pick up their item.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+{% endblock %}

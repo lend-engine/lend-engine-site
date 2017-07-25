@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block h1 %}Log in to your Lend Engine account{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <h1>
+                Access your Lend Engine account
+            </h1>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        If you've already signed up for a Lend Engine account,
+                        then you'll find your log in screen from your library's own Lend Engine 'member site'.
+                    </p>
+                    <p>
+                        When you registered, you chose a domain, which is where your member site can be found.
+                    </p>
+
+                    <p>
+                        It will be similar to http://MYDOMAIN.lend-engine-app.com, and is also in the welcome email we sent you when you activated your account.
+                    </p>
+                    <p>
+                        If you've forgotten, or lost that email, just <a href="{{ path('page_contact') }}">contact us</a> and we'll help you out.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {#<section id="divider">#}
+        {#<div class="container">#}
+            {#<h2>#}
+                {#Don't yet have an account? Sign up for free now.#}
+            {#</h2>#}
+            {#<a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>#}
+        {#</div>#}
+    {#</section>#}
+
+
+{% endblock %}

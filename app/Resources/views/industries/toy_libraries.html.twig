@@ -1,0 +1,162 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toy Library Software powered by The Lend Engine{% endblock %}
+
+{% block h1 %}Software for toy libraries{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <img src="/images/icons420/horse.png">
+            <h1>Software for <span class="color-wt">Toy Libraries</span></h1>
+            <p>Manage your toy library items, members, payments and repairs online.</p>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    <p style="font-size: 24px">
+                        The Lend Engine is a software system to help you manage your toy library. Use it to track your toys, members, memberships, loans and any payments or fees.
+                    </p>
+                    <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get a free account for your Toy Library now</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Toy Tracking Software</h3>
+                    <p>
+                        Who has it? Where is it? When is it due back? Is it ready to lend?
+                        What is it costing to repair and clean? With the Lend Engine, it’s easy to get the answers to these questions.
+                        Track toy locations, note history, assign to team members, see the repair queue, and use barcodes to make check in and check out quick and simple.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Online Toy Database</h3>
+                    <p>
+                        You can store everything you need to know about your toys in the online database.
+                        Upload photos or attach files (perhaps safety procedures), and add custom fields which you can use to report on later.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Membership Management</h3>
+                    <p>
+                        You can create as many membership types as you need, each with a fee and a duration.
+                        Contacts can only borrow items if they have an active membership.
+                        Members are sent an email a week before their membership is due to expire, to save you having to chase up.
+                        Amongst many other things, member reports let you see which members haven’t renewed.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Loan Management</h3>
+                    <p>
+                        Which items are out on loan, and when are they due back?
+                        Who do we need to send overdue reminders to?
+                        Which items does a member have out at the moment?
+                        The Lend Engine helps you answer these questions and more.
+                        With automated loan reminders via email and SMS, it also saves you time and
+                        helps your toy library share your toys in the most efficient way.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Payments and Accounting</h3>
+                    <p>
+                        The Lend Engine tracks fees, fines, payments and also any costs you incur with repairing or cleaning items.
+                        When you lend a toy, you can charge a one-off loan fee or a daily fee.
+                        Members can pay at the time of borrowing or your can put the fee on account.
+                        The payment/fee reports show you how much you have taken or charged, and can be filtered by payment method,
+                        date, member custom fields … and more.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Cleaning and Repairing</h3>
+                    <p>
+                        Between loans it’s likely you’ll be cleaning or repairing toys.
+                        When a member returns an item you choose which location it is checked in to.
+                        Set up a reserved location called “repair” which would show the item as “not available” until it was moved back into an available location.
+                        Additionally, you can assign the item to a team member.
+                        They get an email to let them know some work is due.
+                        Each of these movements can be given a cost, and you can add notes to get a complete, detailed item history.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Public Website / Online Toy Listing</h3>
+                    <p>
+                        Included with every Lend Engine account is a public website.
+                        This shows members (and potential members!) the toys you have, and whether they are available.
+                        The site can run stand-alone, or the toy listing and search can be embedded within your main toy library website.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Web Based Admin for your Toy Library</h3>
+                    <p>
+                        Access the Lend Engine online with a web browser, any time, from anywhere.
+                        Use a desktop computer, laptop, tablet or phone.
+                        There’s nothing to download or install, which means you can log on wherever you happen to be.
+                        Your data is stored securely online, so you don’t have to worry about backups - we handle that all for you.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Store Child Information</h3>
+                    <p>
+                        Especially useful for toy libraries, Lend Engine lets you add children to your member records.
+                        Store the child date of birth, name and sex.
+                        Just like custom fields, you can use child data to filter reports too.
+                        You can also report on your child data using member custom fields; to show how many children you have between ages 3 and 4, of members that speak French...
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Extend your Database with Custom Fields</h3>
+                    <p>
+                        You’re not stuck with just the fields we give you.
+                        For toys and members, you can add as many extra fields as you like.
+                        You can use these fields in reports, too.
+                        Say you wanted to select a “funding source” for a toy; just create a list of options and assign them to your toys.
+                        You can then use this as a filter on your loan and payment reports to see fee revenue per item funding source.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="divider">
+        <div class="container">
+            <h2>
+                Sign up for a free account now.
+            </h2>
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
+        </div>
+    </section>
+
+
+{% endblock %}
