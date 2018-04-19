@@ -35,9 +35,9 @@ class ActivationController extends Controller
         try {
             $db->executeQuery('CREATE DATABASE '.$dbSchema.' CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
         } catch (\Exception $generalException) {
-            $this->addFlash('error', "There was an error trying to create your account, our tech team have been notified and will get back to you with an update." . $generalException->getMessage());
+            $this->addFlash('error', "There was an error trying to create your account, our tech team have been notified and will get back to you with an update.");
 
-            $messageText = 'Account: '.$Account->getName().'<br>';
+            $messageText = 'Account: '.$Account->getName().PHP_EOL;
             $messageText .= 'Stub: '.$Account->getStub();
 
             $this->sendAdminErrorEmail($messageText);
