@@ -30,6 +30,23 @@ class ActivationController extends Controller
             return $this->redirectToRoute('account_not_found');
         }
 
+        // Create them a database!
+        $db = $this->get('database_connection');
+        try {
+            $db->executeQuery('CREATE DATABASE '.$dbSchema.' CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
+        } catch (\Exception $generalException) {
+            $this->addFlash('error', "There was an error trying to create your account, our tech team have been notified and will get back to you with an update." . $generalException->getMessage());
+
+            $messageText = 'Account: '.$Account->getName().'<br>';
+            $messageText .= 'Stub: '.$Account->getStub();
+
+            $this->sendAdminErrorEmail($messageText);
+
+            return $this->redirectToRoute('homepage');
+        }
+
+        // DB creation OK
+
         // Activate the account and redirect to deployment
         $Account->setStatus('TRIAL');
 
@@ -40,15 +57,13 @@ class ActivationController extends Controller
         $em->persist($Account);
         $em->flush();
 
-        $stub = $Account->getStub();
-
         try {
 
             $client = new PostmarkClient($key);
             $message = $this->renderView(
                 'emails/basic.html.twig',
                 [
-                    'message' => 'Account "'.$Account->getName().'" activated account.<br>http://'.$stub.'.lend-engine-app.com'
+                    'message' => 'Account "'.$Account->getName().'" activated account.<br>http://'.$Account->getStub().'.lend-engine-app.com'
                 ]
             );
             $client->sendEmail(
@@ -62,12 +77,30 @@ class ActivationController extends Controller
             $this->addFlash('error', 'Failed to send email:' . $generalException->getMessage());
         }
 
-        $db = $this->get('database_connection');
+        return $this->redirect('http://'.$Account->getStub().'.lend-engine-app.com/deploy');
 
-        // Create them a database!
-        $db->executeQuery('CREATE DATABASE '.$dbSchema.' CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
+    }
 
-        return $this->redirect('http://'.$stub.'.lend-engine-app.com/deploy');
+    /**
+     * @param $messageText
+     */
+    private function sendAdminErrorEmail($messageText) {
+
+        $key = getenv('SYMFONY__POSTMARK_API_KEY');
+        $client = new PostmarkClient($key);
+
+        $message = $this->renderView(
+            'emails/basic.html.twig',
+            [
+                'message' => $messageText
+            ]
+        );
+        $client->sendEmail(
+            "Lend Engine <hello@lend-engine.com>",
+            "chris@lend-engine.com",
+            "Error in account activation",
+            $message
+        );
 
     }
 
