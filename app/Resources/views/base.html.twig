@@ -38,7 +38,7 @@
 </nav>
 
 {% for flash_message in app.session.flashbag.get('error') %}
-    <div class="alert alert-warning" style="margin:10px">{{ flash_message|nl2br }}</div>
+    <div class="container alert alert-warning" style="margin:10px">{{ flash_message|nl2br }}</div>
 {% endfor %}
 
 {% block body %}{% endblock %}
