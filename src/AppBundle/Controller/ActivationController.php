@@ -39,6 +39,7 @@ class ActivationController extends Controller
 
             $messageText = 'Account: '.$Account->getName().PHP_EOL;
             $messageText .= 'Stub: '.$Account->getStub();
+            $messageText .= $generalException->getMessage().PHP_EOL;
 
             $this->sendAdminErrorEmail($messageText);
 
