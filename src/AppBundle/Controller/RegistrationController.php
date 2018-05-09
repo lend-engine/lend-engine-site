@@ -60,7 +60,7 @@ class RegistrationController extends Controller
 
                 $dbSchema = $subDomain;
                 $Account->setDbSchema($dbSchema);
-                $Account->setServer(getenv('LE_SERVER_NAME'));
+                $Account->setServer('lend-engine-eu');
 
                 $em->persist($Account);
 
