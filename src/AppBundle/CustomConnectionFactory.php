@@ -41,7 +41,7 @@ class CustomConnectionFactory extends ConnectionFactory
         }
 
         if (!$this->server || !$this->username) {
-            die("Could not get DB details from ENV variables.");
+            die("Could not get DB details from ENV variables (env=".getenv('SYMFONY_ENV').").");
         }
 
     }
