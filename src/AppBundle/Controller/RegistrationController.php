@@ -91,6 +91,9 @@ class RegistrationController extends Controller
                     $message
                 );
 
+                // This happens in the app when the account is deployed
+//                $this->mailChimpSubscribe($Account);
+
                 return $this->redirectToRoute('signup_success');
 
             } catch (\Exception $generalException) {
@@ -113,5 +116,35 @@ class RegistrationController extends Controller
 
         ]);
     }
+
+    /**
+     * @param Account $contact
+     * @return bool
+     */
+//    private function mailChimpSubscribe(Account $contact)
+//    {
+//
+//        if (!$contact->getOwnerEmail()) {
+//            return true;
+//        }
+//
+//        /** @var \Hype\MailchimpBundle\Mailchimp\Mailchimp $mailchimp */
+//        $mailchimp = $this->get('hype_mailchimp');
+//
+//        $mergeVars = [
+//            'fname' => $fname,
+//            'lname' => $lname
+//        ];
+//
+//        try {
+//            $mailchimp->getList()->addMerge_vars($mergeVars)->subscribe($contact->getEmail(), 'html', $doubleOptIn, true);
+//        } catch (\Hype\MailchimpBundle\Mailchimp\MailchimpAPIException $mailchimpException) {
+//            $this->addFlash('error', 'Failed to subscribe to Mailchimp:' . $mailchimpException->getMessage());
+//        } catch (\Exception $generalException) {
+//            $this->addFlash('error', 'Failed to subscribe to Mailchimp:' . $generalException->getMessage());
+//        }
+//
+//        return true;
+//    }
 
 }

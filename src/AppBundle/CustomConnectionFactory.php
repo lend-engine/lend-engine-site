@@ -40,8 +40,8 @@ class CustomConnectionFactory extends ConnectionFactory
             $this->database = '_core';
         }
 
-        if (!$this->server || !$this->username || !$this->password) {
-            throw new PDOException("Could not get DB details.");
+        if (!$this->server || !$this->username) {
+            die("Could not get DB details from ENV variables.");
         }
 
     }
