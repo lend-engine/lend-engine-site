@@ -27,6 +27,7 @@ class LoanFeedService
         $criteria = new Criteria();
         $criteria->where(Criteria::expr()->neq('library', $crispVideo));
         $criteria->setMaxResults(6);
+        $criteria->orderBy(['createdAt' => SORT_DESC]);
 
         $loans = $loanRepo->matching($criteria);
 
