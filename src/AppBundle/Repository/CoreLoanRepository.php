@@ -10,4 +10,5 @@ namespace AppBundle\Repository;
  */
 class CoreLoanRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
