@@ -45,15 +45,7 @@ class DefaultController extends Controller
      */
     public function pricingAction(Request $request)
     {
-        return $this->render('default/pricing_beta.html.twig', []);
-    }
-
-    /**
-     * @Route("/tour", name="page_tour")
-     */
-    public function tourAction(Request $request)
-    {
-        return $this->render('default/tour.html.twig', []);
+        return $this->render('default/pricing.html.twig', []);
     }
 
     /**

@@ -1,0 +1,56 @@
+{% extends 'features/features_template.html.twig' %}
+
+{% block title %}Member and contact management{% endblock %}
+
+{% block breadcrumb %}Payment processing software for lending libraries and rental companies{% endblock %}
+
+{% block featureContent %}
+
+    <h1 id="contacts">Payments and fees</h1>
+
+    <h3>Configurable lending / rental fee structure</h3>
+    <p>When items are lent or rented out, you can charge a number of types of fee:</p>
+    <ul>
+        <li>
+            A one-off charge per loan/rental that’s applied at check-out.
+        </li>
+        <li>
+            Per-period fees - calculated based on the number of days the item is due to be loaned. This is the amount used
+            to calculate any extra amount you might want to charge when extending the return date.
+        </li>
+        <li>
+            A fixed fee per item, in addition to or in place of the per-rental charge.
+        </li>
+        <li>
+            A fixed charge when a reservation is made. This can be applied to the customer/member account at the time
+            they place the reservation, or it can be charged when items are checked out.
+        </li>
+        <li>
+            Fines can be charged to the customer/member account when you return items later than they were due to be returned.
+        </li>
+        <li>
+            Miscellaneous charges and fees can be applied at any time to a loan or rental.
+        </li>
+    </ul>
+
+    <h3>Member and customer account balance</h3>
+    <p>Many organisations have regular members or customers who don't want to pay every time for a rental or loan.
+    Simply add funds to a member account and put charges against this balance.</p>
+
+    <h3>Refundable deposits</h3>
+    <p>Lend Engine has support for refundable deposits on all or certain items, with the ability to override the deposit amount on a
+        per-rental basis. If the deposit is taken using credit card via our Stripe integration, then the deposit is automatically
+        refunded when the item is checked back in again.</p>
+
+    <h3>Support for credit card payments via Stripe</h3>
+    <p>Use our integration with Stripe to take payment from customers or members by credit card.
+    Currently this is only on-screen (no chip-and-pin, contactless or card swipe device support).</p>
+    <p>You can choose for Stripe to retain card information for customers or members,
+        so that next time payment is required from them, they simply need to choose a previous card.
+    We don't store any card details on the Lend Engine system; it's all handled securely by Stripe.</p>
+
+    <h3>Payment reporting</h3>
+    <p>Detailed payment reports are available, which can be exported to CSV for import into accounting software, or for reconciliation.</p>
+
+
+{% endblock %}

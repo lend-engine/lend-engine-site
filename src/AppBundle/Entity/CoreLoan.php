@@ -22,9 +22,9 @@ class CoreLoan
     private $id;
 
     /**
-     * @var Account
+     * @var Tenant
      *
-     * @ORM\ManyToOne(targetEntity="Account")
+     * @ORM\ManyToOne(targetEntity="Tenant")
      * @ORM\JoinColumn(name="library", referencedColumnName="id")
      */
     private $library;

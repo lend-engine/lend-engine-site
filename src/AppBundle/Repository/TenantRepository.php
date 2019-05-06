@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class TenantRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return array
+     */
+    public function findOneBySchema($schema)
+    {
+        return $this->getEntityManager()
+            ->createQuery("SELECT t FROM AppBundle:Tenant t WHERE dbSchema = '{$schema}'")
+            ->getResult();
+    }
 }

@@ -1,0 +1,84 @@
+{% extends 'features/features_template.html.twig' %}
+
+{% block title %}Manage your library's loans online{% endblock %}
+
+{% block breadcrumb %}Lending management software{% endblock %}
+
+{% block featureContent %}
+
+    <h1 id="contacts">Loans, rentals and reservations</h1>
+
+    <p>Lend Engine is a flexible, configurable system to help you manage your lending or rental organisation.
+        We have users across all the following industries, and more. Lend items to regular members, or rent items to one-off customers.
+        Both are equally easy.</p>
+
+    <div class="row" style="padding: 10px 0;">
+        <div class="col-md-4">
+            Audio visual rental companies<br>
+            Computer game rentals<br>
+            Sports equipment rentals<br>
+            Automotive tool rentals
+        </div>
+        <div class="col-md-4">
+            Accessibility equipment lending<br>
+            Assistive technology organisations<br>
+            Educational equipment services<br>
+            Libraries Of Things
+        </div>
+        <div class="col-md-4">
+            Tool libraries<br>
+            Toy libraries<br>
+            Sling libraries<br>
+            Cloth nappy libraries
+        </div>
+    </div>
+
+    <h3>Lend or rent items</h3>
+    <p>Lending or renting can be done self-serve by members or customers using a clear, easy-to-use website, or your staff can do it
+        on behalf of a member. Just like shopping online, a user browses items and adds them to a cart.</p>
+    <p>Payment for loans or rentals can be taken at point of rental, or can be put against a member's credit balance.
+        Loans don't have to cost anything at all. Some organisations charge a monthly or annual membership fee which
+        covers the cost of items.</p>
+    <p>Loan/rental periods are determined by opening hours of your site(s); when someone creates a loan or rental it's
+        easy to see which sites are open, and the available times.</p>
+
+    <h3>Reservations</h3>
+    <p>Reservations can be used when a user or member wants an item at some time in the future. Using the simple
+        calendar, it's easy to pick an available slot and create a reservation for one or more items. Reservation fees
+        can be added at the point of creation, or charged when a user collects their items. Automated reservation
+        reminders are sent the day before collection is due.</p>
+
+    <h3>Excellent customer / member communication</h3>
+    <p>When a loan, rental or reservation is created, your customer or member is sent a confirmation email containing detailed information
+        about the items they have borrowed or rented. If your items have public attachments, these will be sent too.
+    Emails can be configured to contain exactly the text you need for your organisation.</p>
+
+    <h3>Workflow customisation with prompts</h3>
+    <p>Create prompts that users must complete when performing check-in and check-out.
+        Prompts can apply to all items, or you can have prompts specific to certain items.
+    Great for reminding volunteers or staff that an item must come with an extra disclaimer, or to check that fluid levels are full before renting out.</p>
+
+    <h3>Easy transfer for repair or maintenance</h3>
+    <p>When items are returned, check in one item on a loan at a time (completing any workflow prompts required).
+        If items are damaged, or need cleaning, then it's quick and easy to assign them to a technician or 'repair' location.
+        Repair or cleaning staff will get automatic email notifications.</p>
+
+    <h3>Flexible charging structure</h3>
+    <p>Charge for a time period, charge a fixed amount per loan / rental, or charge nothing at all.
+        When it comes to fees and additional non-item charges (perhaps an urgent service fee), you can add one-off charges to a loan at any time.
+        For overdue items being checked in, Lend Engine will suggest an overdue fee (fine) which you
+        can choose to take payment for at the time, or put on the member’s account.</p>
+
+    <h3>Refundable deposits</h3>
+    <p>Items can be set up to require a refundable deposit. This needs to be taken when a loan is checked out, regardless
+    of a member or customer's account balance. When the item is checked back in again, the deposit can be easily refunded to the customer.
+    If the deposit was taken by credit card using our Stripe integration, the refund is put back on the card.
+    Every step is recorded in the payments audit trail, with rich information to make payment reconciliation easy.</p>
+
+    <h3>Loan extensions</h3>
+    <p>Outstanding items on a loan or rental can be extended as long as there isn't an upcoming reservation.
+        When you change the return date, you can add fees and take payment using a credit card. Customers/members
+        receive an automated email to let them know of the new return date.
+    </p>
+
+{% endblock %}

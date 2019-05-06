@@ -22,7 +22,7 @@ class RegistrationType extends AbstractType
         ));
 
         $builder->add('stub', TextType::class, array(
-            'label' => 'Account code',
+            'label' => 'Tenant code',
             'required' => true,
             'attr' => [
                 'placeholder' => 'e.g. "london-lender"',

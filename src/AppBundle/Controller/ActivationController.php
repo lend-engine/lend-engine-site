@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Account;
+use AppBundle\Entity\Tenant;
 use Postmark\PostmarkClient;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,7 +14,7 @@ class ActivationController extends Controller
     /**
      * @Route("/activate", name="activate")
      */
-    public function activateAccountAction(Request $request)
+    public function activateTenantAction(Request $request)
     {
         $dbSchema = $request->get('t');
 
@@ -22,11 +22,11 @@ class ActivationController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        /** @var \AppBundle\Entity\AccountRepository $repo */
-        $repo = $em->getRepository('AppBundle:Account');
+        /** @var \AppBundle\Repository\TenantRepository $repo */
+        $repo = $em->getRepository('AppBundle:Tenant');
 
-        /** @var $Account \AppBundle\Entity\Account */
-        if (!$Account = $repo->findOneBy(['dbSchema' => $dbSchema])) {
+        /** @var $tenant \AppBundle\Entity\Tenant */
+        if (!$tenant = $repo->findOneBy(['dbSchema' => $dbSchema])) {
             return $this->redirectToRoute('account_not_found');
         }
 
@@ -35,10 +35,10 @@ class ActivationController extends Controller
         try {
             $db->executeQuery('CREATE DATABASE '.$dbSchema.' CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
         } catch (\Exception $generalException) {
-            $this->addFlash('error', "There was an error trying to create your account, our tech team have been notified and will get back to you with an update.");
+            $this->addFlash('error', "There was an error trying to create your account (it may already have been created - please check your spam folder), our tech team have been notified and will get back to you with an update.");
 
-            $messageText = 'Account: '.$Account->getName().PHP_EOL;
-            $messageText .= 'Stub: '.$Account->getStub();
+            $messageText = 'Tenant: '.$tenant->getName().PHP_EOL;
+            $messageText .= 'Stub: '.$tenant->getStub();
             $messageText .= $generalException->getMessage().PHP_EOL;
 
             $this->sendAdminErrorEmail($messageText);
@@ -49,13 +49,13 @@ class ActivationController extends Controller
         // DB creation OK
 
         // Activate the account and redirect to deployment
-        $Account->setStatus('TRIAL');
+        $tenant->setStatus('TRIAL');
 
         $trialExpiresAt = new \DateTime();
         $trialExpiresAt->modify("+30 days");
-        $Account->setTrialExpiresAt($trialExpiresAt);
+        $tenant->setTrialExpiresAt($trialExpiresAt);
 
-        $em->persist($Account);
+        $em->persist($tenant);
         $em->flush();
 
         try {
@@ -64,13 +64,13 @@ class ActivationController extends Controller
             $message = $this->renderView(
                 'emails/basic.html.twig',
                 [
-                    'message' => 'Account "'.$Account->getName().'" activated account.<br>http://'.$Account->getStub().'.lend-engine-app.com'
+                    'message' => 'Tenant "'.$tenant->getName().'" activated account.<br>http://'.$tenant->getStub().'.lend-engine-app.com'
                 ]
             );
             $client->sendEmail(
                 "Lend Engine <hello@lend-engine.com>",
                 "chris@lend-engine.com",
-                "Lend Engine account activated : ".$Account->getName(),
+                "Lend Engine account activated : ".$tenant->getName(),
                 $message
             );
 
@@ -78,7 +78,7 @@ class ActivationController extends Controller
             $this->addFlash('error', 'Failed to send email:' . $generalException->getMessage());
         }
 
-        return $this->redirect('http://'.$Account->getStub().'.lend-engine-app.com/deploy');
+        return $this->redirect('http://'.$tenant->getStub().'.lend-engine-app.com/deploy');
 
     }
 

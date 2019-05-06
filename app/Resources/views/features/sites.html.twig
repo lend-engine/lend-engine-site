@@ -1,0 +1,29 @@
+{% extends 'features/features_template.html.twig' %}
+
+{% block title %}Multi-location management software for lending libraries and rental organisations{% endblock %}
+
+{% block breadcrumb %}Multi-site and multi-location{% endblock %}
+
+{% block featureContent %}
+
+    <h1>Support for multiple sites and locations</h1>
+
+    <p>Use a simple set up of three locations within a single site:<p>
+    <ul>
+    <li>On loan</li>
+    <li>In stock</li>
+    <li>Repair</li>
+    </ul>
+    <p>... or extend to a complex multi-site, multi-location system.</p>
+
+    <h3>Sites</h3>
+    <p>Sites are used to reflect a physical address with a postal code. Typically these are your offices or warehouses.
+    Sites have opening times, which define when loans and rentals can be picked up or returned. </p>
+    <p>Items can be restricted to one or more sites if required; otherwise items can be moved around between sites
+    without restriction.</p>
+
+    <h3>Locations</h3>
+    <p>Every change of location is recorded on the item audit trail to get a clear view of an item's history.</p>
+    <p>Locations can be set up to be available for loan/rental, or not available (such as the default Repair location).</p>
+
+{% endblock %}

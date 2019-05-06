@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Introduction{% endblock %}
+
+{% block body %}
+
+<section id="feature-heading">
+    <div class="container">
+        <h2>Features &raquo; {% block breadcrumb %}{% endblock %}</h2>
+    </div>
+</section>
+
+<section id="feature1">
+
+    <div class="container">
+
+        <div class="row" style="text-align:left">
+
+            <div class="col-md-3" style="padding-top:40px;">
+                <ul class="nav nav-pills nav-stacked" id="docs-nav">
+                    <li><a href="{{ path('features', {slug: "loans"}) }}" class="{% if app.request.get('_route_params').slug == 'loans' %}active{% endif %}">Loans & rentals</a></li>
+                    <li><a href="{{ path('features', {slug: "items"}) }}" class="{% if app.request.get('_route_params').slug == 'items' %}active{% endif %}">Item management</a></li>
+                    <li><a href="{{ path('features', {slug: "asset_management"}) }}" class="{% if app.request.get('_route_params').slug == 'asset_management' %}active{% endif %}">Asset tracking</a></li>
+                    <li><a href="{{ path('features', {slug: "automation"}) }}" class="{% if app.request.get('_route_params').slug == 'automation' %}active{% endif %}">Automation</a></li>
+                    <li><a href="{{ path('features', {slug: "barcode_tracking"}) }}" class="{% if app.request.get('_route_params').slug == 'barcode_tracking' %}active{% endif %}">Barcodes & labels</a></li>
+                    {#<li><a href="{{ path('features', {slug: "rentals"}) }}" class="{% if app.request.get('_route_params').slug == 'rentals' %}active{% endif %}">Rental management</a></li>#}
+                    <li><a href="{{ path('features', {slug: "members"}) }}" class="{% if app.request.get('_route_params').slug == 'members' %}active{% endif %}">Memberships</a></li>
+                    <li><a href="{{ path('features', {slug: "payments"}) }}" class="{% if app.request.get('_route_params').slug == 'payments' %}active{% endif %}">Payments &amp; Fees</a></li>
+                    <li><a href="{{ path('features', {slug: "member_site"}) }}" class="{% if app.request.get('_route_params').slug == 'member_site' %}active{% endif %}">Member site</a></li>
+                    {#<li><a href="{{ path('features', {slug: "costs"}) }}" class="{% if app.request.get('_route_params').slug == 'costs' %}active{% endif %}">Cost monitoring</a></li>#}
+                    <li><a href="{{ path('features', {slug: "sites"}) }}" class="{% if app.request.get('_route_params').slug == 'sites' %}active{% endif %}">Multi site & location</a></li>
+                    <li><a href="{{ path('features', {slug: "languages"}) }}" class="{% if app.request.get('_route_params').slug == 'languages' %}active{% endif %}">Languages</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-9" id="docs-content">
+                {% block featureContent %}content here{% endblock %}
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

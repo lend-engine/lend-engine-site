@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Account;
+use AppBundle\Entity\Tenant;
 use AppBundle\Form\Type\RegistrationType;
 use Postmark\PostmarkClient;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -20,13 +20,13 @@ class RegistrationController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        /** @var \AppBundle\Entity\AccountRepository $repo */
-        $repo = $em->getRepository('AppBundle:Account');
+        /** @var \AppBundle\Repository\TenantRepository $repo */
+        $repo = $em->getRepository('AppBundle:Tenant');
 
         $key = getenv('SYMFONY__POSTMARK_API_KEY');
 
-        $Account = new Account();
-        $form = $this->createForm("AppBundle\Form\Type\RegistrationType", $Account);
+        $tenant = new Tenant();
+        $form = $this->createForm("AppBundle\Form\Type\RegistrationType", $tenant);
 
         $form->handleRequest($request);
 
@@ -40,12 +40,12 @@ class RegistrationController extends Controller
             // Remove any common typos from the email
             $toEmail = str_replace(" .Com", ".com", $toEmail);
 
-            /** @var $existingAccount \AppBundle\Entity\Account */
-            if ($existingAccount = $repo->findOneBy(['stub' => $subDomain])) {
+            /** @var $existingTenant \AppBundle\Entity\Tenant */
+            if ($existingTenant = $repo->findOneBy(['stub' => $subDomain])) {
 
                 // Use it and re-send information
-                $dbSchema = $existingAccount->getDbSchema();
-                $status = $existingAccount->getStatus();
+                $dbSchema = $existingTenant->getDbSchema();
+                $status = $existingTenant->getStatus();
 
                 if ($status == 'PENDING' || $status == 'DEPLOYING') {
                     $this->addFlash('error', "There's already an account for {$subDomain}. We've resent the activation email to {$toEmail}.");
@@ -56,13 +56,14 @@ class RegistrationController extends Controller
 
             } else {
 
-                $Account->setCreatedAt(new \DateTime());
+                $tenant->setCreatedAt(new \DateTime());
 
                 $dbSchema = $subDomain;
-                $Account->setDbSchema($dbSchema);
-                $Account->setServer('lend-engine-eu');
+                $tenant->setDbSchema($dbSchema);
+                $tenant->setServer('lend-engine-eu');
+                $tenant->setOrgEmail($tenant->getOwnerEmail());
 
-                $em->persist($Account);
+                $em->persist($tenant);
 
                 try {
                     $em->flush();
@@ -92,7 +93,7 @@ class RegistrationController extends Controller
                 );
 
                 // This happens in the app when the account is deployed
-//                $this->mailChimpSubscribe($Account);
+//                $this->mailChimpSubscribe($tenant);
 
                 return $this->redirectToRoute('signup_success');
 
@@ -118,10 +119,10 @@ class RegistrationController extends Controller
     }
 
     /**
-     * @param Account $contact
+     * @param Tenant $contact
      * @return bool
      */
-//    private function mailChimpSubscribe(Account $contact)
+//    private function mailChimpSubscribe(Tenant $contact)
 //    {
 //
 //        if (!$contact->getOwnerEmail()) {

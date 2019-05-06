@@ -14,6 +14,6 @@ class DocsController extends Controller
      */
     public function docsIntro(Request $request)
     {
-        return $this->render('docs/intro.html.twig', []);
+        return $this->redirectToRoute('features_items');
     }
 }

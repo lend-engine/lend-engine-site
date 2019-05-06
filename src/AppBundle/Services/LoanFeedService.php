@@ -22,7 +22,7 @@ class LoanFeedService
 
         // Don't show loans from CrispVideo
         // Hard coded for now... open this up to something more scalable and DB related when the need arises
-        $crispVideo = $this->em->getReference(\AppBundle\Entity\Account::class, 423);
+        $crispVideo = $this->em->getReference(\AppBundle\Entity\Tenant::class, 423);
 
         $criteria = new Criteria();
         $criteria->where(Criteria::expr()->neq('library', $crispVideo));

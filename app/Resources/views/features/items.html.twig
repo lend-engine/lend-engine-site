@@ -1,0 +1,70 @@
+{% extends 'features/features_template.html.twig' %}
+
+{% block title %}Inventory and item management for lending libraries{% endblock %}
+
+{% block breadcrumb %}Library items{% endblock %}
+
+{% block featureContent %}
+
+    <h1>Online item and inventory management</h1>
+
+    <p>
+        The Lend Engine makes it easy to keep track of thousands of items of many types.
+        For each item, track <strong>who has it</strong>, and <strong>where it is</strong>.
+        If it’s been loaned or rented out, then also <strong>when the loan is due to end</strong>.
+    </p>
+
+    <h3>Item location tracking</h3>
+    <p>
+        Lend Engine supports multiple locations which reflect your physical storage areas, or repair / maintenance centres.
+    </p>
+    <p>
+        You can set locations as “unavailable” - which is handy when an item is not on loan, but you
+        want to prevent anyone from lending it out or renting it. Typically you’d create unavailable locations for
+        items being repaired, cleaned or checked.
+    </p>
+
+    <h3>Extend your data using custom fields</h3>
+    <p>
+        You can add extra database fields to items, which can be used in reports and also shown on the
+        item list. Item fields can be set up to show on your member website too. Reports can be grouped by custom field,
+        so you can see exactly what's being lent or rented segmented using your extra custom data.
+    </p>
+
+    <h3>Easy item image management</h3>
+    <p>
+        Upload as many images as you like to your items. We'll re-size them into a large (about 400px)
+        and a thumbnail (about 120px). If you need to rotate pictures, you can do that after you've
+        uploaded. Choose the picture you want as your main image, and you're all set.
+        No need to deal with image management software like Photoshop.
+    </p>
+
+    <h3>Attach files</h3>
+    <p>If you need to store instruction manuals, service plans, or any other document with an item,
+    it's easy to upload and store online. You can also choose for files to be sent to the borrower / renter
+    when they check out the item - perfect for safety manuals.</p>
+
+    <h3>Maintenance and repair</h3>
+    <p>
+        Move items around between locations without creating a loan or rental - say an item
+        was damaged and you wanted to move it to the “repair” location. When you move an
+        item, you can add a note and a cost, perhaps the cost of spare parts replaced. You can report
+        later on the costs associated with an item, and see the notes in the item history.
+    </p>
+    <p>
+        Item locations can be set as “not available”, so while the item is in that location, it cannot be lent out.
+        Use multiple unavailable locations to support a more complex workflow of maintenance and repair.
+    </p>
+    <p>
+        When you move an item you can also assign it to one of your team members. When something needs
+        repairing or cleaning, you assign it to a technician with some brief instructions. They
+        will receive an email notification, and can easily see the items assigned to them when they log
+        in. You can assign an item to someone without moving it, too. When the repair is done, they will
+        use the same “move / assign” process to un-assign the item, and perhaps move it to an available
+        location. They can add a note or cost at this point, too.
+    </p>
+    <p>
+        If an item is in a location that’s been set as “not available”, the item is shown as “on hold”.
+    </p>
+
+{% endblock %}
