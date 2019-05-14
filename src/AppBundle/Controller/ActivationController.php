@@ -35,11 +35,12 @@ class ActivationController extends Controller
         try {
             $db->executeQuery('CREATE DATABASE '.$dbSchema.' CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
         } catch (\Exception $generalException) {
-            $this->addFlash('error', "There was an error trying to create your account (it may already have been created - please check your spam folder), our tech team have been notified and will get back to you with an update.");
+            $this->addFlash('error', "We can't create that account, perhaps it's already have been created - please check your spam folder for a welcome email or email hello@lend-engine.com for more help.");
 
             $messageText = 'Tenant: '.$tenant->getName().PHP_EOL;
             $messageText .= 'Stub: '.$tenant->getStub();
-            $messageText .= $generalException->getMessage().PHP_EOL;
+            $messageText .= $generalException->getMessage().PHP_EOL.PHP_EOL;
+            $messageText .= $generalException->getCode().PHP_EOL;
 
             $this->sendAdminErrorEmail($messageText);
 
