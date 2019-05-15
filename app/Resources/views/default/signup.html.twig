@@ -4,36 +4,29 @@
 
 {% block body %}
 
+    <style>
+        #feature1 .fa {
+            color: #10a422;
+            background-color: transparent;
+            margin-right: 0;
+        }
+        #feature1 .fa.fa-quote-left {
+            color: #CCC;
+            font-size: 28px;
+            background-color: transparent;
+            margin-right: 0;
+        }
+    </style>
+
     <section id="title">
         <div class="container">
-            <h1>Let's get you started with a free account.</h1>
+            <h1>Get started with a free trial account.</h1>
         </div>
     </section>
 
     <section id="feature1">
         <div class="container">
             <div class="row" style="text-align:left">
-
-                <div class="col-md-5">
-                    <h4>The Lend Engine is FREE</h4>
-                    <p>
-                        Pop your details in the form and we'll create a dedicated account for you.
-                        No cost at all.
-                    </p>
-                    <p>
-                        We believe strongly in re-use and sharing. <br />
-                        We want to help people borrow more, and buy less.<br />
-                        We want organisations that lend things to be successful. <br />
-                        We want to build the best lending software system available. <br /><br />
-                    </p>
-                    <p>
-                        <strong>Join the re-use revolution.</strong>
-                    </p>
-
-                </div>
-
-                <div class="col-md-1">
-                </div>
 
                 <div class="col-md-6" id="signup-form">
 
@@ -84,6 +77,27 @@
                     Inactive accounts will be removed after 90 days.
 
                     {{ form_end(form) }}
+
+                </div>
+
+                <div class="col-md-1"></div>
+
+                <div class="col-md-5">
+                    <br>
+                    <i class="fa fa-check"></i> No credit card required.<br>
+                    <i class="fa fa-check"></i> Access anywhere, any time.<br>
+                    <i class="fa fa-check"></i> For rental companies or lending libraries.<br>
+                    <i class="fa fa-check"></i> All features of the Plus plan, free for 30 days.<br>
+
+                    <br>
+                    <p>
+                        <strong>Manage your rental company or lending organisation efficiently, effectively and easily.</strong>
+                    </p>
+
+                    {#<br>#}
+                    {#<p style="font-size: 20px">#}
+                        {#<i class="fa fa-quote-left"></i> Easy for all staff, customers and members to use.#}
+                    {#</p>#}
 
                 </div>
 
