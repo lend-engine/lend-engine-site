@@ -28,7 +28,7 @@ class ContactType extends AbstractType
             'required' => true,
             'attr' => [
                 'placeholder' => 'Email address',
-                'data-help' => "A short version of your organisation name, used for your login URL"
+                'data-help' => ""
             ]
         ));
 
@@ -37,6 +37,14 @@ class ContactType extends AbstractType
             'required' => true,
             'attr' => [
                 'placeholder' => 'Subject'
+            ]
+        ));
+
+        $builder->add('library', TextType::class, array(
+            'label' => 'Your library URL or name',
+            'required' => true,
+            'attr' => [
+                'placeholder' => 'Organisation or URL eg library.lend-engine-app.com'
             ]
         ));
 
