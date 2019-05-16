@@ -49,13 +49,8 @@ class ActivationController extends Controller
 
         // DB creation OK
 
-        // Activate the account and redirect to deployment
-        $tenant->setStatus('TRIAL');
-
-        $trialExpiresAt = new \DateTime();
-        $trialExpiresAt->modify("+30 days");
-        $tenant->setTrialExpiresAt($trialExpiresAt);
-
+        // Redirect to deployment
+        $tenant->setStatus('DEPLOYING');
         $em->persist($tenant);
         $em->flush();
 
@@ -71,7 +66,7 @@ class ActivationController extends Controller
             $client->sendEmail(
                 "Lend Engine <hello@lend-engine.com>",
                 "chris@lend-engine.com",
-                "Lend Engine account activated : ".$tenant->getName(),
+                "Lend Engine account deployment started : ".$tenant->getName(),
                 $message
             );
 
