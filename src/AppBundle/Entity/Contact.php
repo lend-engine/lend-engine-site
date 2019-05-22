@@ -58,14 +58,9 @@ class Contact extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(name="facebook_id", type="string", length=255, nullable=true)
+     * @ORM\OneToOne(targetEntity="Org", mappedBy="owner", cascade={"remove"})
      */
-    protected $facebook_id;
-
-    /**
-     * @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true)
-     */
-    protected $facebook_access_token;
+    private $org;
 
     /**
      * @var string
@@ -87,13 +82,6 @@ class Contact extends BaseUser
      * @ORM\Column(name="is_active", type="boolean", options={"default" = true})
      */
     private $isActive = true;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country_iso_code", type="string", length=3, nullable=true)
-     */
-    private $countryIsoCode;
 
     /**
      * @var \DateTime
@@ -242,27 +230,24 @@ class Contact extends BaseUser
     }
 
     /**
-     * Set countryIsoCode
-     *
-     * @param string $countryIsoCode
-     *
-     * @return Contact
+     * @param Org $org
+     * @return $this
      */
-    public function setCountryIsoCode($countryIsoCode)
+    public function setOrg(Org $org)
     {
-        $this->countryIsoCode = $countryIsoCode;
+        $this->org = $org;
 
         return $this;
     }
 
     /**
-     * Get countryIsoCode
+     * Get org
      *
-     * @return string
+     * @return Org
      */
-    public function getCountryIsoCode()
+    public function getOrg()
     {
-        return $this->countryIsoCode;
+        return $this->org;
     }
 
     /**
@@ -287,54 +272,6 @@ class Contact extends BaseUser
     public function getCreatedAt()
     {
         return $this->createdAt;
-    }
-
-    /**
-     * Set facebookId
-     *
-     * @param string $facebookId
-     *
-     * @return Contact
-     */
-    public function setFacebookId($facebookId)
-    {
-        $this->facebook_id = $facebookId;
-
-        return $this;
-    }
-
-    /**
-     * Get facebookId
-     *
-     * @return string
-     */
-    public function getFacebookId()
-    {
-        return $this->facebook_id;
-    }
-
-    /**
-     * Set facebookAccessToken
-     *
-     * @param string $facebookAccessToken
-     *
-     * @return Contact
-     */
-    public function setFacebookAccessToken($facebookAccessToken)
-    {
-        $this->facebook_access_token = $facebookAccessToken;
-
-        return $this;
-    }
-
-    /**
-     * Get facebookAccessToken
-     *
-     * @return string
-     */
-    public function getFacebookAccessToken()
-    {
-        return $this->facebook_access_token;
     }
 
     /**

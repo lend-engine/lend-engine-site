@@ -19,7 +19,7 @@ class ContactController extends Controller
 
         $key = getenv('SYMFONY__POSTMARK_API_KEY');
 
-        $form = $this->createForm("AppBundle\Form\Type\ContactType");
+        $form = $this->createForm("AppBundle\Form\Type\ContactUsType");
 
         $form->handleRequest($request);
 

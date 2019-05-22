@@ -30,7 +30,7 @@ class FosRegistrationType extends AbstractType
     {
 
         $builder->add('firstName', TextType::class, array(
-            'label' => 'form.firstName',
+            'label' => 'First name',
             'required' => true,
         ));
 
@@ -47,10 +47,10 @@ class FosRegistrationType extends AbstractType
             )
         ));
 
-        $builder->add('countryIsoCode', CountryType::class, array(
-            'label' => 'form.country',
-            'required' => true,
-        ));
+//        $builder->add('countryIsoCode', CountryType::class, array(
+//            'label' => 'form.country',
+//            'required' => true,
+//        ));
 
         // Hide the user name (entity class overrides this with email address)
         $builder->add('username', HiddenType::class, array(
