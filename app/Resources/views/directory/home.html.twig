@@ -71,14 +71,18 @@
         <div class="container">
             <h1>Find a lending library near you</h1>
             <div class="row">
-                <form method="GET">
-                    <div class="col-xs-4">
-                        <input name="locate" class="form-control" type="text" placeholder="Enter postcode / zipcode" value="{{ app.request.get('locate') }}">
-                    </div>
-                    <div class="col-xs-4">
-                        <button class="btn btn-success" type="submit">Go</button>
-                    </div>
-                </form>
+                <div class="col-md-12">
+                    Coming soon!
+                </div>
+
+                {#<form method="GET">#}
+                    {#<div class="col-xs-4">#}
+                        {#<input name="locate" class="form-control" type="text" placeholder="Enter postcode / zipcode" value="{{ app.request.get('locate') }}">#}
+                    {#</div>#}
+                    {#<div class="col-xs-4">#}
+                        {#<button class="btn btn-success" type="submit">Go</button>#}
+                    {#</div>#}
+                {#</form>#}
             </div>
         </div>
     </section>
@@ -88,7 +92,9 @@
             <div class="row">
                 <div class="col-md-12">
 
+                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">Add your organisation</a>
 
+                    <br><br>
                     <style type="text/css">
                         #map
                         {

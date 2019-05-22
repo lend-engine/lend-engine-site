@@ -3,12 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Tenant;
+use AppBundle\Form\Type\ContactUsType;
 use Postmark\PostmarkClient;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class ContactController extends Controller
+class ContactUsController extends Controller
 {
 
     /**
@@ -19,7 +20,7 @@ class ContactController extends Controller
 
         $key = getenv('SYMFONY__POSTMARK_API_KEY');
 
-        $form = $this->createForm("AppBundle\Form\Type\ContactUsType");
+        $form = $this->createForm(ContactUsType::class);
 
         $form->handleRequest($request);
 

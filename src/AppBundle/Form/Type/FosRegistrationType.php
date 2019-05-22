@@ -35,12 +35,12 @@ class FosRegistrationType extends AbstractType
         ));
 
         $builder->add('lastName', TextType::class, array(
-            'label' => 'form.lastName',
+            'label' => 'Last name',
             'required' => false,
         ));
 
         $builder->add('email', TextType::class, array(
-            'label' => 'form.email',
+            'label' => 'Email address',
             'required' => true,
             'attr' => array(
                 'data-help' => ""

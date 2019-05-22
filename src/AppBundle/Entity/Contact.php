@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="contact", options={"collate"="utf8mb4_unicode_ci", "charset"="utf8mb4"})
+ * @ORM\Table(name="_core.contact", options={"collate"="utf8mb4_unicode_ci", "charset"="utf8mb4"})
  * @ORM\AttributeOverrides({
  *      @ORM\AttributeOverride(name="email",
  *          column=@ORM\Column(

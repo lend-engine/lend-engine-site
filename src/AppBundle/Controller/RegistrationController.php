@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Tenant;
-use AppBundle\Form\Type\RegistrationType;
+use AppBundle\Form\Type\SignupType;
 use Postmark\PostmarkClient;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,7 +26,7 @@ class RegistrationController extends Controller
         $key = getenv('SYMFONY__POSTMARK_API_KEY');
 
         $tenant = new Tenant();
-        $form = $this->createForm("AppBundle\Form\Type\RegistrationType", $tenant);
+        $form = $this->createForm(SignupType::class, $tenant);
 
         $form->handleRequest($request);
 

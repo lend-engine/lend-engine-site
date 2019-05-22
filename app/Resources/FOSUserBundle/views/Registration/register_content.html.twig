@@ -1,5 +1,24 @@
 <div class="row">
     <div class="col-md-12">
+
+        <style>
+            .page-intro {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+        </style>
+        <h1>Add your organisation &raquo; Step 1 of 2</h1>
+
+        <div class="page-intro">
+            <p>
+                First you'll need to add yourself as the organisation manager.
+            </p>
+            <p>
+                Fill out this form, and we'll send you a confirmation email.
+                Once you've verified your details, you can add your organisation.
+            </p>
+        </div>
+
         <form action="{{ path('fos_user_registration_register') }}" method="POST" class="fos_user_registration_register">
 
             {{ form_start(form) }}
@@ -7,12 +26,18 @@
 
             <div class="row">
 
-                <div class="col-md-4" id="col-personal">
-                    {{ form_row(form.firstName) }}
-                    {{ form_row(form.lastName) }}
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">{{ form_row(form.firstName) }}</div>
+                        <div class="col-md-6">{{ form_row(form.lastName) }}</div>
+                    </div>
                     {{ form_row(form.email) }}
                     {{ form_row(form.plainPassword) }}
                     <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary btn-block btn-flat pull-right" />
+                </div>
+
+                <div class="col-md-6">
+
                 </div>
 
             </div>

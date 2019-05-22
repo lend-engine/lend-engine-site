@@ -35,15 +35,8 @@ class FOSMailer implements MailerInterface
      */
     public function sendConfirmationEmailMessage(UserInterface $user)
     {
-        $template        = $this->container->getParameter('fos_user.registration.confirmation.template');
-
-        /** @var \AppBundle\Services\TenantService $tenantService */
-        $tenantService = $this->container->get('service.tenant');
-
-        $senderName     = $tenantService->getCompanyName();
-        $replyToEmail   = $tenantService->getReplyToEmail();
-        $fromEmail      = $tenantService->getSenderEmail();
-        $postmarkApiKey = $tenantService->getSetting('postmark_api_key');
+        $template  = $this->container->getParameter('fos_user.registration.confirmation.template');
+        $postmarkApiKey = getenv('SYMFONY__POSTMARK_API_KEY');
 
         $url = $this->router->generate('fos_user_registration_confirm', array('token' => $user->getConfirmationToken()), UrlGeneratorInterface::ABSOLUTE_URL);
 
@@ -55,18 +48,15 @@ class FOSMailer implements MailerInterface
             )
         );
 
+        $fromEmail = 'hello@lend-engine.com';
         $toEmail = $user->getEmail();
 
         $client = new PostmarkClient($postmarkApiKey);
         $client->sendEmail(
-            "{$senderName} <{$fromEmail}>",
+            "Lend Engine <{$fromEmail}>",
             $toEmail,
             "Confirm your registration.",
-            $message,
-            null,
-            null,
-            null,
-            $replyToEmail
+            $message
         );
     }
 
@@ -77,13 +67,7 @@ class FOSMailer implements MailerInterface
     {
         $template          = $this->container->getParameter('fos_user.resetting.email.template');
 
-        /** @var \AppBundle\Services\TenantService $tenantService */
-        $tenantService = $this->container->get('service.tenant');
-
-        $senderName     = $tenantService->getCompanyName();
-        $replyToEmail   = $tenantService->getReplyToEmail();
-        $fromEmail      = $tenantService->getSenderEmail();
-        $postmarkApiKey = $tenantService->getSetting('postmark_api_key');
+        $postmarkApiKey = getenv('SYMFONY__POSTMARK_API_KEY');
 
         $url = $this->router->generate('fos_user_resetting_reset', array('token' => $user->getConfirmationToken()), UrlGeneratorInterface::ABSOLUTE_URL);
 
@@ -95,18 +79,15 @@ class FOSMailer implements MailerInterface
             )
         );
 
+        $fromEmail = 'hello@lend-engine.com';
         $toEmail = $user->getEmail();
 
         $client = new PostmarkClient($postmarkApiKey);
         $client->sendEmail(
-            "{$senderName} <{$fromEmail}>",
+            "Lend Engine <{$fromEmail}>",
             $toEmail,
             "Reset your password.",
-            $message,
-            null,
-            null,
-            null,
-            $replyToEmail
+            $message
         );
 
     }

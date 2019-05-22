@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DirectoryController extends Controller
 {
     /**
-     * @Route("/libraries", name="libraries")
+     * @Route("/directory", name="directory")
      */
     public function directoryShowAction(Request $request)
     {
@@ -19,7 +19,7 @@ class DirectoryController extends Controller
             $home = 'SA43 1QA';
             $zoom = 6;
         }
-        return $this->render('libraries/home.html.twig', [
+        return $this->render('directory/home.html.twig', [
             'map_home' => $home,
             'map_zoom' => $zoom
         ]);

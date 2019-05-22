@@ -35,8 +35,15 @@
             {{ include('default/menu.html.twig') }}
         </div>
 
+        {% for flash_message in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">
+                {{ flash_message|nl2br }}
+            </div>
+        {% endfor %}
         {% for flash_message in app.session.flashbag.get('error') %}
-            <div class="alert alert-warning" style="margin-bottom:10px">{{ flash_message|nl2br }}</div>
+            <div class="alert alert-warning">
+                {{ flash_message|nl2br }}
+            </div>
         {% endfor %}
 
     </div>

@@ -11,17 +11,6 @@
                     <div class="col-md-6" data-wow-delay="0.6s">
                         <h2 class="text-uppercase">Contact us</h2>
 
-                        {% for flash_message in app.session.flashbag.get('success') %}
-                            <div class="alert alert-success">
-                                {{ flash_message }}
-                            </div>
-                        {% endfor %}
-                        {% for flash_message in app.session.flashbag.get('error') %}
-                            <div class="alert alert-warning">
-                                {{ flash_message }}
-                            </div>
-                        {% endfor %}
-
                         <p>
                             The Lend Engine is a system built and supported by by a small team based in West Wales, United Kingdom.
                         </p>
