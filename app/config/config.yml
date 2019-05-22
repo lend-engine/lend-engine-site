@@ -52,12 +52,60 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
-# Swiftmailer Configuration
-swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+# FOS User bundle
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\Entity\Contact
+    from_email:
+        address: hello@lend-engine.com
+        sender_name: Lend Engine
+    resetting:
+        token_ttl: 3600
+        email:
+            template: emails/fos_password_reset.email.twig
+    registration:
+        confirmation:
+            enabled: true
+            template: emails/fos_registration.email.twig
+        form:
+            type: AppBundle\Form\Type\FosRegistrationType
+            validation_groups: [AppBundleRegistration]
+    profile:
+        form:
+            type: AppBundle\Form\Type\ProfileType
+            validation_groups: [AppBundleProfile]
+    service:
+        mailer: service.fos_user_mailer
 
+hype_mailchimp:
+    api_key: "%env(MAILCHIMP_API_KEY)%"
+    default_list: "temp"
+    ssl: true
 
+# File system bridge to AWS
+oneup_flysystem:
+    adapters:
+        product_adapter_local:
+            local:
+                directory: "%kernel.root_dir%/../web/images/products"
+        product_adapter:
+             awss3v3:
+                 client: lendengine.s3_client
+                 bucket: lend-engine
+                 prefix: ''
+
+    filesystems:
+        product_image_fs:
+            adapter: product_adapter
+            mount:   product_image_fs
+
+# Image and file uploader
+oneup_uploader:
+    mappings:
+        files:
+            frontend: dropzone
+            namer: uploader.file_namer
+            storage:
+                type: flysystem
+                filesystem: oneup_flysystem.product_image_fs_filesystem
