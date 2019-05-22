@@ -1,56 +1,34 @@
-<h2>{{ 'public_account.title'|trans({}, 'member_site') }}</h2>
-
-{% set contact = app.user %}
-{{ include('member_site/partials/account_balance.html.twig') }}
+<h2>My account</h2>
 
 <div class="fos_user_user_show row">
     <div class="col-md-6">
-        <h4>{{ 'public_account.contact_subtitle'|trans({}, 'member_site') }}</h4>
-        <div class="user_info">{{ user.firstName }} {{ user.lastName }}</div>
-        <div class="user_info">{{ user.email }}</div>
-        <div class="user_info">{{ user.telephone }}</div>
+
+        <h4>Personal details</h4>
+        <p>
+            {{ user.firstName }} {{ user.lastName }}<br>
+            {{ user.email }}
+        </p>
         <br>
-        <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-sm btn-primary">{{ 'public_account.button_edit_details'|trans({}, 'member_site') }}</a>
-        <a href="{{ path('fos_user_change_password') }}" class="btn btn-sm btn-primary">{{ 'public_account.button_change_password'|trans({}, 'member_site') }}</a>
+        <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-sm btn-primary">Edit profile</a>
+        <a href="{{ path('fos_user_change_password') }}" class="btn btn-sm btn-primary">Change password</a>
+
+        <br><br>
+
+        <h4>My organisation</h4>
+        {% if app.user.org %}
+            <p>
+                Name: {{ app.user.org.name }}<br>
+            Website: {{ app.user.org.website }}<br>
+            Email: {{ app.user.org.email }}<br>
+            Lend: {{ app.user.org.lends }}
+        </p>
+            <a href="{{ path('org', {id: app.user.org.id}) }}" class="btn btn-primary">Edit organisation</a>
+        {% else %}
+            <a href="{{ path('org') }}" class="btn btn-primary">Add your organisation</a>
+        {% endif %}
+
     </div>
     <div class="col-md-6">
 
     </div>
 </div>
-
-<br>
-
-<h4>{{ 'public_account.membership_subtitle'|trans({}, 'member_site') }}</h4>
-
-{% if app.user.activeMembership is defined and app.user.activeMembership and app.user.activeMembership.status == 'ACTIVE' %}
-
-    {% if app.user.activeMembership.expiresAt|date("Y-m-d") < date()|date_modify("+7 days")|date("Y-m-d") %}
-        <div class="alert alert-warning">
-            {{ 'public_account.current_member_type'|trans({'%type%':app.user.activeMembership.membershipType.name}, 'member_site') }}<br>
-            {{ 'public_account.membership_expires_on'|trans({}, 'member_site') }} {{ app.user.activeMembership.expiresAt|date("D d F Y") }}
-            <p>
-                {{ 'public_account.membership_about_to_expire'|trans({}, 'member_site') }}
-                <br><br>
-                <a href="{{ path('subscribe') }}" class="btn btn-primary">Renew now</a>
-            </p>
-        </div>
-    {% else %}
-        <div>
-            {{ 'public_account.current_member_type'|trans({'%type%':app.user.activeMembership.membershipType.name}, 'member_site') }}<br>
-            {{ 'public_account.membership_expires_on'|trans({}, 'member_site') }} {{ app.user.activeMembership.expiresAt|date("D d F Y") }}
-            <p>
-                <br>
-                <a href="{{ path('subscribe') }}" class="btn btn-sm btn-primary">
-                    {{ 'public_account.button_change_membership'|trans({}, 'member_site') }}
-                </a>
-            </p>
-        </div>
-    {% endif %}
-
-{% else %}
-    <div class="alert alert-info">
-        {{ 'text_no_membership'|trans({}, 'member_site') }}
-        <br><br>
-        <a href="{{ path('subscribe') }}" class="btn btn-sm btn-primary">{{ 'public_account.button_subscribe_now'|trans({}, 'member_site') }}</a>
-    </div>
-{% endif %}

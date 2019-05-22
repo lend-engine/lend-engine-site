@@ -1,0 +1,7 @@
+AppBundle\Entity\Contact:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+             fields: email
+             errorPath: email 
+             message: fos_user.email.already_used
+             groups: [ "AppBundleRegistration", "AppBundleProfile" ]

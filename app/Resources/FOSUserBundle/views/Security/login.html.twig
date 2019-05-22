@@ -6,15 +6,16 @@
 
     <div class="row">
         <div class="col-md-10">
+
+            <h1>Log in</h1>
+
             {% if error %}
-                <div class="alert alert-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
             <div class="row">
 
-                <div class="col-md-6" style="padding: 20px;">
-
-                    <h2>&nbsp;</h2>
+                <div class="col-md-6">
 
                     <form action="{{ path("fos_user_security_check") }}" method="post">
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -28,12 +29,6 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-8">
-                                <div class="checkbox icheck">
-                                    {#<label>#}
-                                    {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" />#}
-                                    {#<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>#}
-                                    {#</label>#}
-                                </div>
                                 <a href="{{ path('fos_user_resetting_request') }}">
                                     {{ 'security.login.forgot_password'|trans }}
                                 </a>

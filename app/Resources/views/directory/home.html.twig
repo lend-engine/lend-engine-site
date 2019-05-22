@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'directory.html.twig' %}
 
 {% block title %}A directory of lending organisations{% endblock %}
 
@@ -7,43 +7,37 @@
     <script type="text/javascript">
 
         function loadMap() {
-
             var geocoder = new google.maps.Geocoder();
             var map;
-
-            var contentString = '<h4 id="firstHeading" class="firstHeading">Library Of Things, London</h4>'+
-                    '<div id="bodyContent">'+
-                    '<p><b>This</b> is a toy library</p>'+
-                    '<p><a href="https://borrowing.libraryofthings.co.uk" target="_blank">'+
-                    'https://borrowing.libraryofthings.co.uk</a> '+
-                    '</p>'+
-                    '</div>';
-
             geocoder.geocode({'address': '{{ map_home }}'}, function(results, status)
             {
                 if (status == google.maps.GeocoderStatus.OK) {
-
                     var _position = { lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()};
                     var mapOptions = {
                         zoom: {{ map_zoom }},
                         center: _position
                     };
                     map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-                    addMarker(map, 51.440109, -0.09, "title here", contentString);
-
-                    {#{% for location in libraries %}#}
-                    {#addMarker(map, {{ location.lat }}, {{ location.lng }});#}
-                    {#{% endfor %}#}
+                    {% for l in libraries %}
+                        addMarker(map, "{{ l.name }}", "{{ l.website }}", {{ l.lat }}, {{ l.long }});
+                    {% endfor %}
                 } else {
                     console.log(status);
                 }
             });
         }
 
-        function addMarker(map, lat, long, title, contentString) {
+        function addMarker(map, name, website, lat, long) {
             var marker;
             var position = {lat: lat, lng: long};
+
+            var contentString = '<h4 id="firstHeading" class="firstHeading">'+name+'</h4>'+
+            '<div id="bodyContent">'+
+            '<p>Description</p>'+
+            '<p><a href="'+website+'" target="_blank">'+website+'</a> '+
+            '</p>'+
+            '</div>';
+
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
@@ -65,9 +59,8 @@
     </script>
 {% endblock %}
 
-{% block body %}
-
-    <section id="title" style="padding-top:60px; padding-bottom: 20px;">
+{% block hero %}
+    <section id="title">
         <div class="container">
             <h1>Find a lending library near you</h1>
             <div class="row">
@@ -76,25 +69,23 @@
                 </div>
 
                 {#<form method="GET">#}
-                    {#<div class="col-xs-4">#}
-                        {#<input name="locate" class="form-control" type="text" placeholder="Enter postcode / zipcode" value="{{ app.request.get('locate') }}">#}
-                    {#</div>#}
-                    {#<div class="col-xs-4">#}
-                        {#<button class="btn btn-success" type="submit">Go</button>#}
-                    {#</div>#}
+                {#<div class="col-xs-4">#}
+                {#<input name="locate" class="form-control" type="text" placeholder="Enter postcode / zipcode" value="{{ app.request.get('locate') }}">#}
+                {#</div>#}
+                {#<div class="col-xs-4">#}
+                {#<button class="btn btn-success" type="submit">Go</button>#}
+                {#</div>#}
                 {#</form>#}
             </div>
         </div>
     </section>
+{% endblock %}
 
+{% block body %}
     <section id="feature1">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-
-                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">Add your organisation</a>
-
-                    <br><br>
                     <style type="text/css">
                         #map
                         {
@@ -104,11 +95,8 @@
                         }
                     </style>
                     <div id="map"></div>
-
-
                 </div>
             </div>
         </div>
     </section>
-
 {% endblock %}

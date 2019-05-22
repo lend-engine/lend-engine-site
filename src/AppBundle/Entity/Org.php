@@ -42,14 +42,14 @@ class Org
     /**
      * @var string
      *
-     * @ORM\Column(name="facebook", type="string", length=255)
+     * @ORM\Column(name="facebook", type="string", length=255, nullable=true)
      */
     private $facebook;
 
     /**
      * @var Contact
      *
-     * @ORM\OneToOne(targetEntity="Contact")
+     * @ORM\OneToOne(targetEntity="Contact", inversedBy="org")
      * @ORM\JoinColumn(name="owner", referencedColumnName="id")
      */
     private $owner;

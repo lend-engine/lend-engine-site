@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block hero %}no hero content{% endblock %}
+
+{% block account_nav %}
+<div class="container">
+    <div class="row" style="padding-top: 10px">
+        <div class="col-md-12" id="account-nav">
+            <p>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                Hello, {{ app.user.firstName }}. &nbsp;&nbsp;
+
+                {#{% if is_granted('ROLE_ADMIN') %}#}
+                {#<a href="{{ path('homepage') }}" style="padding: 0 10px"><i class="fa fa-wrench"></i><span class="hidden-xs"> {% trans %}public_misc.link_admin{% endtrans %}</span></a>#}
+                {#{% endif %}#}
+                <a href="{{ path('fos_user_profile_show') }}" style="padding: 0 10px">My account</a>
+                <a href="{{ path('fos_user_security_logout') }}" style="padding: 0 10px">Log out</a>
+
+                <span class="pull-right">
+                    {% if app.user.org %}
+                        Organisation: <strong>{{ app.user.org.name }}</strong>
+                    {% else %}
+                        <a href="{{ path('org') }}" class="btn btn-primary">Add your organisation</a>
+                    {% endif %}
+                </span>
+
+            {% else %}
+                <a href="{{ path('fos_user_registration_register') }}" style="padding: 0 10px">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                <a href="{{ path('fos_user_security_login') }}" style="padding: 0 10px">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary pull-right">Add your organisation</a>
+
+            {% endif %}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}{% endblock %}

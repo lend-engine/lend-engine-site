@@ -249,12 +249,17 @@ img {
 
 /* end divider */
 
+#account-nav {
+    text-align: left;
+    padding: 4px 15px;
+}
+
 #title {
     font-family: 'Asap', sans-serif;
     background: #eec853;
     color: #000;
-    padding-top: 100px;
-    padding-bottom: 40px;
+    padding-top: 70px;
+    padding-bottom: 30px;
     text-align: left;
 }
 
@@ -477,6 +482,11 @@ img {
 }
 
 /* end contact */
+
+.page-intro {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
 
 /* start footer */
 footer {

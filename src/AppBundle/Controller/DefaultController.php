@@ -13,6 +13,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+//        $this->addFlash('error', "message");
         return $this->render('default/index.html.twig', []);
     }
 
@@ -45,6 +46,7 @@ class DefaultController extends Controller
      */
     public function pricingAction(Request $request)
     {
+//        $this->addFlash('error', "message");
         return $this->render('default/pricing.html.twig', []);
     }
 

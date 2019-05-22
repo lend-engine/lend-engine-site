@@ -1,0 +1,64 @@
+{% extends 'directory.html.twig' %}
+
+{% block title %}A directory of lending organisations{% endblock %}
+
+{% block head %}
+    <script type="text/javascript"></script>
+{% endblock %}
+
+{% block hero %}
+    <section id="feature-heading">
+        <div class="container">
+            <h2>Organisation directory &raquo; Add an organisation</h2>
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    {% if mode == 'edit' %}
+                        <h1>Edit organisation details</h1>
+                    {% else %}
+                        <h1>Add your organisation &raquo; Step 2 of 2</h1>
+                        {#<div class="page-intro">#}
+                            {#<p>#}
+                                {#Content here#}
+                            {#</p>#}
+                        {#</div>#}
+                    {% endif %}
+
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    {% if help is defined %}
+                        <span class="help">{{ help }}</span>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form_row(form.name) }}
+                            {{ form_row(form.email) }}
+                            {{ form_row(form.website) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(form.lends) }}
+                        </div>
+                    </div>
+
+                    {% if mode == 'edit' %}
+                        <input type="submit" class="btn btn-primary" value="Update organisation">
+                    {% else %}
+                        <input type="submit" class="btn btn-primary" value="Add my organisation">
+                    {% endif %}
+
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
