@@ -108,7 +108,10 @@
         <div class="container">
             <h1>Find a lending library near you</h1>
 
-            <div id="geolocateWarning" class="alert alert-danger" style="display:none">Please allow Lend Engine to access your location so we can show relevant results.</div>
+            <div id="geolocateWarning" class="alert alert-danger" style="display:none">
+                Please allow Lend Engine access to your location so we can show relevant results. <br>
+                You may need to revisit your browser settings to re-enable location access for www.lend-engine.com
+            </div>
 
             {{ form_start(form) }}
             {{ form_errors(form) }}
@@ -158,7 +161,7 @@
                 <div class="col-md-4">
                     {% for site in sites %}
                         <div class="site">
-                            <div class="site-name">{{ site.org.name }} ({{ site.name }})</div>
+                            <div class="site-name">{{ site.org.name }}</div>
                             <div class="site-website"><a href="{{ site.org.website }}" target="_blank">{{ site.org.website }}</a></div>
                             <div class="site-address">{{ site.address }}, {{ site.country }}</div>
                             <div class="site-labels">
@@ -183,7 +186,7 @@
         });
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, geoLocateError);
+                navigator.geolocation.getCurrentPosition(showPosition,geoLocateError);
             }
         }
         function geoLocateError() {

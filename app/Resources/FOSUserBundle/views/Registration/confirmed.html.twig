@@ -5,9 +5,14 @@
 {% block page_title %}Registration confirmed{% endblock %}
 
 {% block fos_user_content %}
+    <h1>Welcome!</h1>
+
+
     <p class="large-text">
-        {{ 'registration.confirmed'|trans({'%username%': user.username}) }}
+        Your account is activated and you're now logged in. Next step is to add your organisation, and then add any sites.
     </p>
+
+    <p>&nbsp;</p>
 
     <p>
         <a href="{{ path('org') }}" class="btn btn-primary">Add an organisation</a>

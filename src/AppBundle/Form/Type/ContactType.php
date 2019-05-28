@@ -19,12 +19,12 @@ class ContactType extends AbstractType
 
         $builder->add('firstName', TextType::class, array(
             'label' => 'First name',
-            'required' => true,
+            'required' => false,
         ));
 
         $builder->add('lastName', TextType::class, array(
             'label' => 'Last name',
-            'required' => true,
+            'required' => false,
         ));
 
         $builder->add('email', TextType::class, array(

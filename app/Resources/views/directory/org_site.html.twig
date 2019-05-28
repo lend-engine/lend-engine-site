@@ -21,6 +21,18 @@
             });
         }
         function save() {
+            if (!$("#org_site_country").val()) {
+                alert("Please choose a country");
+                return false;
+            }
+            if (!$("#org_site_name").val()) {
+                alert("Please choose a name");
+                return false;
+            }
+            if (!$("#org_site_address").val()) {
+                alert("Please enter an address");
+                return false;
+            }
             getLatLong();
             window.setTimeout(submitForm, 1000);
         }

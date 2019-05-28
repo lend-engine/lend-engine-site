@@ -25,7 +25,8 @@ class OrgSiteType extends AbstractType
             'label' => 'Name',
             'required' => true,
             'attr' => [
-                'placeholder' => ''
+                'placeholder' => 'eg "Main site"',
+                'data-help' => 'So you can identify this site as your organisation expands.'
             ]
         ));
 
@@ -42,6 +43,9 @@ class OrgSiteType extends AbstractType
         $builder->add('description', TextareaType::class, array(
             'label' => 'Description',
             'required' => false,
+            'attr' => [
+                'data-help' => 'Shows on the pop-up when your site is clicked on the map.'
+            ]
         ));
 
         $builder->add('country', CountryType::class, array(
