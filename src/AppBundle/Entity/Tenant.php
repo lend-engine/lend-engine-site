@@ -140,15 +140,13 @@ class Tenant
     private $schemaVersion;
 
     /**
-     * @ORM\OneToOne(targetEntity="TenantSite", inversedBy="tenant", cascade={"remove"})
-     */
-    private $site;
-
-    /**
      * @ORM\OneToMany(targetEntity="TenantNote", mappedBy="tenant", cascade={"remove"})
      */
     private $notes;
 
+    /**
+     * @var
+     */
     private $age;
 
     /**
@@ -590,25 +588,6 @@ class Tenant
     public function getNotes()
     {
         return $this->notes;
-    }
-
-    /**
-     * @param TenantSite $site
-     * @return $this
-     */
-    public function setSite(TenantSite $site)
-    {
-        $this->site = $site;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSite()
-    {
-        return $this->site;
     }
 
     /**

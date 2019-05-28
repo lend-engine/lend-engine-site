@@ -97,6 +97,11 @@ class Org
     private $createdAt;
 
     /**
+     * @ORM\OneToMany(targetEntity="OrgSite", mappedBy="org", cascade={"remove"})
+     */
+    private $sites;
+
+    /**
      * Gets triggered only on insert
      * @ORM\PrePersist
      */
@@ -359,5 +364,24 @@ class Org
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSites()
+    {
+        return $this->sites;
+    }
+
+    /**
+     * @param OrgSite $site
+     * @return $this
+     */
+    public function addSite(OrgSite $site)
+    {
+        $this->sites[] = $site;
+
+        return $this;
     }
 }

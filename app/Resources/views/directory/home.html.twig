@@ -3,39 +3,81 @@
 {% block title %}A directory of lending organisations{% endblock %}
 
 {% block head %}
+
+    <style>
+        .site {
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+        .site-name {
+            font-weight: bold;
+        }
+        .site-website a {
+            font-size: 12px;
+        }
+        .site-address {
+            font-size: 11px;
+            color: #aaa;
+        }
+        .site-labels {
+            padding: 4px 0;
+        }
+        .site-labels .label {
+            margin-right: 6px;
+        }
+        .site-distance {
+            clear:left;
+            display: block;
+        }
+        #filter-tags .filter-tag {
+            font-weight: normal;
+            margin-right: 6px;
+        }
+        #directory_search_tags {
+            padding-bottom: 10px;
+        }
+        #directory_search_tags div.checkbox {
+            display: inline; margin-right: 15px;
+        }
+    </style>
+
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgbkO6VOtnvsh1aqEExrv6HSQzSDsO2Ik"></script>
     <script type="text/javascript">
+        var geocoder = new google.maps.Geocoder();
+        var map;
 
         function loadMap() {
-            var geocoder = new google.maps.Geocoder();
-            var map;
-            geocoder.geocode({'address': '{{ map_home }}'}, function(results, status)
-            {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    var _position = { lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()};
-                    var mapOptions = {
-                        zoom: {{ map_zoom }},
-                        center: _position
-                    };
-                    map = new google.maps.Map(document.getElementById('map'), mapOptions);
-                    {% for l in libraries %}
-                        addMarker(map, "{{ l.name }}", "{{ l.website }}", {{ l.lat }}, {{ l.long }});
-                    {% endfor %}
-                } else {
-                    console.log(status);
-                }
-            });
+            var _position = {lat: 52.083703, lng: -4.660864};
+            var mapOptions = {
+                zoom: 6,
+                center: _position
+            };
+            var markers = [];
+
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            {% for site in sites %}
+            {% if site.latitude and site.latitude %}
+                marker = addMarker(map, "{{ site.org.name }}", "{{ site.org.website }}", "{{ site.address }}", {{ site.latitude }}, {{ site.longitude }});
+                markers.push(marker);
+            {% endif %}
+            {% endfor %}
+
+            var bounds = new google.maps.LatLngBounds();
+            for (var i = 0; i < markers.length; i++) {
+                bounds.extend(markers[i].getPosition());
+            }
+
+            map.fitBounds(bounds);
         }
 
-        function addMarker(map, name, website, lat, long) {
+        function addMarker(map, name, website, address, lat, long) {
             var marker;
             var position = {lat: lat, lng: long};
 
             var contentString = '<h4 id="firstHeading" class="firstHeading">'+name+'</h4>'+
-            '<div id="bodyContent">'+
-            '<p>Description</p>'+
-            '<p><a href="'+website+'" target="_blank">'+website+'</a> '+
-            '</p>'+
+            '<div id="bodyContent">'+address+'<br><br>'+
+            '<a href="'+website+'" target="_blank">'+website+'<br> '+
             '</div>';
 
             var infowindow = new google.maps.InfoWindow({
@@ -45,12 +87,14 @@
             marker = new google.maps.Marker({
                 position: position,
                 map: map,
-                title: title
+                title: name
             });
 
             marker.addListener('click', function() {
                 infowindow.open(map, marker);
             });
+
+            return marker;
         }
 
         window.onload = function() {
@@ -63,20 +107,35 @@
     <section id="title">
         <div class="container">
             <h1>Find a lending library near you</h1>
-            <div class="row">
-                <div class="col-md-12">
-                    Coming soon!
-                </div>
 
-                {#<form method="GET">#}
-                {#<div class="col-xs-4">#}
-                {#<input name="locate" class="form-control" type="text" placeholder="Enter postcode / zipcode" value="{{ app.request.get('locate') }}">#}
-                {#</div>#}
-                {#<div class="col-xs-4">#}
-                {#<button class="btn btn-success" type="submit">Go</button>#}
-                {#</div>#}
-                {#</form>#}
+            <div id="geolocateWarning" class="alert alert-danger" style="display:none">Please allow Lend Engine to access your location so we can show relevant results.</div>
+
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            {% if help is defined %}
+                <span class="help">{{ help }}</span>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-md-12" id="filter-tags">
+                    {{ form_widget(form.tags) }}
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col-xs-4">
+                    {{ form_widget(form.search) }}
+                </div>
+                <div class="col-xs-4">
+                    {{ form_widget(form.distance) }}
+                </div>
+                <div class="col-xs-4">
+                    <button class="btn btn-success" type="submit">Search</button>
+                </div>
+            </div>
+
+            {{ form_end(form) }}
         </div>
     </section>
 {% endblock %}
@@ -85,7 +144,7 @@
     <section id="feature1">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <style type="text/css">
                         #map
                         {
@@ -96,7 +155,46 @@
                     </style>
                     <div id="map"></div>
                 </div>
+                <div class="col-md-4">
+                    {% for site in sites %}
+                        <div class="site">
+                            <div class="site-name">{{ site.org.name }} ({{ site.name }})</div>
+                            <div class="site-website"><a href="{{ site.org.website }}" target="_blank">{{ site.org.website }}</a></div>
+                            <div class="site-address">{{ site.address }}, {{ site.country }}</div>
+                            <div class="site-labels">
+                                {% for tag in site.tags %}
+                                    <span class="label label-success">{{ tag.name }}</span>
+                                {% endfor %}
+                            </div>
+                            {% if site.distance %}
+                                {#<div class="site-distance">{{ site.distance }} miles</div>#}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </section>
+{% endblock %}
+{% block pagescripts %}
+    <script>
+        $(document).ready(function(){
+            getLocation();
+        });
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, geoLocateError);
+            }
+        }
+        function geoLocateError() {
+            $("#geolocateWarning").show();
+        }
+        function showPosition(position) {
+            if (!$("#directory_search_latitude").val()) {
+                $("#directory_search_latitude").val(position.coords.latitude);
+                $("#directory_search_longitude").val(position.coords.longitude);
+                $('form[name="directory_search"]').submit();
+            }
+        }
+    </script>
 {% endblock %}

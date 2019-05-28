@@ -10,4 +10,26 @@ namespace AppBundle\Repository;
  */
 class OrgRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param bool $keyByName
+     * @return array
+     */
+    public function getTags($keyByName = false)
+    {
+        $tags = [
+            'assistive' => "Assistive technology",
+            'audiovisual' => "Audio visual equipment",
+            'slings' => "Slings / baby carriers",
+            'nappies' => "Nappies",
+            'toys' => "Toys",
+            'plant' => "Tools/plant (commercial)",
+            'tools' => "Tools (personal/DIY)",
+            'sports' => "Sporting goods",
+            'electronics' => "Electronic equipment",
+        ];
+        if ($keyByName == true) {
+            $tags = array_flip($tags);
+        }
+        return $tags;
+    }
 }

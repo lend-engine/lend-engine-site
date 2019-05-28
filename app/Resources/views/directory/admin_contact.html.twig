@@ -1,0 +1,49 @@
+{% extends 'directory.html.twig' %}
+
+{% block title %}A directory of lending organisations{% endblock %}
+
+{% block head %}
+    <script type="text/javascript"></script>
+{% endblock %}
+
+{% block hero %}
+    <section id="feature-heading">
+        <div class="container">
+            <h2>Organisation directory &raquo; Add owner</h2>
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Add an organisation owner</h1>
+
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    {% if help is defined %}
+                        <span class="help">{{ help }}</span>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form_row(form.firstName) }}
+                            {{ form_row(form.lastName) }}
+                            {{ form_row(form.email) }}
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" value="Submit">
+
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

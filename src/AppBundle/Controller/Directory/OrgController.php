@@ -18,20 +18,16 @@ class OrgController extends Controller
     public function addOrgAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-        $key = getenv('SYMFONY__POSTMARK_API_KEY');
 
         if ($id) {
-
             if (!$org = $this->getDoctrine()->getRepository('AppBundle:Org')->find($id)) {
                 $this->addFlash('error', "We couldn't find an organisation with id {$id}.");
                 return $this->redirectToRoute('directory');
             }
-
-            if ($org->getOwner() != $this->getUser()) {
+            if ($org->getOwner() != $this->getUser() && !$this->getUser()->hasRole('ROLE_ADMIN')) {
                 $this->addFlash('error', "You're not the owner of that organisation.");
                 return $this->redirectToRoute('directory');
             }
-
             $mode = 'edit';
         } else {
             $org = new Org();
@@ -39,7 +35,21 @@ class OrgController extends Controller
             $mode = 'create';
         }
 
-        $form = $this->createForm(OrgType::class, $org);
+        if ($this->getUser()->hasRole('ROLE_ADMIN')) {
+            $owners = $this->getDoctrine()->getRepository('AppBundle:Contact')->findAll();
+            foreach ($owners AS $owner) {
+//                if ($owner->getOrg()) {
+//                    $owner->setEmail($owner->getEmail().' ('.$owner->getOrg()->getName().')');
+//                }
+            }
+        } else {
+            $owners = [$this->getUser()];
+        }
+        $options = [
+            'owners' => $owners,
+            'tags' => $this->getDoctrine()->getRepository('AppBundle:Org')->getTags(true)
+        ];
+        $form = $this->createForm(OrgType::class, $org, $options);
 
         $form->handleRequest($request);
 
@@ -56,10 +66,13 @@ class OrgController extends Controller
             } catch (\Exception $e) {
                 $this->addFlash('error', $e->getMessage());
             }
+            if ($this->getUser()->hasRole('ROLE_ADMIN')) {
+                return $this->redirectToRoute('admin_libraries');
+            }
             return $this->redirectToRoute('fos_user_profile_show');
         }
 
-        return $this->render('directory/add_org.html.twig', [
+        return $this->render('directory/org.html.twig', [
             'form' => $form->createView(),
             'mode' => $mode
         ]);

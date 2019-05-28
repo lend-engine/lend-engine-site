@@ -1,0 +1,54 @@
+{% extends 'directory.html.twig' %}
+
+{% block title %}A directory of lending organisations{% endblock %}
+
+{% block head %}
+    <script type="text/javascript"></script>
+{% endblock %}
+
+{% block hero %}
+    <section id="feature-heading">
+        <div class="container">
+            <h2>Organisation directory &raquo; Owner list admin</h2>
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="{{ path('admin_contact') }}" class="btn btn-primary pull-right">Add contact</a>
+                    <table class="dataTable table table-hover">
+                        <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td> </td>
+                            <td>Email</td>
+                            <td>Org</td>
+                            <td> </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for contact in contacts %}
+                            <tr>
+                                <td>{{ contact.firstName }}</td>
+                                <td>{{ contact.lastName }}</td>
+                                <td>{{ contact.email }}</td>
+                                <td>
+                                    {% if contact.org %}{{ contact.org.name }}{% endif %}
+                                </td>
+                                <td>
+                                    <a href="{{ path('admin_contact', {id: contact.id}) }}">Edit</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

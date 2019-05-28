@@ -51,13 +51,19 @@ class FOSMailer implements MailerInterface
         $fromEmail = 'hello@lend-engine.com';
         $toEmail = $user->getEmail();
 
-        $client = new PostmarkClient($postmarkApiKey);
-        $client->sendEmail(
-            "Lend Engine <{$fromEmail}>",
-            $toEmail,
-            "Confirm your registration.",
-            $message
-        );
+        try {
+            $client = new PostmarkClient($postmarkApiKey);
+            $client->sendEmail(
+                "Lend Engine <{$fromEmail}>",
+                $toEmail,
+                "Confirm your registration.",
+                $message
+            );
+        } catch (PostmarkException $e) {
+
+        } catch (\Exception $e) {
+
+        }
     }
 
     /**
@@ -65,8 +71,7 @@ class FOSMailer implements MailerInterface
      */
     public function sendResettingEmailMessage(UserInterface $user)
     {
-        $template          = $this->container->getParameter('fos_user.resetting.email.template');
-
+        $template       = $this->container->getParameter('fos_user.resetting.email.template');
         $postmarkApiKey = getenv('SYMFONY__POSTMARK_API_KEY');
 
         $url = $this->router->generate('fos_user_resetting_reset', array('token' => $user->getConfirmationToken()), UrlGeneratorInterface::ABSOLUTE_URL);
@@ -82,13 +87,18 @@ class FOSMailer implements MailerInterface
         $fromEmail = 'hello@lend-engine.com';
         $toEmail = $user->getEmail();
 
-        $client = new PostmarkClient($postmarkApiKey);
-        $client->sendEmail(
-            "Lend Engine <{$fromEmail}>",
-            $toEmail,
-            "Reset your password.",
-            $message
-        );
+        try {
+            $client = new PostmarkClient($postmarkApiKey);
+            $client->sendEmail(
+                "Lend Engine <{$fromEmail}>",
+                $toEmail,
+                "Reset your password.",
+                $message
+            );
+        } catch (PostmarkException $e) {
 
+        } catch (\Exception $e) {
+
+        }
     }
 }

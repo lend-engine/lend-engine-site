@@ -5,13 +5,13 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TenantSite
+ * OrgSite
  *
- * @ORM\Table(name="_core.tenant_site")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\TenantSiteRepository")
+ * @ORM\Table(name="_core.org_site")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\OrgSiteRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class TenantSite
+class OrgSite
 {
 
     CONST STATUS_ACTIVE = 'ACTIVE';
@@ -27,19 +27,12 @@ class TenantSite
     private $id;
 
     /**
-     * @var Tenant
-     *
-     * @ORM\ManyToOne(targetEntity="Tenant")
-     * @ORM\JoinColumn(name="tenant", referencedColumnName="id", nullable=true)
+     * @var Org
+     *n
+     * @ORM\ManyToOne(targetEntity="Org", inversedBy="sites")
+     * @ORM\JoinColumn(name="org", referencedColumnName="id", nullable=true)
      */
-    private $tenant;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="unique_id", type="string", length=16)
-     */
-    private $uniqueId;
+    private $org;
 
     /**
      * @var string
@@ -83,7 +76,6 @@ class TenantSite
      */
     private $longitude;
 
-
     /**
      * @var string
      *
@@ -112,6 +104,11 @@ class TenantSite
      */
     private $updatedAt;
 
+    /** @var float */
+    private $distance;
+
+    /** @var array  */
+    private $tags = [];
 
     /**
      * Get id.
@@ -143,46 +140,27 @@ class TenantSite
     }
 
     /**
-     * Set $tenant
+     * Set $org
      *
-     * @param Tenant $tenant
+     * @param Org $org
      *
-     * @return TenantSite
+     * @return OrgSite
      */
-    public function setTenant($tenant)
+    public function setOrg($org)
     {
-        $this->tenant = $tenant;
+        $this->org = $org;
 
         return $this;
     }
 
     /**
-     * Get $tenant
+     * Get $org
      *
-     * @return Tenant
+     * @return Org
      */
-    public function getTenant()
+    public function getOrg()
     {
-        return $this->tenant;
-    }
-
-    /**
-     * @param $id
-     * @return $this
-     */
-    public function setUniqueId($id)
-    {
-        $this->uniqueId = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUniqueId()
-    {
-        return $this->uniqueId;
+        return $this->org;
     }
 
     /**
@@ -190,7 +168,7 @@ class TenantSite
      *
      * @param string $name
      *
-     * @return TenantSite
+     * @return OrgSite
      */
     public function setName($name)
     {
@@ -214,7 +192,7 @@ class TenantSite
      *
      * @param string $address
      *
-     * @return TenantSite
+     * @return OrgSite
      */
     public function setAddress($address)
     {
@@ -238,7 +216,7 @@ class TenantSite
      *
      * @param string $country
      *
-     * @return TenantSite
+     * @return OrgSite
      */
     public function setCountry($country)
     {
@@ -262,7 +240,7 @@ class TenantSite
      *
      * @param string $postcode
      *
-     * @return TenantSite
+     * @return OrgSite
      */
     public function setPostcode($postcode)
     {
@@ -286,7 +264,7 @@ class TenantSite
      *
      * @param string $status
      *
-     * @return TenantSite
+     * @return OrgSite
      */
     public function setStatus($status)
     {
@@ -310,7 +288,7 @@ class TenantSite
      *
      * @param \DateTime $addedAt
      *
-     * @return TenantSite
+     * @return OrgSite
      */
     public function setAddedAt($addedAt)
     {
@@ -334,7 +312,7 @@ class TenantSite
      *
      * @param \DateTime $updatedAt
      *
-     * @return TenantSite
+     * @return OrgSite
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -358,7 +336,7 @@ class TenantSite
      *
      * @param string $description
      *
-     * @return TenantSite
+     * @return OrgSite
      */
     public function setDescription($description)
     {
@@ -424,5 +402,42 @@ class TenantSite
     public function getLongitude()
     {
         return $this->longitude;
+    }
+
+    /**
+     * @param $distance
+     * @return $this
+     */
+    public function setDistance($distance)
+    {
+        $this->distance = $distance;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDistance()
+    {
+        return $this->distance;
+    }
+
+    /**
+     * @param $tag
+     * @return $this
+     */
+    public function addTag($tag)
+    {
+        $this->tags[] = $tag;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }

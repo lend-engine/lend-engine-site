@@ -9,10 +9,6 @@
             <p>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 Hello, {{ app.user.firstName }}. &nbsp;&nbsp;
-
-                {#{% if is_granted('ROLE_ADMIN') %}#}
-                {#<a href="{{ path('homepage') }}" style="padding: 0 10px"><i class="fa fa-wrench"></i><span class="hidden-xs"> {% trans %}public_misc.link_admin{% endtrans %}</span></a>#}
-                {#{% endif %}#}
                 <a href="{{ path('fos_user_profile_show') }}" style="padding: 0 10px">My account</a>
                 <a href="{{ path('fos_user_security_logout') }}" style="padding: 0 10px">Log out</a>
 
@@ -25,12 +21,17 @@
                 </span>
 
             {% else %}
-                <a href="{{ path('fos_user_registration_register') }}" style="padding: 0 10px">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
-                <a href="{{ path('fos_user_security_login') }}" style="padding: 0 10px">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary pull-right">Add your organisation</a>
-
+                <a href="{{ path('fos_user_security_login') }}" class="pull-right" style="padding: 0 10px">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                <a href="{{ path('fos_user_registration_register') }}" class="pull-right">Add your organisation</a>
             {% endif %}
             </p>
+
+        {% if is_granted("ROLE_ADMIN") %}
+            <div>
+                <a href="{{ path('admin_libraries') }}">Organisations</a> |
+                <a href="{{ path('admin_owners') }}">Owners</a>
+            </div>
+        {% endif %}
         </div>
     </div>
 </div>
