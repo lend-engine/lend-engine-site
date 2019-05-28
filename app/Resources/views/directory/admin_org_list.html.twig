@@ -44,7 +44,7 @@
                                     {% endfor %}
                                     <a href="{{ path('site', {id: org.id}) }}" class="small">Add site</a>
                                 </td>
-                                <td>{{ org.owner.email }}</td>
+                                <td>{% if org.owner %}{{ org.owner.email }}{% endif %}</td>
                                 <td>{{ org.website }}</td>
                                 <td>{{ org.lends }}</td>
                                 <td>

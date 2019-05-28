@@ -201,11 +201,11 @@ class Org
     /**
      * Set owner.
      *
-     * @param int $owner
+     * @param Contact $owner
      *
      * @return Org
      */
-    public function setOwner($owner)
+    public function setOwner(Contact $owner)
     {
         $this->owner = $owner;
 

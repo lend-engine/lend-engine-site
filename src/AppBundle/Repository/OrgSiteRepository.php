@@ -28,11 +28,11 @@ class OrgSiteRepository extends \Doctrine\ORM\EntityRepository
             $builder->andWhere("(org.lends = 'none' {$sql})");
         }
 
+        $builder->andWhere("org.status = 'ACTIVE'");
+
         $builder->setMaxResults(50);
 
         $query = $builder->getQuery();
         return $query->getResult();
     }
-
-
 }

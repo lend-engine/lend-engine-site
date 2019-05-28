@@ -41,7 +41,7 @@ class DirectorySearchType extends AbstractType
             'Within 50 miles' => 50,
             'Within 100 miles' => 100,
             'Within 500 miles' => 500,
-            'All' => 10000
+            'All' => 100000
         ];
         $builder->add('distance', ChoiceType::class, array(
             'label' => 'Distance',

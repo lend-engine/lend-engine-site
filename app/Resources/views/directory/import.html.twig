@@ -1,0 +1,40 @@
+{% extends 'directory.html.twig' %}
+
+{% block title %}A directory of lending organisations{% endblock %}
+
+{% block head %}
+    <script type="text/javascript"></script>
+{% endblock %}
+
+{% block hero %}
+    <section id="feature-heading">
+        <div class="container">
+            <h2>Organisation directory &raquo; Import</h2>
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    {% if help is defined %}
+                        <span class="help">{{ help }}</span>
+                    {% endif %}
+
+                    {{ form_row(form.csv_data) }}
+
+                    <input type="submit" class="btn btn-primary" value="Import">
+
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
