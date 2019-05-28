@@ -5,6 +5,7 @@ imports:
 
 parameters:
     locale: en
+    aws_key: ~
 
 framework:
     secret:          "%secret%"
