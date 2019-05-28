@@ -35,7 +35,7 @@ class OrgType extends AbstractType
 
         $builder->add('email', TextType::class, array(
             'label' => 'Contact email address',
-            'required' => true,
+            'required' => false,
         ));
 
         $builder->add('owner', EntityType::class, [
@@ -44,7 +44,7 @@ class OrgType extends AbstractType
             'class' => 'AppBundle:Contact',
             'choice_label' => 'email',
             'placeholder' => '- select owner -',
-            'required' => true,
+            'required' => false,
         ]);
 
         $choices = [
