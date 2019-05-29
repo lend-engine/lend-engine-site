@@ -42,17 +42,17 @@
 </nav>
 
 <div class="row" style="padding: 10px;">
+    <div class="col-md-4">
+        &nbsp;&nbsp;Hello, {{ app.user.firstName }}. &nbsp;&nbsp;
+        <a href="{{ path('fos_user_profile_show') }}" style="padding: 0 10px">My account</a>
+        <a href="{{ path('fos_user_security_logout') }}" style="padding: 0 10px">Log out</a>
+    </div>
     <div class="col-md-8">
         <a href="{{ path('admin_libraries') }}" style="padding: 0 10px;">Organisations</a>
         <a href="{{ path('admin_owners') }}" style="padding: 0 10px;">Owners</a>
         <a href="{{ path('import') }}" style="padding: 0 10px;">Import</a>
         <a href="{{ path('org') }}" class="pull-right" style="padding: 0 10px;">Add org</a>
         <a href="{{ path('admin_contact') }}" class="pull-right" style="padding: 0 10px;">Add contact</a>
-    </div>
-    <div class="col-md-4">
-        Hello, {{ app.user.firstName }}. &nbsp;&nbsp;
-        <a href="{{ path('fos_user_profile_show') }}" style="padding: 0 10px">My account</a>
-        <a href="{{ path('fos_user_security_logout') }}" style="padding: 0 10px">Log out</a>
     </div>
 </div>
 

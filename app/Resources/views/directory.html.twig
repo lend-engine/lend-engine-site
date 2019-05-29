@@ -12,6 +12,10 @@
                 <a href="{{ path('fos_user_profile_show') }}" style="padding: 0 10px">My account</a>
                 <a href="{{ path('fos_user_security_logout') }}" style="padding: 0 10px">Log out</a>
 
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('admin_libraries') }}" style="padding: 0 10px">Admin</a>
+                {% endif %}
+
                 <span class="pull-right">
                     {% if app.user.org %}
                         Organisation: <strong>{{ app.user.org.name }}</strong>

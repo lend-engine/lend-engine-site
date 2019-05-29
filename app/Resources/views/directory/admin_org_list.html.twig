@@ -16,13 +16,14 @@
                         <td>Owner</td>
                         <td>Website</td>
                         <td>Lends</td>
+                        <td> </td>
                     </tr>
                     </thead>
                     <tbody>
                     {% for org in orgs %}
                         <tr>
                             <td>
-                                <a href="{{ path('org', {id: org.id}) }}">{{ org.name }}</a>
+                                <a href="{{ path('org', {id: org.id}) }}"><nobr>{{ org.name }}</nobr></a>
                                 <br>
                                 {% for site in org.sites %}
                                     <div class="small" style="padding: 4px;">
@@ -40,6 +41,13 @@
                                 {% for tag in tags %}
                                     <div>{{ tag }}</div>
                                 {% endfor %}
+                            </td>
+                            <td>
+                                {% if org.status == "ACTIVE" %}
+                                    <span class="label label-success">Active</span>
+                                {% else %}
+                                    <span class="label label-warning">Hidden</span>
+                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}
