@@ -188,7 +188,9 @@
 {% block pagescripts %}
     <script>
         $(document).ready(function(){
-            getLocation();
+            if (!$("#directory_search_latitude").val()) {
+                getLocation();
+            }
         });
         function getLocation() {
             if (navigator.geolocation) {

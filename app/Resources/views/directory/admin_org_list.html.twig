@@ -1,62 +1,66 @@
-{% extends 'directory.html.twig' %}
+{% extends 'directory/admin.html.twig' %}
 
 {% block title %}A directory of lending organisations{% endblock %}
 
-{% block head %}
-    <script type="text/javascript"></script>
-{% endblock %}
-
-{% block hero %}
-    <section id="feature-heading">
-        <div class="container">
-            <h2>Organisation directory &raquo; Org list admin</h2>
-        </div>
-    </section>
-{% endblock %}
+{% block head %}{% endblock %}
 
 {% block body %}
-    <section id="feature1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="{{ path('org') }}" class="btn btn-primary pull-right">Add org</a>
-                    <table class="dataTable table table-hover">
-                        <thead>
+    <div style="padding: 20px;">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="dataTable table table-hover">
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Added</td>
+                        <td>Owner</td>
+                        <td>Website</td>
+                        <td>Lends</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for org in orgs %}
                         <tr>
-                            <td>Name</td>
-                            <td>Owner</td>
-                            <td>Website</td>
-                            <td>Lends</td>
-                            <td> </td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for org in orgs %}
-                            <tr>
-                                <td>
-                                    {{ org.name }}
-                                    <br>
-                                    {% for site in org.sites %}
+                            <td>
+                                <a href="{{ path('org', {id: org.id}) }}">{{ org.name }}</a>
+                                <br>
+                                {% for site in org.sites %}
                                     <div class="small" style="padding: 4px;">
                                         <a class="small" href="{{ path('site', {id: org.id, siteId: site.id}) }}">{{ site.name }}</a>
                                         <br>{{ site.latitude|number_format(2) }}, {{ site.longitude|number_format(2) }}
                                     </div>
-                                    {% endfor %}
-                                    <a href="{{ path('site', {id: org.id}) }}" class="small">Add site</a>
-                                </td>
-                                <td>{% if org.owner %}{{ org.owner.email }}{% endif %}</td>
-                                <td>{{ org.website }}</td>
-                                <td>{{ org.lends }}</td>
-                                <td>
-                                    <a href="{{ path('org', {id: org.id}) }}">Edit</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                                {% endfor %}
+                                <a href="{{ path('site', {id: org.id}) }}" class="small">Add site</a>
+                            </td>
+                            <td>{{ org.createdAt|date() }}</td>
+                            <td>{% if org.owner %}{{ org.owner.email }}{% endif %}</td>
+                            <td>{{ org.website }}</td>
+                            <td>
+                                {% set tags = org.lends|split(',') %}
+                                {% for tag in tags %}
+                                    <div>{{ tag }}</div>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
 
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+
+{% endblock %}
+
+{% block pagescripts %}
+    <script>
+    $(document).ready( function () {
+        $('.dataTable').DataTable({
+            ordering: true,
+            pageLength: 100,
+            "order": [[ 1, "desc" ]]
+        });
+    } );
+</script>
 {% endblock %}

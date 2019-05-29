@@ -19,6 +19,7 @@ class OrgRepository extends \Doctrine\ORM\EntityRepository
         $tags = [
             'assistive' => "Assistive technology",
             'audiovisual' => "Audio visual equipment",
+            'education' => "Educational equipment",
             'house' => "Home & Garden",
             'kitchen' => "Kitchen / catering",
             'slings' => "Slings / baby carriers",

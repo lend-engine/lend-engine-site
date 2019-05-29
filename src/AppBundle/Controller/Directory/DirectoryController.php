@@ -14,6 +14,9 @@ class DirectoryController extends Controller
      */
     public function directoryShowAction(Request $request)
     {
+        /** @var \Symfony\Component\HttpFoundation\Session\Session $session */
+        $session = $this->get('session');
+
         /** @var \AppBundle\Repository\OrgSiteRepository $repo */
         $repo = $this->getDoctrine()->getRepository('AppBundle:OrgSite');
 
@@ -21,22 +24,24 @@ class DirectoryController extends Controller
         $orgRepo = $this->getDoctrine()->getRepository('AppBundle:Org');
         $allTags = $orgRepo->getTags();
 
-        if ($home = $request->get('locate')) {
-            $zoom = 10;
-        } else {
-            $home = 'SA43 1QA';
-            $zoom = 2;
-        }
-
         $options = [
             'tags' => $orgRepo->getTags(true)
         ];
         $form = $this->createForm(DirectorySearchType::class, null, $options);
 
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-
+        // Preset form values
+        if ($lat = $session->get('lat')) {
+            $form->get('latitude')->setData($lat);
         }
+        if ($long = $session->get('long')) {
+            $form->get('longitude')->setData($long);
+        }
+
+
+        $form->handleRequest($request);
+//        if ($form->isSubmitted() && $form->isValid()) {
+//
+//        }
 
         $filters = [];
         if ($string = $form->get('search')->getData()) {
@@ -48,13 +53,15 @@ class DirectoryController extends Controller
         // Get sites for the map
         $sites = $repo->search($filters);
 
-        // Merge in the distances
-        $lat  = $form->get('latitude')->getData();
-        $long = $form->get('longitude')->getData();
-
-        // Default to London
-        if (!$lat || !$long) {
-            $lat  = 51.5285578;
+        // Use the long and lat from the form else default to London
+        if ($lat = $form->get('latitude')->getData()) {
+            $session->set('lat', $lat);
+        } else {
+            $lat = 51.5285578;
+        }
+        if ($long  = $form->get('longitude')->getData()) {
+            $session->set('long', $long);
+        } else {
             $long = -0.2420229;
         }
 
@@ -114,8 +121,8 @@ class DirectoryController extends Controller
 //        ];
 
         return $this->render('directory/home.html.twig', [
-            'map_home' => $home,
-            'map_zoom' => $zoom,
+            'lat'  => $lat,
+            'long' => $long,
             'sites' => $sites,
             'tags' => $allTags,
             'form' => $form->createView()

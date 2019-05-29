@@ -25,14 +25,6 @@
                 <a href="{{ path('fos_user_registration_register') }}" class="pull-right">Add your organisation</a>
             {% endif %}
             </p>
-
-        {% if is_granted("ROLE_ADMIN") %}
-            <div>
-                <a href="{{ path('admin_libraries') }}">Organisations</a> |
-                <a href="{{ path('admin_owners') }}">Owners</a> |
-                <a href="{{ path('import') }}">Import</a>
-            </div>
-        {% endif %}
         </div>
     </div>
 </div>
