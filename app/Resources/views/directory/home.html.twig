@@ -16,6 +16,9 @@
         .site-website a {
             font-size: 12px;
         }
+        .site-email {
+            font-size: 12px;
+        }
         .site-address {
             font-size: 11px;
             color: #aaa;
@@ -64,7 +67,7 @@
 
             {% for site in sites %}
             {% if site.latitude and site.latitude %}
-                marker = addMarker(map, "{{ site.org.name }}", "{{ site.org.website }}", "{{ site.address }}", {{ site.latitude }}, {{ site.longitude }});
+                marker = addMarker(map, "{{ site.org.name }}", "{{ site.org.website }}", "{{ site.org.email }}", "{{ site.address }}", {{ site.latitude }}, {{ site.longitude }});
                 markers.push(marker);
             {% endif %}
             {% endfor %}
@@ -77,13 +80,14 @@
             map.fitBounds(bounds);
         }
 
-        function addMarker(map, name, website, address, lat, long) {
+        function addMarker(map, name, website, email, address, lat, long) {
             var marker;
             var position = {lat: lat, lng: long};
 
             var contentString = '<h4 id="firstHeading" class="firstHeading">'+name+'</h4>'+
-            '<div id="bodyContent">'+address+'<br><br>'+
-            '<a href="'+website+'" target="_blank">'+website+'<br> '+
+            '<div id="bodyContent">'+address+'<br>'+
+            ''+email+'<br> '+
+            '<a style="font-size: 12px" href="'+website+'" target="_blank">'+website+'<br> '+
             '</div>';
 
             var infowindow = new google.maps.InfoWindow({
@@ -169,6 +173,7 @@
                         <div class="site">
                             <div class="site-name">{{ site.org.name }}</div>
                             <div class="site-website"><a href="{{ site.org.website }}" target="_blank">{{ site.org.website }}</a></div>
+                            <div class="site-email">{{ site.org.email }}</div>
                             <div class="site-address">{{ site.address }}, {{ site.country }}</div>
                             <div class="site-labels">
                                 {% for tag in site.tags %}
