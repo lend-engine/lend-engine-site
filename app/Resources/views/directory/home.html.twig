@@ -157,7 +157,7 @@
     <section id="feature1">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <style type="text/css">
                         #map
                         {
@@ -167,8 +167,18 @@
                         }
                     </style>
                     <div id="map"></div>
+
+                    <div>
+                        <br>
+                        <h3>Get involved ...</h3>
+                        <p>You can help build the lending economy. Don't buy, borrow!</p>
+                        <p>
+                            If you know a library of things near you that's not on the list, please <a href="{{ path('page_contact') }}">get in touch</a> and we'll add it.
+                            <br>SHARE the directory on your social channels. The more people that know, the better.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     {% for site in sites %}
                         <div class="site">
                             <div class="site-name">{{ site.org.name }}</div>

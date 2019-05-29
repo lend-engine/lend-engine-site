@@ -22,6 +22,7 @@ class OrgRepository extends \Doctrine\ORM\EntityRepository
             'education' => "Educational equipment",
             'house' => "Home & Garden",
             'kitchen' => "Kitchen / catering",
+            'repair' => "Repair cafe",
             'slings' => "Slings / baby carriers",
             'nappies' => "Nappies",
             'toys' => "Toys",

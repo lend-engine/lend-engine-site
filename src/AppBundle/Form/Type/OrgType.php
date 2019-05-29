@@ -58,20 +58,20 @@ class OrgType extends AbstractType
         ));
 
         $builder->add('lends', ChoiceType::class, array(
-            'label' => 'What do you lend?',
+            'label' => 'Tags for search filters',
             'choices' => $this->tags,
             'data' => explode(',',$data->getLends()),
             'expanded' => true,
             'multiple' => true,
             'required' => true,
             'attr' => [
-                'data-help' => "Used in the directory search filters."
+                'data-help' => "Choose what you lend or do."
             ]
         ));
 
         $builder->add('website', TextType::class, array(
             'label' => 'Website',
-            'required' => false,
+            'required' => true,
         ));
     }
 
