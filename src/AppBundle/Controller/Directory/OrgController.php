@@ -37,11 +37,6 @@ class OrgController extends Controller
 
         if ($this->getUser()->hasRole('ROLE_ADMIN')) {
             $owners = $this->getDoctrine()->getRepository('AppBundle:Contact')->findAll();
-            foreach ($owners AS $owner) {
-//                if ($owner->getOrg()) {
-//                    $owner->setEmail($owner->getEmail().' ('.$owner->getOrg()->getName().')');
-//                }
-            }
         } else {
             $owners = [$this->getUser()];
         }

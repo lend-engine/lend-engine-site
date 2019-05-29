@@ -81,6 +81,7 @@ class OrgType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
+            'validation_groups' => ['Org'],
             'owners' => null,
             'tags' => null,
         ));

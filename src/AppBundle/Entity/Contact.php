@@ -53,7 +53,6 @@ class Contact extends BaseUser
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"basket"})
      */
     protected $id;
 
@@ -66,7 +65,6 @@ class Contact extends BaseUser
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=32, nullable=true)
-     * @Groups({"basket"})
      */
     protected $firstName;
 
@@ -74,7 +72,6 @@ class Contact extends BaseUser
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=32, nullable=true)
-     * @Groups({"basket"})
      */
     protected $lastName;
 

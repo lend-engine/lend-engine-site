@@ -1,17 +1,7 @@
 <div class="row">
     <div class="col-md-12">
 
-        <h1>Add your organisation &raquo; Step 1 of 2</h1>
-
-        <div class="page-intro">
-            <p>
-                First you'll need to add yourself as the organisation manager.
-            </p>
-            <p>
-                Fill out this form, and we'll send you a confirmation email.
-                Once you've verified your details, you can add your organisation.
-            </p>
-        </div>
+        <h1>Add your organisation</h1>
 
         <form action="{{ path('fos_user_registration_register') }}" method="POST" class="fos_user_registration_register">
 
@@ -31,7 +21,19 @@
                 </div>
 
                 <div class="col-md-6">
-
+                    <p>
+                        <strong>Step 1 : Register as an organisation manager</strong>
+                        <br>Fill out this form, and we'll send you a confirmation email.
+                        <br>Once you've verified your details, you can add your organisation.
+                    </p>
+                    <p style="color:#ccc">
+                        <strong>Step 2 : Add an organisation</strong>
+                        <br>From the 'My account' screen, add your organisation details.
+                    </p>
+                    <p style="color:#ccc">
+                        <strong>Step 3 : Add sites</strong>
+                        <br>Finally, add as many sites (addresses) as you need for your organisation.
+                    </p>
                 </div>
 
             </div>

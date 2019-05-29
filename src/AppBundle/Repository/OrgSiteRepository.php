@@ -23,7 +23,7 @@ class OrgSiteRepository extends \Doctrine\ORM\EntityRepository
         if (isset($filters['tags']) && $filters['tags']) {
             $sql = '';
             foreach ($filters['tags'] AS $tag) {
-                $sql .= " OR org.lends LIKE '{$tag}' ";
+                $sql .= " OR org.lends LIKE '%{$tag}%' ";
             }
             $builder->andWhere("(org.lends = 'none' {$sql})");
         }
