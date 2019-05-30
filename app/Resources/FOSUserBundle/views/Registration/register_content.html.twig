@@ -11,13 +11,19 @@
             <div class="row">
 
                 <div class="col-md-6">
+
                     <div class="row">
                         <div class="col-md-6">{{ form_row(form.firstName) }}</div>
                         <div class="col-md-6">{{ form_row(form.lastName) }}</div>
                     </div>
+
                     {{ form_row(form.email) }}
                     {{ form_row(form.plainPassword) }}
-                    <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary btn-block btn-flat pull-right" />
+
+                    <div class="form-group">
+                        <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary btn-block btn-flat" />
+                    </div>
+
                 </div>
 
                 <div class="col-md-6">
