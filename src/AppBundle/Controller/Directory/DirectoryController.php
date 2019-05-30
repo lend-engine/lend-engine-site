@@ -91,6 +91,11 @@ class DirectoryController extends Controller
                     $site->setDistance($distance);
                 }
             }
+
+            $website = str_replace('http://', '', $site->getOrg()->getWebsite());
+            $website = str_replace('https://', '', $website);
+
+            $site->getOrg()->setWebsite($website);
             $n++;
         }
 
