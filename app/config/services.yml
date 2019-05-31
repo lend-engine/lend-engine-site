@@ -37,3 +37,11 @@ services:
             - "@service_container"
             - "@twig"
             - "@router"
+
+    fos_user.registration.controller:
+        class: AppBundle\Controller\Directory\OrgRegistrationController
+        arguments:
+            $eventDispatcher: '@event_dispatcher'
+            $formFactory: '@fos_user.registration.form.factory'
+            $userManager: '@fos_user.user_manager'
+            $tokenStorage: '@security.token_storage'

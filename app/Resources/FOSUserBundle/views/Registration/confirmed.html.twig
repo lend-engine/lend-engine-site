@@ -7,15 +7,14 @@
 {% block fos_user_content %}
     <h1>Welcome!</h1>
 
-
     <p class="large-text">
-        Your account is activated and you're now logged in. Next step is to add your organisation, and then add any sites.
+        Your account is activated and you're now logged in. Go to My account to manage your details.
     </p>
 
     <p>&nbsp;</p>
 
     <p>
-        <a href="{{ path('org') }}" class="btn btn-primary">Add an organisation</a>
+        <a href="{{ path('fos_user_profile_show') }}" class="btn btn-primary">Go to my account</a>
     </p>
 
 {% endblock fos_user_content %}

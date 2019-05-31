@@ -9,39 +9,40 @@
             {{ form_errors(form) }}
 
             <div class="row">
-
-                <div class="col-md-6">
-
-                    <div class="row">
-                        <div class="col-md-6">{{ form_row(form.firstName) }}</div>
-                        <div class="col-md-6">{{ form_row(form.lastName) }}</div>
+                <div class="col-md-4">
+                    <h4>About your organisation</h4>
+                    {{ form_row(form.orgName) }}
+                    {{ form_row(form.orgEmail) }}
+                    {{ form_row(form.website) }}
+                    {{ form_row(form.facebook) }}
+                    {{ form_row(form.tags) }}
+                </div>
+                <div class="col-md-4">
+                    <h4>Location / address</h4>
+                    {{ form_row(form.siteName) }}
+                    {{ form_row(form.address) }}
+                    {{ form_row(form.postcode) }}
+                    {{ form_row(form.description) }}
+                    {{ form_row(form.country) }}
+                    <div class="help-block">
+                        You can add further sites for this organisation once you've created your account.
                     </div>
-
+                </div>
+                <div class="col-md-4">
+                    <h4>Your details</h4>
+                    <div class="help-block">
+                        We'll add you as the owner so that you can log back in and make changes if you need in the future.
+                    </div>
+                    {{ form_row(form.firstName) }}
+                    {{ form_row(form.lastName) }}
                     {{ form_row(form.email) }}
                     {{ form_row(form.plainPassword) }}
-
                     <div class="form-group">
-                        <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary btn-block btn-flat" />
+                        <input type="submit"
+                               value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"
+                               class="btn btn-primary btn-block btn-flat" />
                     </div>
-
                 </div>
-
-                <div class="col-md-6">
-                    <p>
-                        <strong>Step 1 : Register as an organisation manager</strong>
-                        <br>Fill out this form, and we'll send you a confirmation email.
-                        <br>Once you've verified your details, you can add your organisation.
-                    </p>
-                    <p style="color:#ccc">
-                        <strong>Step 2 : Add an organisation</strong>
-                        <br>From the 'My account' screen, add your organisation details.
-                    </p>
-                    <p style="color:#ccc">
-                        <strong>Step 3 : Add sites</strong>
-                        <br>Finally, add as many sites (addresses) as you need for your organisation.
-                    </p>
-                </div>
-
             </div>
 
             {{ form_end(form) }}
@@ -49,7 +50,5 @@
         </form>
     </div>
 </div>
-
-{% block pagejs %}{% endblock %}
 
 
