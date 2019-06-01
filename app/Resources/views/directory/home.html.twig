@@ -179,22 +179,25 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    {% for site in sites %}
-                        <div class="site">
-                            <div class="site-name">{{ site.org.name }}</div>
-                            <div class="site-website"><a href="http://{{ site.org.website }}" target="_blank">{{ site.org.website }}</a></div>
-                            <div class="site-email">{{ site.org.email }}</div>
-                            <div class="site-address">{{ site.address }}, {{ site.country }}</div>
-                            <div class="site-labels">
-                                {% for tag in site.tags %}
-                                    <span class="label label-success">{{ tag.name }}</span>
-                                {% endfor %}
+                    <div style="max-height: 600px; overflow: scroll;">
+                        {% for site in sites %}
+                            <div class="site">
+                                <div class="site-name">{{ site.org.name }}</div>
+                                <div class="site-website"><a href="http://{{ site.org.website }}" target="_blank">{{ site.org.website }}</a></div>
+                                <div class="site-email">{{ site.org.email }}</div>
+                                <div class="site-address">{{ site.address }}, {{ site.country }}</div>
+                                <div class="site-labels">
+                                    {% for tag in site.tags %}
+                                        <span class="label label-success">{{ tag.name }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% if site.distance %}
+                                    {#<div class="site-distance">{{ site.distance }} miles</div>#}
+                                {% endif %}
                             </div>
-                            {% if site.distance %}
-                                {#<div class="site-distance">{{ site.distance }} miles</div>#}
-                            {% endif %}
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
+
                 </div>
             </div>
         </div>

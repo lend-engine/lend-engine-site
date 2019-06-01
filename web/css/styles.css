@@ -541,6 +541,13 @@ footer ul.industries>li img {
     margin-top: 20px;
 }
 
+@media (min-width: 768px) {
+    .navbar-right .dropdown-menu {
+        right: auto;
+    }
+}
+    
+    
 @media screen and ( max-width: 991px ) {
     .templatemo-box {
         margin-bottom: 30px;

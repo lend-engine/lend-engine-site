@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block h1 %}About the Lend Engine{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <h1>
+                Free data migration for users upgrading from miBase
+            </h1>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        If you're using miBase for your toy library and outgrowing its capabilities,
+                        or want a more modern platform that helps your members self serve better,
+                        as well as saving your volunteers time, then why not take a trial of the Lend Engine?
+                    </p>
+
+                    <br><h3>Free data load</h3>
+                    <p>
+                        We'll load your items and members into Lend Engine for <strong>FREE</strong> if you decide to move from miBase, even onto our free plan.
+                    </p>
+
+                    <br><h3>It's easy</h3>
+                    <p>
+                        Lend Engine is 100% online with no hosting complications; just sign up for your own account and start loading items and members.
+                    </p>
+
+                    <br><h3>It's cost effective</h3>
+                    <p>
+                        We have a pay plan that's free forever, which many libraries manage fine with.
+                        If your library is larger, then our plans aren't expensive - and we can do special offers for non-profits.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h4>
+                        Supercharge your toy library:
+                        <br><br>Migrate to Lend Engine - a modern software platform for modern toy libraries.
+                    </h4>
+                    <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Start my free trial now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

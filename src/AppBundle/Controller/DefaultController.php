@@ -34,6 +34,14 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/upgrading-from-mibase", name="mibase")
+     */
+    public function mibaseAction(Request $request)
+    {
+        return $this->render('default/mibase.html.twig', []);
+    }
+
+    /**
      * @Route("/automation", name="page_automation")
      */
     public function automationAction(Request $request)

@@ -1,6 +1,27 @@
+{% if app.request.get('_route_params') %}
+    {% set slug = app.request.get('_route_params').slug %}
+{% else %}
+    {% set slug = 'none' %}
+{% endif %}
 <ul class="nav navbar-nav navbar-right text-uppercase">
     <li><a href="{{ path('directory') }}">DIRECTORY</a></li>
-    <li><a href="{{ path('features', {slug: "items"}) }}">Features</a></li>
+    <li>
+        <a class="dropdown-toggle" id="features" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="{{ path('features', {slug: "items"}) }}">Features <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="features">
+            <li><a href="{{ path('features', {slug: "loans"}) }}" class="{% if slug == 'loans' %}active{% endif %}">Loans & rentals</a></li>
+            <li><a href="{{ path('features', {slug: "items"}) }}" class="{% if slug == 'items' %}active{% endif %}">Item management</a></li>
+            <li><a href="{{ path('features', {slug: "asset_management"}) }}" class="{% if slug == 'asset_management' %}active{% endif %}">Asset tracking</a></li>
+            <li><a href="{{ path('features', {slug: "automation"}) }}" class="{% if slug == 'automation' %}active{% endif %}">Automation</a></li>
+            <li><a href="{{ path('features', {slug: "barcode_tracking"}) }}" class="{% if slug == 'barcode_tracking' %}active{% endif %}">Barcodes & labels</a></li>
+            {#<li><a href="{{ path('features', {slug: "rentals"}) }}" class="{% if slug == 'rentals' %}active{% endif %}">Rental management</a></li>#}
+            <li><a href="{{ path('features', {slug: "members"}) }}" class="{% if slug == 'members' %}active{% endif %}">Memberships</a></li>
+            <li><a href="{{ path('features', {slug: "payments"}) }}" class="{% if slug == 'payments' %}active{% endif %}">Payments &amp; Fees</a></li>
+            <li><a href="{{ path('features', {slug: "member_site"}) }}" class="{% if slug == 'member_site' %}active{% endif %}">Member site</a></li>
+            {#<li><a href="{{ path('features', {slug: "costs"}) }}" class="{% if slug == 'costs' %}active{% endif %}">Cost monitoring</a></li>#}
+            <li><a href="{{ path('features', {slug: "sites"}) }}" class="{% if slug == 'sites' %}active{% endif %}">Multi site & location</a></li>
+            <li><a href="{{ path('features', {slug: "languages"}) }}" class="{% if slug == 'languages' %}active{% endif %}">Languages</a></li>
+        </ul>
+    </li>
     <li><a href="{{ path('page_pricing') }}">Pricing</a></li>
     <li><a href="{{ path('login') }}">Log in</a></li>
     <li><a href="{{ path('signup') }}" class="menu-signup">Sign up</a></li>

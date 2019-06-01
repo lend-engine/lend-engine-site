@@ -64,6 +64,26 @@ class FOSMailer implements MailerInterface
         } catch (\Exception $e) {
 
         }
+
+        try {
+            $message = $this->twig->render(
+                "emails/basic.html.twig",
+                array(
+                    'message' => "New organisation added to directory: ".$user->getEmail()
+                )
+            );
+            $client = new PostmarkClient($postmarkApiKey);
+            $client->sendEmail(
+                "Lend Engine <{$fromEmail}>",
+                "chris@lend-engine.com",
+                "New directory registration : ".$user->getEmail(),
+                $message
+            );
+        } catch (PostmarkException $e) {
+
+        } catch (\Exception $e) {
+
+        }
     }
 
     /**
