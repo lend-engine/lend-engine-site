@@ -315,7 +315,7 @@ class Contact extends BaseUser
      * @param $createdBy
      * @return $this
      */
-    public function setCreatedBy(Contact $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 
