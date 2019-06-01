@@ -50,7 +50,7 @@ class SearchController extends Controller
 
                     $website = str_replace('http://', '', $site->getOrg()->getWebsite());
                     $website = str_replace('https://', '', $website);
-                    
+
                     $data[] = [
                         "name" => $site->getOrg()->getName(),
                         "email" => $site->getOrg()->getEmail(),
