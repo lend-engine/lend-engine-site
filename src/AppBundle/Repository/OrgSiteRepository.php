@@ -34,7 +34,7 @@ class OrgSiteRepository extends \Doctrine\ORM\EntityRepository
 
         $builder->andWhere("org.status = 'ACTIVE'");
 
-        $builder->setMaxResults(50);
+        $builder->setMaxResults(500);
 
         $query = $builder->getQuery();
         return $query->getResult();
