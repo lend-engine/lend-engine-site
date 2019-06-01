@@ -29,12 +29,12 @@ class OrgType extends AbstractType
         $data = $builder->getData();
 
         $builder->add('name', TextType::class, array(
-            'label' => 'Name',
+            'label' => 'Organisation name',
             'required' => true,
         ));
 
         $builder->add('email', TextType::class, array(
-            'label' => 'Contact email address',
+            'label' => 'Organisation email address',
             'required' => false,
         ));
 
@@ -71,7 +71,12 @@ class OrgType extends AbstractType
 
         $builder->add('website', TextType::class, array(
             'label' => 'Website',
-            'required' => true,
+            'required' => false,
+        ));
+
+        $builder->add('facebook', TextType::class, array(
+            'label' => 'Facebook page',
+            'required' => false,
         ));
     }
 

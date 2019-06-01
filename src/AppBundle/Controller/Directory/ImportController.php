@@ -89,9 +89,11 @@ class ImportController extends Controller
                     $contact = $org->getOwner();
                 } else {
                     $org = new Org();
+                    $org->setCreatedBy($this->getUser());
 
                     if ($item[2]) {
                         $contact = new Contact();
+                        $contact->setCreatedBy($this->getUser());
                         $contact->setPlainPassword(rand());
                         $contact->setUsername($item[2]);
 
@@ -152,17 +154,6 @@ class ImportController extends Controller
             'form' => $form->createView(),
             'headerKeys' => $this->getHeaderKeys()
         ]);
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    private function abortImportWithErrors()
-    {
-        foreach ($this->errors AS $error) {
-            $this->addFlash('error', 'Failed : '.$error);
-        }
-        return $this->redirectToRoute('import_items');
     }
 
     private function validateCell($data, $type)

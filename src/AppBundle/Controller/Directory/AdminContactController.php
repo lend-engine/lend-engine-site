@@ -34,6 +34,7 @@ class AdminContactController extends Controller
             }
         } else {
             $contact = new Contact();
+            $contact->setCreatedBy($this->getUser());
         }
 
         $form = $this->createForm(ContactType::class, $contact);

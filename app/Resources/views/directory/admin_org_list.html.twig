@@ -14,6 +14,7 @@
                         <td>Name</td>
                         <td>Added</td>
                         <td>Owner</td>
+                        <td>Added by</td>
                         <td>Website</td>
                         <td>Lends</td>
                         <td> </td>
@@ -35,6 +36,13 @@
                             </td>
                             <td>{{ org.createdAt|date() }}</td>
                             <td>{% if org.owner %}{{ org.owner.email }}{% endif %}</td>
+                            <td>
+                                {% if org.createdBy == org.owner %}
+                                    <strong>Self</strong>
+                                {% else %}
+                                    {{ org.createdBy.firstName }} {{ org.createdBy.lastName }}
+                                {% endif %}
+                            </td>
                             <td>{{ org.website }}</td>
                             <td>
                                 {% set tags = org.lends|split(',') %}

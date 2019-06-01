@@ -35,7 +35,7 @@ class Org
     /**
      * @var string
      *
-     * @ORM\Column(name="website", type="string", length=255)
+     * @ORM\Column(name="website", type="string", length=255, nullable=true)
      */
     private $website;
 
@@ -71,7 +71,7 @@ class Org
     /**
      * @var string
      *
-     * @ORM\Column(name="lends", type="string", length=255)
+     * @ORM\Column(name="lends", type="string", length=255, nullable=true)
      */
     private $lends;
 
@@ -85,7 +85,7 @@ class Org
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 
@@ -95,6 +95,14 @@ class Org
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
     private $createdAt;
+
+    /**
+     * @var Contact
+     *
+     * @ORM\ManyToOne(targetEntity="Contact")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id", nullable=true)
+     */
+    private $createdBy;
 
     /**
      * @ORM\OneToMany(targetEntity="OrgSite", mappedBy="org", cascade={"remove"})
@@ -381,6 +389,25 @@ class Org
     public function addSite(OrgSite $site)
     {
         $this->sites[] = $site;
+
+        return $this;
+    }
+
+    /**
+     * @return Contact
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * @param $createdBy
+     * @return $this
+     */
+    public function setCreatedBy(Contact $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }

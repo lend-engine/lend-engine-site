@@ -12,11 +12,12 @@
                     <thead>
                     <tr>
                         <td>Name</td>
-                        <td> </td>
+                        <td>Last name</td>
+                        <td>Created by</td>
                         <td>Email</td>
                         <td>Org</td>
                         <td>Added</td>
-                        <td>Active</td>
+                        <td>Confirmed</td>
                         <td> </td>
                     </tr>
                     </thead>
@@ -25,6 +26,13 @@
                         <tr>
                             <td>{{ contact.firstName }}</td>
                             <td>{{ contact.lastName }}</td>
+                            <td>
+                                {% if contact.createdBy == contact %}
+                                    <strong>Self</strong>
+                                {% else %}
+                                    {{ contact.createdBy.firstName }} {{ contact.createdBy.lastName }}
+                                {% endif %}
+                            </td>
                             <td>{{ contact.email }}</td>
                             <td>
                                 {% if contact.org %}{{ contact.org.name }}{% endif %}
@@ -54,7 +62,7 @@
             $('.dataTable').DataTable({
                 ordering: true,
                 pageLength: 100,
-                "order": [[ 4, "desc" ]]
+                "order": [[ 5, "desc" ]]
             });
         } );
     </script>

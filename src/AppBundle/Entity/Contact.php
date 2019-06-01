@@ -87,6 +87,14 @@ class Contact extends BaseUser
      */
     private $createdAt;
 
+    /**
+     * @var Contact
+     *
+     * @ORM\ManyToOne(targetEntity="Contact")
+     * @ORM\JoinColumn(name="created_by", referencedColumnName="id", nullable=true)
+     */
+    private $createdBy;
+
     public function __construct()
     {
         parent::__construct();
@@ -293,5 +301,24 @@ class Contact extends BaseUser
     public function getIsActive()
     {
         return $this->isActive;
+    }
+
+    /**
+     * @return Contact
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * @param $createdBy
+     * @return $this
+     */
+    public function setCreatedBy(Contact $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
     }
 }

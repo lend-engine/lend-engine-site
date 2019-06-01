@@ -48,6 +48,7 @@ class OrgRegistrationController extends Controller
 
         $user = $this->userManager->createUser();
         $user->setEnabled(true);
+        $user->setCreatedBy($this->getUser());
 
         $event = new GetResponseUserEvent($user, $request);
         $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
@@ -82,6 +83,7 @@ class OrgRegistrationController extends Controller
                 }
                 $org->setEmail($email);
                 $org->setOwner($user);
+                $org->setCreatedBy($user);
                 $org->setLends(implode(',', $form->get('tags')->getData()));
                 $org->setStatus(Org::STATUS_ACTIVE);
                 $em->persist($org);

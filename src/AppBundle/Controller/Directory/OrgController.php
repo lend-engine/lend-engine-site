@@ -32,6 +32,7 @@ class OrgController extends Controller
         } else {
             $org = new Org();
             $org->setOwner($this->getUser());
+            $org->setCreatedBy($this->getUser());
             $mode = 'create';
         }
 

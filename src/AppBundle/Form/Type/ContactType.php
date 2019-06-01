@@ -2,6 +2,7 @@
 namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -29,6 +30,11 @@ class ContactType extends AbstractType
 
         $builder->add('email', TextType::class, array(
             'label' => 'Contact email address',
+            'required' => true,
+        ));
+
+        $builder->add('enabled', CheckboxType::class, array(
+            'label' => 'Email verified',
             'required' => true,
         ));
     }
