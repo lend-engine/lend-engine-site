@@ -5,24 +5,6 @@
 {% block head %}
 
     <style>
-        /*.site {*/
-            /*padding: 10px 0;*/
-            /*margin-bottom: 10px;*/
-            /*clear: left;*/
-        /*}*/
-        /*.site-name {*/
-            /*font-weight: bold;*/
-        /*}*/
-        /*.site-website a {*/
-            /*font-size: 12px;*/
-        /*}*/
-        /*.site-email {*/
-            /*font-size: 12px;*/
-        /*}*/
-        /*.site-address {*/
-            /*font-size: 11px;*/
-            /*color: #aaa;*/
-        /*}*/
         .listing-labels {
             padding: 4px 0;
         }
@@ -31,30 +13,20 @@
             margin-bottom: 2px;
             background-color: #97aab5;
         }
-        /*.site-distance {*/
-            /*clear:left;*/
-            /*display: block;*/
-        /*}*/
-        /*#filter-tags .filter-tag {*/
-            /*font-weight: normal;*/
-            /*margin-right: 6px;*/
-        /*}*/
-        /*#directory_search_tags {*/
-            /*padding-bottom: 10px;*/
-        /*}*/
-        /*#directory_search_tags div.checkbox {*/
-            /*display: inline; margin-right: 15px;*/
-        /*}*/
-        /*#directory_search_tags div.checkbox input {*/
-            /*position: relative;*/
-        /*}*/
         #map {
             height:450px;
             width:100%;
             display:block;
         }
-        /*Right table*/
-        #listings {
+        .gm-style .gm-style-iw-c {
+            border-radius: 0 !important;
+            padding: 15px !important;
+        }
+        div#listings-wrapper {
+            max-height: 500px;
+            overflow-y: scroll;
+        }
+        ul#listings {
             margin: 0;
             padding: 0;
         }
@@ -64,12 +36,20 @@
             border-bottom: 1px dotted #ccc;
             cursor: pointer;
         }
+        div.listing-address {
+            font-size: 11px;
+            color: #aaa;
+        }
         #iw-name {
-            font-size: 16px;
+            font-size: 14px;
             margin-bottom: 6px;
             font-weight: bold;
             padding-bottom: 6px;
             border-bottom: 1px solid #aaa;
+        }
+        .popup-info {
+            font-size: 12px;
+            padding: 2px 0;
         }
         .placeIcon {
             width: 20px;
@@ -169,7 +149,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <ul id="listings"></ul>
+                    <div id="listings-wrapper"><ul id="listings"></ul></div>
                 </div>
             </div>
         </div>
@@ -179,9 +159,9 @@
     <div style="display: none">
         <div id="info-content">
             <div id="iw-name"></div>
-            <div id="iw-email"></div>
-            <div id="iw-address"></div>
-            <div id="iw-website-holder"><a href="" target="_blank" id="iw-website"></a></div>
+            <div class="popup-info" id="iw-email"></div>
+            <div class="popup-info" id="iw-address"></div>
+            <div id="iw-website-holder"><a href="" target="_blank" class="popup-info" id="iw-website"></a></div>
         </div>
     </div>
 
@@ -430,7 +410,7 @@
             for(var n = 0; n < tags.length; n++) {
                 tagHTML += '<span class="label">'+tags[n]+'</span> ';
             }
-            $("#listings").append('<li class="listing-result" data-id="'+i+'"><table><tr><td style="width: 24px; vertical-align: top"><img src="'+markerIcon+'" class="placeIcon"></td><td style="vertical-align: top; padding-left: 6px;">'+result.name+' <div class="listing-labels">'+tagHTML+'</div></td></tr></table></li>');
+            $("#listings").append('<li class="listing-result" data-id="'+i+'"><table><tr><td style="width: 24px; vertical-align: top"><img src="'+markerIcon+'" class="placeIcon"></td><td style="vertical-align: top; padding-left: 6px;">'+result.name+' <div class="listing-address">'+result.address+'</div><div class="listing-labels">'+tagHTML+'</div></td></tr></table></li>');
         }
 
         function clearResults() {
@@ -447,6 +427,7 @@
                 $("#iw-email").html(marker.placeResult.email);
                 $("#iw-address").html(marker.placeResult.address);
                 if (marker.placeResult.website) {
+                    $("#iw-website-holder").show();
                     $("#iw-website").html(marker.placeResult.website).attr('href', 'http://'+marker.placeResult.website);
                 } else {
                     $("#iw-website-holder").hide();
