@@ -47,13 +47,17 @@ class SearchController extends Controller
                 $distance = round($this->getDistance($searchLat, $searchLong, $lat, $long), 1);
                 if ($distance <= $radius) {
                     $site->setDistance($distance);
+
+                    $website = str_replace('http://', '', $site->getOrg()->getWebsite());
+                    $website = str_replace('https://', '', $website);
+                    
                     $data[] = [
                         "name" => $site->getOrg()->getName(),
                         "email" => $site->getOrg()->getEmail(),
                         "tags" => $site->getOrg()->getLends(),
                         "address" => $site->getAddress(),
                         "opening_hours" => 'hours here',
-                        "website"  => $site->getOrg()->getWebsite(),
+                        "website"  => $website,
                         'siteId'   => $site->getId(),
                         'position' => ['lat' => (float)$lat, 'lng' => (float)$long]
                     ];
