@@ -204,12 +204,20 @@
                 center: {lat: -25.3, lng: 133.8},
                 zoom: 4
             },
+            'be': {
+                center: {lat: 50.5, lng: 3.3},
+                zoom: 8
+            },
             'br': {
                 center: {lat: -14.2, lng: -51.9},
                 zoom: 3
             },
             'ca': {
                 center: {lat: 62, lng: -110.0},
+                zoom: 3
+            },
+            'ie': {
+                center: {lat: 53.4, lng: -10.3},
                 zoom: 3
             },
             'fr': {
@@ -227,6 +235,10 @@
             'nz': {
                 center: {lat: -40.9, lng: 174.9},
                 zoom: 5
+            },
+            'nl': {
+                center: {lat: 52.2, lng: 3.03},
+                zoom: 7
             },
             'it': {
                 center: {lat: 41.9, lng: 12.6},
@@ -251,6 +263,14 @@
             'gb': {
                 center: {lat: 54.8, lng: -4.6},
                 zoom: 5
+            },
+            'si': {
+                center: {lat: 46.1, lng: -13.9},
+                zoom: 7
+            },
+            'sk': {
+                center: {lat: 48.6, lng: 17.4},
+                zoom: 7
             }
         };
 
@@ -392,7 +412,6 @@
                         setTimeout(dropMarker(i), i * 100);
                         addResult(results[i], i);
                     }
-                    console.log(i);
                     if (i == 0) {
                         $("#no-result").show();
                     }
