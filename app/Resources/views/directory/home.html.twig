@@ -23,7 +23,7 @@
             padding: 15px !important;
         }
         div#listings-wrapper {
-            max-height: 500px;
+            max-height: 600px;
             overflow-y: scroll;
         }
         ul#listings {
@@ -61,13 +61,24 @@
             margin-right: 10px;
             font-size: 11px;
         }
+        #info-content {
+            min-height: 100px;
+        }
     </style>
 {% endblock %}
 
 {% block hero %}
-    <section id="title">
+    <section id="feature-heading">
         <div class="container">
-            <h1>Find a lending library near you</h1>
+            <h1 class="pull-left">Find a lending library near you</h1>
+
+            {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <div style="padding-top: 20px;">
+                    <a href="{{ path('fos_user_security_login') }}" class="pull-right">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    <a href="{{ path('fos_user_registration_register') }}" class="pull-right" style="padding: 0 20px">Add your organisation</a>
+                </div>
+            {% endif %}
+
             <div id="geolocateWarning" class="alert alert-danger" style="display:none">
                 Please allow Lend Engine access to your location so we can show relevant results. <br>
                 You may need to revisit your browser settings to re-enable location access for www.lend-engine.com
@@ -149,7 +160,14 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div id="listings-wrapper"><ul id="listings"></ul></div>
+                    <div id="listings-wrapper">
+                        <ul id="listings"></ul>
+                        <div id="no-result" class="alert alert-warning" style="display: none">
+                            We don't have any libraries listed in this area, sorry.
+                            <br><br>
+                            <a href="{{ path('org') }}" class="btn btn-primary">Add your organisation</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -348,6 +366,7 @@
             setMapZoom();
 
             if (lat && long) {
+                $("#no-result").hide();
                 $.get( "{{ path('search') }}?country="+country+'&radius='+radius+'&lat='+lat+"&long="+long+"&tags="+tags, function( results ) {
                     clearResults();
                     clearMarkers();
@@ -364,6 +383,10 @@
                         google.maps.event.addListener(markers[i], 'click', showInfoWindow);
                         setTimeout(dropMarker(i), i * 100);
                         addResult(results[i], i);
+                    }
+                    console.log(i);
+                    if (i == 0) {
+                        $("#no-result").show();
                     }
                 });
             }

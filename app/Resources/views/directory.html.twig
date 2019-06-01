@@ -3,11 +3,11 @@
 {% block hero %}no hero content{% endblock %}
 
 {% block account_nav %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 <div class="container">
     <div class="row" style="padding-top: 10px">
         <div class="col-md-12" id="account-nav">
             <p>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 Hello, {{ app.user.firstName }}. &nbsp;&nbsp;
                 <a href="{{ path('fos_user_profile_show') }}" style="padding: 0 10px">My account</a>
                 <a href="{{ path('fos_user_security_logout') }}" style="padding: 0 10px">Log out</a>
@@ -23,15 +23,11 @@
                         <a href="{{ path('org') }}" class="btn btn-primary">Add your organisation</a>
                     {% endif %}
                 </span>
-
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}" class="pull-right" style="padding: 0 10px">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                <a href="{{ path('fos_user_registration_register') }}" class="pull-right">Add your organisation</a>
-            {% endif %}
             </p>
         </div>
     </div>
 </div>
+    {% endif %}
 {% endblock %}
 
 {% block body %}{% endblock %}
