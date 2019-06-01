@@ -135,13 +135,13 @@ class FosRegistrationType extends AbstractType
             'preferred_choices' => ['US', 'CA', 'AU', 'GB', 'NZ'],
         ));
 
-        $builder->add('latitude', TextType::class, array(
+        $builder->add('latitude', HiddenType::class, array(
             'label' => 'Lat',
             'required' => false,
             'mapped' => false,
         ));
 
-        $builder->add('longitude', TextType::class, array(
+        $builder->add('longitude', HiddenType::class, array(
             'label' => 'Long',
             'required' => false,
             'mapped' => false,
