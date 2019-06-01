@@ -10,19 +10,18 @@
 {% endblock %}
 
 {% block heading %}
-    Thank you!
+    Hello!
 {% endblock %}
 
 {% block content %}
-
     <div>
         {% block body_text %}
-            We've added your organisation OK. To complete the activation process, please confirm your email address by clicking the link below.
+            We've added your organisation "{{ user.org.name }}" to the directory of lending organisations at https://www.lend-engine.com/directory.
+            <br><br>To activate your account (which allows you to manage your listing), please confirm your email address by clicking the link below.
             <br><br>
             {{ confirmationUrl }}
         {% endblock %}
     </div>
-
 {% endblock %}
 
 {% block body_html %}{% endblock %}

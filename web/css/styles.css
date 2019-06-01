@@ -337,21 +337,21 @@ img {
     /*color: #eec853;*/
 }
 
-#feature1 span {
-    float: left;
-}
+/*#feature1 span {*/
+    /*float: left;*/
+/*}*/
 
-#feature1 .fa {
-    background: #eec853;
-    border-radius: 50%;
-    color: #fff;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    margin-right: 20px;
-}
+/*#feature1 .fa {*/
+    /*background: #eec853;*/
+    /*border-radius: 50%;*/
+    /*color: #fff;*/
+    /*display: inline-block;*/
+    /*width: 40px;*/
+    /*height: 40px;*/
+    /*line-height: 40px;*/
+    /*text-align: center;*/
+    /*margin-right: 20px;*/
+/*}*/
 
 /* end feature1 */
 

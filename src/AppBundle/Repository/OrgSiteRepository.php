@@ -28,6 +28,11 @@ class OrgSiteRepository extends \Doctrine\ORM\EntityRepository
             $builder->andWhere("(org.lends = 'none' {$sql})");
         }
 
+        if (isset($filters['country']) && $filters['country']) {
+
+            $builder->andWhere(" site.country = '{$filters['country']}' ");
+        }
+
         $builder->andWhere("org.status = 'ACTIVE'");
 
         $builder->setMaxResults(50);

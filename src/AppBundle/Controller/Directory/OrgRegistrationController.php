@@ -66,10 +66,6 @@ class OrgRegistrationController extends Controller
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
-                $event = new FormEvent($form, $request);
-                $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-
-                $this->userManager->updateUser($user);
 
                 # ORG
                 $org = new Org();
@@ -103,7 +99,15 @@ class OrgRegistrationController extends Controller
                 $site->setLongitude($form->get('longitude')->getData());
                 $em->persist($site);
 
+                $user->setOrg($org);
+                $em->persist($user);
+
                 $em->flush();
+
+                $this->userManager->updateUser($user);
+
+                $event = new FormEvent($form, $request);
+                $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
                 if (null === $response = $event->getResponse()) {
                     $url = $this->generateUrl('fos_user_registration_confirmed');

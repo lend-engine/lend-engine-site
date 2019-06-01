@@ -35,28 +35,28 @@ class FOSMailer implements MailerInterface
      */
     public function sendConfirmationEmailMessage(UserInterface $user)
     {
-        $template  = $this->container->getParameter('fos_user.registration.confirmation.template');
+        //$template  = $this->container->getParameter('fos_user.registration.confirmation.template');
         $postmarkApiKey = getenv('SYMFONY__POSTMARK_API_KEY');
 
         $url = $this->router->generate('fos_user_registration_confirm', array('token' => $user->getConfirmationToken()), UrlGeneratorInterface::ABSOLUTE_URL);
 
+        $fromEmail = 'hello@lend-engine.com';
+        $toEmail   = $user->getEmail();
+
+        // Send a welcome email to the org owner
         $message = $this->twig->render(
-            $template,
+            'emails/fos_registration.email.twig',
             array(
                 'user' => $user,
                 'confirmationUrl' => $url
             )
         );
-
-        $fromEmail = 'hello@lend-engine.com';
-        $toEmail = $user->getEmail();
-
         try {
             $client = new PostmarkClient($postmarkApiKey);
             $client->sendEmail(
                 "Lend Engine <{$fromEmail}>",
                 $toEmail,
-                "Confirm your registration.",
+                "You've been added to the Lend Engine directory",
                 $message
             );
         } catch (PostmarkException $e) {
@@ -65,6 +65,7 @@ class FOSMailer implements MailerInterface
 
         }
 
+        // A copy to admin
         try {
             $message = $this->twig->render(
                 "emails/basic.html.twig",
@@ -84,6 +85,8 @@ class FOSMailer implements MailerInterface
         } catch (\Exception $e) {
 
         }
+
+
     }
 
     /**
