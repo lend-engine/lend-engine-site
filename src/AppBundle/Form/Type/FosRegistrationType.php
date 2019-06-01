@@ -84,13 +84,13 @@ class FosRegistrationType extends AbstractType
 
         $builder->add('website', TextType::class, array(
             'label' => 'Website',
-            'required' => true,
+            'required' => false,
             'mapped' => false,
         ));
 
         $builder->add('facebook', TextType::class, array(
             'label' => 'Facebook page',
-            'required' => true,
+            'required' => false,
             'mapped' => false,
         ));
 
@@ -135,13 +135,13 @@ class FosRegistrationType extends AbstractType
             'preferred_choices' => ['US', 'CA', 'AU', 'GB', 'NZ'],
         ));
 
-        $builder->add('latitude', HiddenType::class, array(
+        $builder->add('latitude', TextType::class, array(
             'label' => 'Lat',
             'required' => false,
             'mapped' => false,
         ));
 
-        $builder->add('longitude', HiddenType::class, array(
+        $builder->add('longitude', TextType::class, array(
             'label' => 'Long',
             'required' => false,
             'mapped' => false,

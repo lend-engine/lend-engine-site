@@ -12,9 +12,9 @@ AppBundle\Entity\Org:
              fields: name
              errorPath: name
              message: "That organisation already exists. If you're the owner, please contact us to claim it."
-             groups: [ "Org" ]
+             groups: [ "Org", "AppBundleRegistration" ]
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
              fields: owner
              errorPath: owner
              message: "This owner is assigned to another organisation."
-             groups: [ "Org" ]
+             groups: [ "Org", "AppBundleRegistration" ]
