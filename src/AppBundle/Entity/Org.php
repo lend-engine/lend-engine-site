@@ -213,7 +213,7 @@ class Org
      *
      * @return Org
      */
-    public function setOwner(Contact $owner)
+    public function setOwner($owner)
     {
         $this->owner = $owner;
 
@@ -405,7 +405,7 @@ class Org
      * @param $createdBy
      * @return $this
      */
-    public function setCreatedBy(Contact $createdBy)
+    public function setCreatedBy($createdBy)
     {
         $this->createdBy = $createdBy;
 

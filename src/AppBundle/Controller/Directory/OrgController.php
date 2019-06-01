@@ -36,6 +36,11 @@ class OrgController extends Controller
             $mode = 'create';
         }
 
+        if (!$this->getUser()) {
+            $this->addFlash("error", "Please log in");
+            return $this->redirectToRoute('directory');
+        }
+
         if ($this->getUser()->hasRole('ROLE_ADMIN')) {
             $owners = $this->getDoctrine()->getRepository('AppBundle:Contact')->findAll();
         } else {
