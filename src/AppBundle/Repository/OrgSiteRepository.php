@@ -28,8 +28,7 @@ class OrgSiteRepository extends \Doctrine\ORM\EntityRepository
             $builder->andWhere("(org.lends = 'none' {$sql})");
         }
 
-        if (isset($filters['country']) && $filters['country']) {
-
+        if (isset($filters['country']) && $filters['country'] && $filters['country'] != 'ALL') {
             $builder->andWhere(" site.country = '{$filters['country']}' ");
         }
 
