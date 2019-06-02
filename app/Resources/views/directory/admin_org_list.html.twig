@@ -29,6 +29,7 @@
                                 {% for site in org.sites %}
                                     <div class="small" style="padding: 4px;">
                                         <a class="small" href="{{ path('site', {id: org.id, siteId: site.id}) }}">{{ site.name }}</a>
+                                        <br>{{ site.address }}
                                         <br>{{ site.latitude|number_format(2) }}, {{ site.longitude|number_format(2) }}
                                     </div>
                                 {% endfor %}
@@ -46,7 +47,6 @@
                             <td>
                                 {{ org.website }}
                                 <br>{{ org.facebook }}
-                                <br>{{ org.address }}
                             </td>
                             <td>
                                 {% set tags = org.lends|split(',') %}

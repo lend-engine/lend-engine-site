@@ -107,7 +107,7 @@ class ImportController extends Controller
                 $org->setEmail($item[5]);
                 $org->setLends($item[6]);
                 $org->setStatus(Org::STATUS_ACTIVE);
-                $org->setFacebook($item[12]);
+                $org->setFacebook($item[11]);
 
                 if (!$item[9]) {
                     $item[9] = '-';
@@ -120,6 +120,8 @@ class ImportController extends Controller
                     $site->setAddress($item[8]);
                     $site->setPostcode($item[9]);
                     $site->setCountry($item[10]);
+                    $site->setLatitude($item[12]);
+                    $site->setLongitude($item[13]);
                 }
 
                 $created++;
