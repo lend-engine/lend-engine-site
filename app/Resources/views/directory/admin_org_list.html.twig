@@ -15,7 +15,7 @@
                         <td>Added</td>
                         <td>Owner</td>
                         <td>Added by</td>
-                        <td>Website</td>
+                        <td>Website/FB/Address</td>
                         <td>Lends</td>
                         <td> </td>
                     </tr>
@@ -34,7 +34,7 @@
                                 {% endfor %}
                                 <a href="{{ path('site', {id: org.id}) }}" class="small">Add site</a>
                             </td>
-                            <td>{{ org.createdAt|date("Y-m-d") }}</td>
+                            <td>{{ org.createdAt|date("Y-m-d H:i:s") }}</td>
                             <td>{% if org.owner %}{{ org.owner.email }}{% endif %}</td>
                             <td>
                                 {% if org.createdBy == org.owner %}
@@ -43,7 +43,11 @@
                                     {{ org.createdBy.firstName }} {{ org.createdBy.lastName }}
                                 {% endif %}
                             </td>
-                            <td>{{ org.website }}</td>
+                            <td>
+                                {{ org.website }}
+                                <br>{{ org.facebook }}
+                                <br>{{ org.address }}
+                            </td>
                             <td>
                                 {% set tags = org.lends|split(',') %}
                                 {% for tag in tags %}
