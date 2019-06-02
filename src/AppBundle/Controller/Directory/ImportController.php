@@ -54,12 +54,6 @@ class ImportController extends Controller
 
             foreach ($rows AS $rowId => $row) {
 
-                // First time through, capture the header (previously validated in mapColumnsToData)
-//                if ($rowId == 0) {
-//                    $header = str_getcsv($row, "\t");
-//                    continue; // skip header
-//                }
-
                 // Get the item
                 $item = str_getcsv($row, "\t");
 
@@ -87,6 +81,7 @@ class ImportController extends Controller
 
                 if ($org = $em->getRepository("AppBundle:Org")->findOneBy(['name' => $item[3]])) {
                     $contact = $org->getOwner();
+                    continue;
                 } else {
                     $org = new Org();
                     $org->setCreatedBy($this->getUser());
@@ -101,7 +96,6 @@ class ImportController extends Controller
                         $contact->setLastName($item[1]);
                         $contact->setEmail($item[2]);
                     }
-
                 }
 
                 if (isset($contact)) {
@@ -113,6 +107,7 @@ class ImportController extends Controller
                 $org->setEmail($item[5]);
                 $org->setLends($item[6]);
                 $org->setStatus(Org::STATUS_ACTIVE);
+                $org->setFacebook($item[12]);
 
                 if (!$item[9]) {
                     $item[9] = '-';

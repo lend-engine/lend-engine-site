@@ -34,7 +34,7 @@
                                 {% endfor %}
                                 <a href="{{ path('site', {id: org.id}) }}" class="small">Add site</a>
                             </td>
-                            <td>{{ org.createdAt|date() }}</td>
+                            <td>{{ org.createdAt|date("Y-m-d") }}</td>
                             <td>{% if org.owner %}{{ org.owner.email }}{% endif %}</td>
                             <td>
                                 {% if org.createdBy == org.owner %}

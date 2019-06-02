@@ -1,4 +1,4 @@
-{% if app.request.get('_route_params') %}
+{% if app.request.get('_route_params') and app.request.get('slug') %}
     {% set slug = app.request.get('_route_params').slug %}
 {% else %}
     {% set slug = 'none' %}

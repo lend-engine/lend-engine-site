@@ -38,7 +38,7 @@
                                 {% if contact.org %}{{ contact.org.name }}{% endif %}
                             </td>
                             <td>
-                                {{ contact.createdAt|date() }}
+                                {{ contact.createdAt|date("Y-m-d") }}
                             </td>
                             <td>
                                 {{ contact.isEnabled }}
