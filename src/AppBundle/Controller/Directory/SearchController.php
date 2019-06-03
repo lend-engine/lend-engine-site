@@ -51,6 +51,9 @@ class SearchController extends Controller
                     $website = str_replace('http://', '', $site->getOrg()->getWebsite());
                     $website = str_replace('https://', '', $website);
 
+                    $facebook = str_replace('http://', '', $site->getOrg()->getFacebook());
+                    $facebook = str_replace('https://', '', $facebook);
+
                     $data[] = [
                         "name" => $site->getOrg()->getName(),
                         "email" => $site->getOrg()->getEmail(),
@@ -58,6 +61,7 @@ class SearchController extends Controller
                         "address" => $site->getAddress(),
                         "opening_hours" => 'hours here',
                         "website"  => $website,
+                        "facebook"  => $facebook,
                         'siteId'   => $site->getId(),
                         'position' => ['lat' => (float)$lat, 'lng' => (float)$long]
                     ];
