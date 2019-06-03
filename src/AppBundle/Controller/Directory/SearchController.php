@@ -31,7 +31,7 @@ class SearchController extends Controller
         $filters['tags'] = explode(',', $searchTags);
 
         if (!$radius = $request->get('radius')) {
-            $radius = 500;
+            $radius = 100;
         }
 
         $searchLat  = $request->get('lat');
