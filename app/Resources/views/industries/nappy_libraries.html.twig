@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Software for re-usable and cloth nappy libraries{% endblock %}
+
+{% block h1 %}Software for re-usable nappy libraries{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <h1>
+                For your <span class="color-wt">re-usable nappy library</span>
+            </h1>
+            Re-usable cloth nappies are brilliant for reducing waste. We'd like to help you lend more.
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p style="font-size: 24px">
+                        Sling and cloth nappy libraries around the world use the Lend Engine to manage inventory, members, loans and payments.
+                        Everything is online, accessible anywhere, any time.
+                    </p>
+                    <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get a free trial account</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Easy to use lending software</h3>
+                    <p>
+                        Keep track of where all your slings and nappy kits are, who has what item, when it's due back, how much money is owed, and who is overdue.
+                    </p>
+                    <p>
+                        Using unlimited custom locations, you can put items aside for cleaning or repair so that they can't be loaned or reserved online.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Self serve reservations</h3>
+                    <p>
+                        Lend Engine provides a modern, fast, online catalogue so that people can see everything you have to lend.
+                        Members can place reservations, borrow items, add credit, and see their borrowing history.
+                    </p>
+                    <p>
+                        Allowing members to self-serve saves you and your team valuable time.
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Multiple sites and custom opening hours</h3>
+                    <p>
+                        Sling and nappy libraries are usually combined with baby carrying workshops and consultations -
+                        which happen in different locations and different times. The Lend Engine lets you manage each of
+                        these locations with custom opening times, so that loans match up with suitable pick up and return times.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Easily handle payments and deposits</h3>
+                    <p>
+                        Using integrations with payment providers like Stripe, you can take credit card payments from members for
+                        fees and deposits. The pricing structure is up to you; fixed fee per borrow, fee per day or week, or free based on membership type.
+                    </p>
+                </div>
+            </div>
+
+            <br><br>
+            <h4>A selection of sling and nappy libraries who use the Lend Engine:</h4>
+            <br>
+            <div class="row">
+                <div class="col-md-2"><img src="images/logos/stork.jpg" class="img-responsive"></div>
+                <div class="col-md-2"><img src="images/logos/banes.png" class="img-responsive"></div>
+                <div class="col-md-2"><img src="images/logos/eastkent.jpg" class="img-responsive"></div>
+                <div class="col-md-2"><img src="images/logos/eastsurrey.jpg" class="img-responsive"></div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -32,8 +32,8 @@ class RegistrationController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $subDomain = $form->get('stub')->getData();
-            $subDomain  = preg_replace('/[^a-z0-9]+/i', "", $subDomain);
+            $subDomain = strtolower($form->get('stub')->getData());
+            $subDomain = preg_replace('/[^a-z0-9\s]+/i', "", $subDomain);
 
             $toEmail = $form->get('ownerEmail')->getData();
 
@@ -74,7 +74,7 @@ class RegistrationController extends Controller
 
             }
 
-            $activationUrl = 'http://www.lend-engine.com/activate?t='.$dbSchema;
+            $activationUrl = 'https://www.lend-engine.com/activate?t='.$dbSchema;
 
             try {
 
@@ -91,9 +91,6 @@ class RegistrationController extends Controller
                     "Your Lend Engine account",
                     $message
                 );
-
-                // This happens in the app when the account is deployed
-//                $this->mailChimpSubscribe($tenant);
 
                 return $this->redirectToRoute('signup_success');
 
@@ -117,35 +114,5 @@ class RegistrationController extends Controller
 
         ]);
     }
-
-    /**
-     * @param Tenant $contact
-     * @return bool
-     */
-//    private function mailChimpSubscribe(Tenant $contact)
-//    {
-//
-//        if (!$contact->getOwnerEmail()) {
-//            return true;
-//        }
-//
-//        /** @var \Hype\MailchimpBundle\Mailchimp\Mailchimp $mailchimp */
-//        $mailchimp = $this->get('hype_mailchimp');
-//
-//        $mergeVars = [
-//            'fname' => $fname,
-//            'lname' => $lname
-//        ];
-//
-//        try {
-//            $mailchimp->getList()->addMerge_vars($mergeVars)->subscribe($contact->getEmail(), 'html', $doubleOptIn, true);
-//        } catch (\Hype\MailchimpBundle\Mailchimp\MailchimpAPIException $mailchimpException) {
-//            $this->addFlash('error', 'Failed to subscribe to Mailchimp:' . $mailchimpException->getMessage());
-//        } catch (\Exception $generalException) {
-//            $this->addFlash('error', 'Failed to subscribe to Mailchimp:' . $generalException->getMessage());
-//        }
-//
-//        return true;
-//    }
 
 }

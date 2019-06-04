@@ -57,7 +57,7 @@ class Contact extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Org", mappedBy="owner", cascade={"remove"})
+     * @ORM\OneToOne(targetEntity="Org", mappedBy="owner", cascade={"remove", "persist"})
      */
     private $org;
 

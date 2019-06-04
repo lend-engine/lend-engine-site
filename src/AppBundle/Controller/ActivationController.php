@@ -35,16 +35,8 @@ class ActivationController extends Controller
         try {
             $db->executeQuery('CREATE DATABASE '.$dbSchema.' CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
         } catch (\Exception $generalException) {
-            $this->addFlash('error', "We can't create that account, perhaps it's already have been created - please check your spam folder for a welcome email or email hello@lend-engine.com for more help.");
-
-            $messageText = 'Tenant: '.$tenant->getName().PHP_EOL;
-            $messageText .= 'Stub: '.$tenant->getStub();
-            $messageText .= $generalException->getMessage().PHP_EOL.PHP_EOL;
-            $messageText .= $generalException->getCode().PHP_EOL;
-
-            $this->sendAdminErrorEmail($messageText);
-
-            return $this->redirectToRoute('homepage');
+            // We can re-deploy an existing DB without causing any trouble so just carry on
+            // Assumes DB exists exception
         }
 
         // DB creation OK
@@ -75,29 +67,6 @@ class ActivationController extends Controller
         }
 
         return $this->redirect('http://'.$tenant->getStub().'.lend-engine-app.com/deploy');
-
-    }
-
-    /**
-     * @param $messageText
-     */
-    private function sendAdminErrorEmail($messageText) {
-
-        $key = getenv('SYMFONY__POSTMARK_API_KEY');
-        $client = new PostmarkClient($key);
-
-        $message = $this->renderView(
-            'emails/basic.html.twig',
-            [
-                'message' => $messageText
-            ]
-        );
-        $client->sendEmail(
-            "Lend Engine <hello@lend-engine.com>",
-            "chris@lend-engine.com",
-            "Error in account activation",
-            $message
-        );
 
     }
 

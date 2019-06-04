@@ -105,7 +105,7 @@ class Org
     private $createdBy;
 
     /**
-     * @ORM\OneToMany(targetEntity="OrgSite", mappedBy="org", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="OrgSite", mappedBy="org", cascade={"remove", "persist"})
      */
     private $sites;
 

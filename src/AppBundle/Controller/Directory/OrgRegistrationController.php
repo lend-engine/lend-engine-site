@@ -48,7 +48,6 @@ class OrgRegistrationController extends Controller
 
         $user = $this->userManager->createUser();
         $user->setEnabled(true);
-        $user->setCreatedBy($this->getUser());
 
         $event = new GetResponseUserEvent($user, $request);
         $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
@@ -82,7 +81,6 @@ class OrgRegistrationController extends Controller
                 $org->setCreatedBy($user);
                 $org->setLends(implode(',', $form->get('tags')->getData()));
                 $org->setStatus(Org::STATUS_ACTIVE);
-                $em->persist($org);
 
                 #SITE
                 $site = new OrgSite();
@@ -97,17 +95,17 @@ class OrgRegistrationController extends Controller
                 $site->setDescription($form->get('description')->getData());
                 $site->setLatitude($form->get('latitude')->getData());
                 $site->setLongitude($form->get('longitude')->getData());
+
+                $org->addSite($site);
+                $em->persist($org);
                 $em->persist($site);
 
                 $user->setOrg($org);
-                $em->persist($user);
-
-                $em->flush();
-
-                $this->userManager->updateUser($user);
 
                 $event = new FormEvent($form, $request);
                 $this->eventDispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+
+                $this->userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
                     $url = $this->generateUrl('fos_user_registration_confirmed');
@@ -170,7 +168,9 @@ class OrgRegistrationController extends Controller
         $user = $userManager->findUserByConfirmationToken($token);
 
         if (null === $user) {
-            throw new NotFoundHttpException(sprintf('The user with confirmation token "%s" does not exist', $token));
+            $this->addFlash("error", "We can't find a user with that confirmation token - please email hello@lend-engine.com to activate your account.");
+            return $this->redirectToRoute('directory');
+//            throw new NotFoundHttpException(sprintf('The user with confirmation token "%s" does not exist', $token));
         }
 
         $user->setConfirmationToken(null);

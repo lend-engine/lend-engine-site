@@ -83,6 +83,30 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/software-for-sling-libraries", name="slings")
+     */
+    public function slingsAction(Request $request)
+    {
+        return $this->render('industries/sling_libraries.html.twig', []);
+    }
+
+    /**
+     * @Route("/software-for-education-lending-libraries", name="education")
+     */
+    public function educationAction(Request $request)
+    {
+        return $this->render('industries/education.html.twig', []);
+    }
+
+    /**
+     * @Route("/software-for-nappy-libraries", name="nappy_libraries")
+     */
+    public function nappiesAction(Request $request)
+    {
+        return $this->render('industries/nappy_libraries.html.twig', []);
+    }
+
+    /**
      * @Route("/software-for-plant-and-machinery", name="plant")
      */
     public function plantAction(Request $request)
