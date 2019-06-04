@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OrgSite
  *
- * @ORM\Table(name="_core.org_site")
+ * @ORM\Table(name="_directory.org_site")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\OrgSiteRepository")
  * @ORM\HasLifecycleCallbacks
  */
