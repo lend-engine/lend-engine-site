@@ -71,18 +71,11 @@
     <section id="feature-heading">
         <div class="container">
             <h1 class="pull-left">Find a lending library near you</h1>
-
             {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <div style="padding-top: 20px;">
-                    <a href="{{ path('fos_user_security_login') }}" class="pull-right">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                    <a href="{{ path('fos_user_registration_register') }}" class="pull-right" style="padding: 0 20px">Add your organisation</a>
+                    <a href="https://www.lending-libraries.online" class="pull-right" style="padding: 0 20px">Add your organisation</a>
                 </div>
             {% endif %}
-
-            <div id="geolocateWarning" class="alert alert-danger" style="display:none">
-                Please allow Lend Engine access to your location so we can show relevant results. <br>
-                You may need to revisit your browser settings to re-enable location access for www.lend-engine.com
-            </div>
         </div>
     </section>
 {% endblock %}
