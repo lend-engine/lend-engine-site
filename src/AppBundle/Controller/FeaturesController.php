@@ -23,17 +23,17 @@ class FeaturesController extends Controller
     public function featureHandler($slug, Request $request)
     {
         $slugMap = [
-            'asset_management' => 'assets',
+            'asset-tracking-software' => 'assets',
             'automation' => 'automation',
-            'barcode_tracking' => 'barcodes',
-            'items' => 'items',
-            'payments' => 'payments',
-            'loans' => 'loans',
+            'barcode-tracking' => 'barcodes',
+            'equipment-tracking-software' => 'items',
+            'payment-tracking-for-lending-libraries' => 'payments',
+            'loan-management-software' => 'loans',
             'sites' => 'sites',
             'costs' => 'costs',
-            'members' => 'members',
-            'member_site' => 'member_site',
-            'rentals' => 'rentals',
+            'member-management-software' => 'members',
+            'self-serve-lending-library-platform' => 'member_site',
+            'equipment-rental-software' => 'rentals',
             'languages' => 'languages',
         ];
         return $this->render('features/'.$slugMap[$slug].'.html.twig', []);
