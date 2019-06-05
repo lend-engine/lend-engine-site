@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p style="font-size: 22px; text-align: center">
+                    <div style="font-size: 22px; text-align: center">
 
                         <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get started with a free 30 day trial</a>
                         <br><br>
@@ -45,16 +45,35 @@
                         Your account will be set up with a <strong>30 day free trial of the Plus plan</strong>.<br>
                         <div style="font-size: 12px;text-align: center">Choose one of the plans below at any time during your trial.</div>
                         <br>
-                    </p>
+                    </div>
+
+                    <div class="alert alert-warning" style="text-align: center">
+                        Discounts available for non-profit organisations, charities and annual subscriptions. Just
+                        <a href="{{ path('page_contact') }}">get in touch</a>.
+                    </div>
 
                     <table cellspacing="0" cellpadding="0" class="table">
                         <tbody>
                         <tr class="price-plans">
                             <td></td>
-                            <td style="width:130px">Free</td>
-                            <td style="width:130px">Starter<br>£5 <small>/ month</small></td>
-                            <td style="width:130px">Plus<br>£20 <small>/ month</small></td>
-                            <td style="width:130px">Business<br>£40 <small>/ month</small></td>
+                            <td style="width:130px">
+                                Free
+                            </td>
+                            <td style="width:130px">
+                                Starter
+                                <div>£5 / $7.50 </div>
+                                <div class="per-month">per month</div>
+                            </td>
+                            <td style="width:130px">
+                                Plus
+                                <div>£20 / $25</div>
+                                <div class="per-month">per month</div>
+                            </td>
+                            <td style="width:130px">
+                                Business
+                                <div>£40 / $50</div>
+                                <div class="per-month">per month</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>Unlimited team member logins to back-end (admin)</td>
@@ -143,16 +162,16 @@
                         <tr>
                             <td>Manage volunteers, calendars and duty rota</td>
                             <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
                         </tr>
                         <tr>
                             <td>Manage events and workshops</td>
                             <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
                         </tr>
 
                         <tr class="price-header">
@@ -239,8 +258,8 @@
                             <td>Sell consumables</td>
                             <td>-</td>
                             <td>-</td>
-                            <td>-</td>
-                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
                         </tr>
 
 
@@ -310,16 +329,16 @@
                         <tr>
                             <td>Membership cards</td>
                             <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
                         </tr>
                         <tr>
                             <td>Assign customers to sites</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
-                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
                         </tr>
 
 
@@ -402,7 +421,7 @@
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
-                            <td><a href="{{ path('page_contact') }}" style="font-size: inherit">Contact us</a></td>
+                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
                         </tr>
 
 
@@ -505,9 +524,7 @@
             </div>
         </div>
     </section>
-
-    <br/>
-
+    
     <section id="divider" style="margin-top: -50px;">
         <div class="container">
             <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds great! Create my account now.</a>
