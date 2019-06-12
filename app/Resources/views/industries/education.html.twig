@@ -1,64 +1,121 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Software for sling and baby carrier libraries{% endblock %}
-
-{% block h1 %}Software for sling and baby carrier libraries{% endblock %}
+{% block title %}Equipment lending software for education; schools, college and universities.{% endblock %}
 
 {% block body %}
 
     <section id="title">
         <div class="container">
-            <h1>
-                For <span class="color-wt">educational equipment lending</span>
-            </h1>
+            <h1>Software for <span class="color-wt">educational equipment lending</span></h1>
+            Schools, Universities and Colleges. Hardware, STEM, IT or test equipment; we've got it covered.
         </div>
     </section>
 
     <section id="feature1">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <p>
-                        With flexible and powerful reporting, it's easy to see who's borrowing what, which items are popular, and which are not so popular.
-                        Instantly see what items are out on loan, when they are due back, and what's overdue.
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <img src="/images/web_report_items.jpg" class="img-responsive" alt="feature img">
+                <div class="col-md-12">
+                    <h2>
+                        Lend Engine is web based software for resource and equipment booking,
+                        equipment checkout, member management, maintenance schedules, inventory tracking and more.
+                    </h2>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="feature">
+    <section id="feature1">
         <div class="container">
+
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Custom data fields</h3>
+                    <h3>Equipment checkout & loans made easy.</h3>
                     <p>
-                        Use item and member custom fields to filter your data in ways that suit your organisation.
-                        Perhaps you want to show sponsors or donors how their items are being used, or track loans by member region for funding applications.
-                        It's all easy to set up and easy to access, and you can export all your data at any time.
+                        At the point-of-loan, creating a booking and checking out an item is just a couple of clicks.
+                        The easy-to-use calendar can be used for hourly, daily or weekly loans, as well as checking who
+                        has what item, and when it's due back.
+                    </p>
+                    <p>
+                        If you use item barcodes, it's even quicker. Borrowers are sent a detailed email confirmation,
+                        including item-specific file attachments for things like instruction manuals or disclaimers.
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <h3>Export to CSV</h3>
+                    <img src="/images/screenshots/stem-items.png" class="img-responsive" alt="feature img">
+                </div>
+            </div>
+
+            <hr size="1" noshade style="margin: 60px">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="/images/screenshots/multiple-sites.png" class="img-responsive" alt="feature img">
+                </div>
+                <div class="col-md-6">
+                    <h3>Across multiple sites and locations.</h3>
+                    <p>Work with multiple physical addresses (sites), and multiple locations within those sites to keep
+                    an accurate track of where your equipment is being used and stored. Great for multiple campuses
+                        and multiple departments within a campus.</p>
+                    <ul>
+                        <li>Restrict items to sites.</li>
+                        <li>Restrict users to sites.</li>
+                        <li>Set different opening hours per site.</li>
+                        <li>Inter-site movement schedule based on reservations.</li>
+                        <li>Create non-lendable maintenance/repair locations.</li>
+                    </ul>
                     <p>
-                        Use item and member custom fields to filter your data in ways that suit your organisation.
-                        Perhaps you want to show sponsors or donors how their items are being used, or track loans by member region for funding applications.
-                        It's all easy to set up and easy to access, and you can export all your data at any time.
+                        <img src="/images/screenshots/item-move.png" class="img-responsive" alt="Equipment tracking software">
                     </p>
                 </div>
             </div>
+
+            <hr size="1" noshade style="margin: 60px">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Detailed asset management & reporting.</h3>
+                    <p>Store all the information you need about your equipment and assets.
+                    Additional fields are available for admins and managers,
+                        to provide additional detail, and extra dimensions for reporting.</p>
+                    <ul>
+                        <li>Multiple images.</li>
+                        <li>Item location, condition, value, serial number.</li>
+                        <li>Detailed description, component list and care information.</li>
+                        <li>Attachment files for manuals and warranties.</li>
+                        <li>Unlimited custom fields (public and private).</li>
+                    </ul>
+                    <p>Manage items using CSV import and batch update to save time.</p>
+                    <p>Report on most-lent equipment, least-lent equipment, busiest members, and more.
+                    Segment and filter by site, location, category or custom field for rich insight into your equipment lending operations.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/images/screenshots/pi.png" class="img-responsive" alt="feature img">
+                </div>
+            </div>
+
+            <hr size="1" noshade style="margin: 60px">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="/images/screenshots/pi-check-out.png" class="img-responsive" alt="feature img">
+                </div>
+                <div class="col-md-6">
+                    <h3>Robust check-out and check-in process.</h3>
+                    <p>Set up custom check-out and check-in prompts for users to complete before items can be lent or returned -
+                    perfect for ensuring that your borrowers fully understand the equipment before using, and for ensuring that items
+                    are checked back in with all components and fully working.</p>
+                    <p>Fees can be charged for borrowing equipment, extending loan periods, late returns - or everything can be free.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section id="divider">
         <div class="container">
-            <h2>
-                Sign up for a free account now.
-            </h2>
-            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sign up for a free trial now</a>
+            <br><br>
+            No credit card needed - you'll be up and running in seconds.
         </div>
     </section>
 

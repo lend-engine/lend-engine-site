@@ -33,7 +33,7 @@ class RegistrationController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $subDomain = strtolower($form->get('stub')->getData());
-            $subDomain = preg_replace('/[^a-z0-9\s]+/i', "", $subDomain);
+            $subDomain = preg_replace('/[^a-z0-9\s ]+/i', "", $subDomain);
 
             $toEmail = $form->get('ownerEmail')->getData();
 

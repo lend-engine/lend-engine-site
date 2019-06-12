@@ -1,11 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Lending Library Software powered by The Lend Engine{% endblock %}
-
-{% block h1 %}Asset tracking for audio visual equipment{% endblock %}
+{% block title %}Camera and AV equipment lending software : Lend Engine{% endblock %}
 
 {% block body %}
-
 
     <section id="title">
         <div class="container">
@@ -18,10 +15,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p style="font-size: 24px">
-                        Lend Engine is robust, easy to use software for managing your assets, members, rentals and loans.<br>
+                    <h2>
+                        Lend Engine is powerful, easy to use web based software for managing camera and electronic equipment, customers, members, rentals and loans.
                         Track item serial numbers, instructions and manuals, and handle repairs and maintenance.
-                    </p>
+                    </h2>
                 </div>
             </div>
         </div>
@@ -29,41 +26,90 @@
 
     <section id="feature1">
         <div class="container">
+
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Built a rich, useful item database</h3>
-                    <p>
-                        Lend Engine lets you store all the information you need about your assets, including uploaded file attachments for manuals or instructions.
-                        Using custom fields you can extend the platform even further.
-                        It's all easy to set up and easy to access, and you can export all your data at any time.
-                    </p>
+                    <img src="/images/screenshots/sonycam.png" class="img-responsive">
                 </div>
                 <div class="col-md-6">
-                    <h3>Online self-serve reservations</h3>
+                    <h3>Build a rich, useful equipment database.</h3>
+                    <p>Lend Engine lets you store all the information you need about your equipment, including uploaded
+                        file attachments for manuals or instructions and custom fields to extend the platform even further.</p>
+                    <p>It's all easy to set up and easy to access, and you can export all your data at any time.</p>
+
+                    <hr size="1" noshade style="margin: 40px">
+                    <h3>Manage bookings any time, anywhere.</h3>
+                    <p>Keep track of who has your equipment when it's on loan, and when it's due back. Hourly, daily or weekly loans
+                    are easy to create and update using the calendar - even from a smartphone.</p>
+                    <p>Borrowers are kept up to date with customisable emails, including automated reminders and overdue notices.</p>
+
+                    <hr size="1" noshade style="margin: 40px">
+                    <h3>Self-serve reservations save you time.</h3>
                     <p>
-                        Every Lend Engine account comes with a built-in website where your customers or members can view the items you choose to be public.
-                        They can see what's available, and what's out on loan. They can place reservations (for an optional fee) and manage their payments.
+                        Let your customers or members see what's available, and what's out on loan.
+                        They can place reservations (for an optional fee) and manage their payments.
                         If you want, you can make the site for registered users only. It's all configurable.
                     </p>
                 </div>
             </div>
-            <br>
+
+            <hr size="1" noshade style="margin: 60px">
+
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Custom data fields</h3>
+                    <h3>Specific items, or inventory levels.</h3>
                     <p>
-                        Use item and person custom fields to filter your data in ways that suit your organisation.
-                        Perhaps you want to show sponsors or donors how their items are being used, or track loans by member region for funding applications.
-                        It's all easy to set up and easy to access, and you can export all your data at any time.
+                        Track assets and equipment individually with serial numbers and unique items, or lots of
+                        similar items that have inventory levels. Stay on top of your asset conditions with customisable options.
+                    </p>
+                    <p>
+                        <img src="/images/screenshots/conditions.png" class="img-responsive" style="height: 120px;">
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <h3>Export to CSV</h3>
+                    <img src="/images/screenshots/cameras.png" class="img-responsive">
+                </div>
+            </div>
+
+            <hr size="1" noshade style="margin: 60px">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="/images/screenshots/repair.png" class="img-responsive">
+                </div>
+                <div class="col-md-6">
+                    <br>
+                    <h3>Repairs and maintenance made easy.</h3>
                     <p>
-                        Use item and member custom fields to filter your data in ways that suit your organisation.
-                        Perhaps you want to show sponsors or donors how their items are being used, or track loans by member region for funding applications.
-                        It's all easy to set up and easy to access, and you can export all your data at any time.
+                        If equipment needs to be taken offline for a while, perhaps for repair or maintenance,
+                        simply move it to a reserved (non borrowable) location and assign it to a team member.
+                        Add notes, and costs to track how much items are costing you to maintain.
                     </p>
+                    <p>
+                        <img src="/images/screenshots/repair-note.png" class="img-responsive" style="height: 120px;">
+                    </p>
+                </div>
+            </div>
+
+            <hr size="1" noshade style="margin: 60px">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Multi site, multi location.</h3>
+                    <p>
+                        Do you have multiple locations? No problem. Lend Engine lets you track your equipment across multiple sites (physical addresses)
+                        as well as multiple locations within those sites. Locations can be set as not available, to reserve inventory that's being
+                        repaired, checked, or otherwise not ready for borrowing.</p>
+                    <p>
+                        Booking calendars support pickup and return from and to any of your physical locations.
+                        Customer/member email notifications make it clear which sites the items are to be returned to.
+                    </p>
+                    <p>
+                        Items can be restricted to only certain sites as well, if you need.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/images/screenshots/sites.png" class="img-responsive">
                 </div>
             </div>
         </div>
@@ -72,7 +118,7 @@
     <section id="feature1">
         <div class="container">
             <h2>
-                Sign up for a free account now.
+                Sign up for a free trial account now.
             </h2>
             <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds good. Let's go!</a>
         </div>
