@@ -42,9 +42,11 @@ class ActivationController extends Controller
         // DB creation OK
 
         // Redirect to deployment
-        $tenant->setStatus('DEPLOYING');
-        $em->persist($tenant);
-        $em->flush();
+        if ($tenant->getStatus() == Tenant::STATUS_PENDING) {
+            $tenant->setStatus('DEPLOYING');
+            $em->persist($tenant);
+            $em->flush();
+        }
 
         try {
 
@@ -52,13 +54,13 @@ class ActivationController extends Controller
             $message = $this->renderView(
                 'emails/basic.html.twig',
                 [
-                    'message' => 'Tenant "'.$tenant->getName().'" activated account.<br>http://'.$tenant->getStub().'.lend-engine-app.com'
+                    'message' => 'Tenant "'.$tenant->getName().'" activated account : http://'.$tenant->getStub().'.lend-engine-app.com'
                 ]
             );
             $client->sendEmail(
                 "Lend Engine <hello@lend-engine.com>",
                 "chris@lend-engine.com",
-                "Lend Engine account deployment started : ".$tenant->getName(),
+                "Lend Engine account deployment : ".$tenant->getName(),
                 $message
             );
 
