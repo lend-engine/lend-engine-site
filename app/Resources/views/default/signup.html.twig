@@ -52,18 +52,19 @@
 
                     <div class="form-group">
                         <label class="control-label required" for="registration_stub">Choose a short account code</label>
-                        <div class="row">
-                            <div class="col-md-6">
+
+                            <div class="input-group">
+                                <div class="input-group-addon">http://</div>
                                 {{ form_widget(form.stub) }}
+                                <div class="input-group-addon">
+                                    .lend-engine-app.com
+                                </div>
                             </div>
-                            <div>
-                                .lend-engine-app.com
-                            </div>
-                        </div>
+
                         <div class="help-block">
                             This will be the domain where you access your Lend Engine account,
                             and the domain for your member website.
-                            Custom domains are available on our <a style="font-size: inherit" href="{{ path('page_pricing') }}">paid plan</a>.
+                            Custom domains are available on some of our <a style="font-size: inherit" href="{{ path('page_pricing') }}">paid plans</a>.
                         </div>
                     </div>
 
@@ -112,10 +113,10 @@
 {% block pagescripts %}
     <script>
         $(document).ready(function() {
-            $("#signup-form").on("keyup", "#registration_name", function() {
-                var accountCode = $("#registration_name").val();
+            $("#signup-form").on("keyup", "#signup_name", function() {
+                var accountCode = $("#signup_name").val();
                 accountCode = accountCode.replace(/[\W]+/g, "").toLowerCase();
-                $("#registration_stub").val(accountCode);
+                $("#signup_stub").val(accountCode);
             });
         });
     </script>

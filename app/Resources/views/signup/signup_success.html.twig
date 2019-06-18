@@ -21,10 +21,6 @@
         <div class="container">
             <div class="row" style="text-align:left">
 
-                <div class="col-md-2">
-
-                </div>
-
                 <div class="col-md-8">
 
                     {% for flash_message in app.session.flashbag.get('success') %}
@@ -37,6 +33,10 @@
                             {{ flash_message }}
                         </div>
                     {% endfor %}
+
+                    <p>
+                        We've sent you an email - please confirm your account.
+                    </p>
 
                     <p>
                         Sometimes emails can take a few minutes to arrive.

@@ -25,7 +25,7 @@ class SignupType extends AbstractType
             'label' => 'Tenant code',
             'required' => true,
             'attr' => [
-                'placeholder' => 'e.g. "london-lender"',
+                'placeholder' => 'e.g. "londonlender"',
                 'data-help' => "A short version of your organisation name, used for your login URL"
             ]
         ));
