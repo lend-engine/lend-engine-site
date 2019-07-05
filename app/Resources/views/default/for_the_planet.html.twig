@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The Lend Engine climate policy{% endblock %}
+
+{% block hero %}
+    <section id="title">
+        <div class="container">
+            <h1 style="font-size: 80px; font-weight: bold; color: #3f3b55;">
+                100% for the planet.
+                <div style="font-size:22px; font-weight: normal; margin-bottom: 10px">All our profit is directed towards minimising climate change.</div>
+            </h1>
+        </div>
+    </section>
+{% endblock %}
+
+{% block h1 %}Pricing{% endblock %}
+
+{% block body %}
+
+    <section id="feature1">
+        <div class="container">
+
+            <br><br>
+
+            <div class="row" style="font-size: 18px;">
+                <div class="col-md-6">
+                    <p>
+                        We started Lend Engine to help more organisations lend more items,
+                        with the goal of more people borrowing things.
+                        Fewer people buying new things means less resources wasted in over-consumption, and less waste.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        We're now taking that a step further, by directing all of our profits towards initiatives that
+                        combat climate change.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row" style="font-size: 18px;">
+                <div class="col-md-12">
+                    <p>
+                        <a href="https://globalecoguy.org/the-three-most-important-graphs-in-climate-change-e64d3f4ed76" target="_blank">
+                        Human-generated carbon dioxide in the atmosphere is the biggest contribution to the warming of our planet</a>.
+                        CO2 emissions come from a range of activities; the main one being fossil fuel combustion
+                        (62% of greenhouse gas emissions each year).
+                        11% of our greenhouse gas emissions stem from carbon dioxide released from land use, especially deforestation.
+                    </p>
+                    <p>
+                        We've chosen to fund organisations that tackle the primary causes: </p>
+                    <p>
+                        - Reducing emissions<br>
+                        - Increasing the number of trees that can soak up the excess carbon dioxide already in the atmosphere.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    {#<section id="divider" style="margin-top: -50px;">#}
+        {#<div class="container">#}
+            {#<a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sounds great! Create my account now.</a>#}
+        {#</div>#}
+    {#</section>#}
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                    <img src="images/logos/rfuk.jpg" style="width:180px;">
+                </div>
+                <div class="col-md-5">
+                    <h3><a href="https://www.rainforestfoundationuk.org" target="_blank">Rainforest foundation</a></h3>
+                    <p>
+                        The Rainforest Foundation is a non-profit organisation which tackles deforestation both locally and globally.
+                        They help forest communities to gain land rights, challenge logging companies, manage their forests and protect their environment.
+                        They campaign to influence national and international laws to protect rainforests and their inhabitants.
+                    </p>
+                    <p>
+                        <a href="https://www.rainforestfoundationuk.org" target="_blank">https://www.rainforestfoundationuk.org</a>
+                        <a href="https://www.rainforestfoundation.org" target="_blank">https://www.rainforestfoundation.org</a>
+                    </p>
+                    <br><br>
+                </div>
+                <div class="col-md-1">
+                    <img src="images/logos/cca.png" style="width:180px;">
+                </div>
+                <div class="col-md-5">
+                    <h3><a href="https://www.cleancookingalliance.org" target="_blank">Clean Cooking Alliance</a></h3>
+                    <p>
+                        Globally, three billion people depend on polluting, open fires and inefficient fuels to cook their food.
+                        In sub-Saharan Africa and Asia, the lack of access to clean cooking is especially acute,
+                        with a third of the urban population and the vast majority of the rural poor using cooking fuels like wood,
+                        charcoal, coal, and kerosene. As well as polluting the air, wood is being harvested for fuel.
+                        The Clean Cooking Alliance works to provide clean alternatives.
+                    </p>
+                    <p>
+                        <a href="https://www.cleancookingalliance.org" target="_blank">https://www.cleancookingalliance.org</a>
+                    </p>
+                    <br><br>
+                </div>
+            </div>
+
+            <hr size="1" noshade>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        We don't take salaries - all development and support is volunteered at no cost.<br>
+                        We don't waste money on advertising or marketing. We want to grow organically.<br>
+                        We don't have any loans or depend on any finance.
+                    </p>
+                    <p>
+                        From our revenue, we pay for hosting and database management, server monitoring,
+                        outbound email, and ongoing platform development.
+                    </p>
+                    <p style="font-size: 30px">
+                        Everything else goes to the organisations above.
+                    </p>
+                </div>
+            </div>
+
+            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Sign up for a free trial now</a>
+
+        </div>
+    </section>
+
+{% endblock %}

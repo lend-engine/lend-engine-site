@@ -5,9 +5,9 @@
 {% block hero %}
     <section id="title">
         <div class="container">
-            <h1 style="text-align: center">
-                <div style="font-size:16px; margin-bottom: 10px">From non-profit lending libraries to large rental businesses,</div>
-                We have a pricing plan for everyone.
+            <h1 style="font-size: 80px; font-weight: bold; color: #3f3b55;">
+                100% for the planet.
+                <div style="font-size:22px; font-weight: normal; margin-bottom: 10px">All profit from subscriptions is directed towards reducing climate change.</div>
             </h1>
         </div>
     </section>
@@ -37,20 +37,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div style="font-size: 22px; text-align: center">
 
-                        <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get started with a free 30 day trial</a>
-                        <br><br>
+                    <div class="row" style="font-size: 18px;">
+                        <div class="col-md-6">
+                            <p>
+                                We started Lend Engine to help more organisations lend more items,
+                                with the goal of more people borrowing things.
+                                Fewer people buying new things means less resources wasted in over-consumption, and less waste.
+                            </p>
+                            <p>
+                                We're now taking that a step further, by directing all of our profits towards initiatives that
+                                combat climate change. &nbsp;&nbsp;<a href="{{ path('for_the_planet') }}">Learn more</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{ path('signup') }}" class="btn btn-success btn-signup">Get started with a free 30 day trial</a>
+                            <br><br>
 
-                        Your account will be set up with a <strong>30 day free trial of the Plus plan</strong>.<br>
-                        <div style="font-size: 12px;text-align: center">Choose one of the plans below at any time during your trial.</div>
-                        <br>
+                            You'll get a <strong>30 day free trial of the Plus plan</strong>.<br>
+                            <div style="font-size: 14px;">Choose one of the plans below at any time during your trial.</div>
+                            <br>
+
+                        </div>
                     </div>
 
-                    <div class="alert alert-warning" style="text-align: center">
-                        Discounts available for non-profit organisations, charities and annual subscriptions. Just
-                        <a href="{{ path('page_contact') }}">get in touch</a>.
-                    </div>
+                    {#<div class="alert alert-warning" style="text-align: center">#}
+                        {#Discounts available for non-profit organisations, charities and annual subscriptions. Just#}
+                        {#<a href="{{ path('page_contact') }}">get in touch</a>.#}
+                    {#</div>#}
 
                     <table cellspacing="0" cellpadding="0" class="table">
                         <tbody>
@@ -104,6 +118,13 @@
                             <td>Yes</td>
                         </tr>
                         <tr>
+                            <td>Event management</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
                             <td>Number of items supported</td>
                             <td>Up to 100</td>
                             <td>Up to 500</td>
@@ -123,6 +144,13 @@
                             <td>1</td>
                             <td>10</td>
                             <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Live (published) events</td>
+                            <td>10</td>
+                            <td>50</td>
+                            <td>100</td>
+                            <td>500</td>
                         </tr>
                         <tr>
                             <td>Customise email content (eg loan reminders)</td>
@@ -161,13 +189,6 @@
                         </tr>
                         <tr>
                             <td>Manage volunteers, calendars and duty rota</td>
-                            <td>-</td>
-                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
-                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
-                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
-                        </tr>
-                        <tr>
-                            <td>Manage events and workshops</td>
                             <td>-</td>
                             <td><a href="{{ path('page_contact') }}">Contact us</a></td>
                             <td><a href="{{ path('page_contact') }}">Contact us</a></td>
@@ -510,13 +531,29 @@
                             <td>Yes</td>
                             <td>Yes</td>
                         </tr>
+
+                        <tr class="price-header">
+                            <td>Events / workshops</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                         <tr>
-                            <td>Choice of website themes</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td>Create calendar events and display online</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
                             <td>Yes</td>
                         </tr>
+                        <tr>
+                            <td>Book attendees onto events / event check in</td>
+                            <td>-</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+
                         </tbody>
                     </table>
 

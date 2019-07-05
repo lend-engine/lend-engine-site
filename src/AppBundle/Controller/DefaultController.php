@@ -170,5 +170,13 @@ class DefaultController extends Controller
         return $this->render('default/terms.html.twig', []);
     }
 
+    /**
+     * @Route("/for-the-planet", name="for_the_planet")
+     */
+    public function forThePlanet(Request $request)
+    {
+        return $this->render('default/for_the_planet.html.twig', []);
+    }
+
 
 }
