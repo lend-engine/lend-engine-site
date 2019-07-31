@@ -30,7 +30,9 @@ class BillingPaymentController extends Controller
         $selectedPlan = null;
         $amount = 0;
 
-        $planCode = $request->get('planCode');
+        $planCode   = $request->get('planCode');
+        $token      = $request->get('token');
+        $tenantCode = $request->get('account');
 
         foreach ($plans AS $plan) {
             if ($planCode == $plan['stripeCode']) {
@@ -39,12 +41,6 @@ class BillingPaymentController extends Controller
             }
         }
 
-        if (!$selectedPlan) {
-            $this->addFlash("error", "Invalid plan code: ".$planCode);
-            return $this->redirectToRoute('page_pricing');
-        }
-
-        $tenantCode = $request->get('account');
         /** @var \AppBundle\Entity\Tenant $tenant */
         if (!$tenant = $tenantService->getTenantByAccountCode($tenantCode)) {
             $this->addFlash("error", "Account not found.");
@@ -55,6 +51,16 @@ class BillingPaymentController extends Controller
             $returnUri = 'https://'.$tenant->getDomain().'/admin/billing';
         } else {
             $returnUri = 'http://'.$tenantCode.'.lend-engine-app.com/admin/billing';
+        }
+
+        if ($token != md5($tenantCode)) {
+            $this->addFlash("error", "Invalid token.");
+            return $this->redirectToRoute('page_pricing');
+        }
+
+        if (!$selectedPlan) {
+            $this->addFlash("error", "Invalid plan code: ".$planCode);
+            return $this->redirectToRoute('page_pricing');
         }
 
         // Create the form
