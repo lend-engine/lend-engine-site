@@ -45,3 +45,19 @@ services:
             $formFactory: '@fos_user.registration.form.factory'
             $userManager: '@fos_user.user_manager'
             $tokenStorage: '@security.token_storage'
+
+    billing:
+        class: AppBundle\Services\BillingService
+        arguments:
+            - '%env(SYMFONY_ENV)%'
+
+    service.tenant:
+        class: AppBundle\Services\TenantService
+        arguments:
+            - "@doctrine.orm.entity_manager"
+
+    service.stripe:
+        class: AppBundle\Services\StripeService
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - '%env(STRIPE_SUBS_KEY_SECRET)%'

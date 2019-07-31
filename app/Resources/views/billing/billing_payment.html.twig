@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block hero %}
+    <section id="title">
+        <div class="container">
+            Subscribe
+        </div>
+    </section>
+{% endblock %}
+
+{% block h1 %}{% endblock %}
+
+{% block body %}
+
+    <style>
+        .StripeElement {
+            border: 1px solid #bdbdbd;
+            border-radius: 4px;
+        }
+        .StripeElement--focus {
+            border-color: #80BDFF;
+            outline:0;
+            box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+        #card-element {
+            padding: 8px;
+        }
+    </style>
+
+<section>
+        <div class="container" style="margin: 50px auto 100px auto;">
+
+            <h1>Subscribe to Lend Engine <strong>{{ plan.name }}</strong></h1>
+
+            <p>
+                You are subscribing "<strong>{{ tenant.name }}</strong>" to a monthly plan.
+            </p>
+
+            {{ form_start(form, { 'attr' : { 'class': 'payment-form', 'id' : "paymentForm" } }) }}
+
+            {{ form_errors(form) }}
+            {% if help is defined %}
+                <span class="help">{{ help }}</span>
+            {% endif %}
+
+            <div class="row" id="cardDetails" style="display:none;">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="card-element" class="control-label">Please enter your card details below</label>
+                        <div id="card-element"></div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="font-size: 16px; color: #ccc;">
+                    <br>
+                    <p>
+                        MM/YY is the expiry date on your card.<br>
+                        CVC is the last three digits on the rear.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row" id="paymentError" style="display:none">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" id="paymentErrorMessage"></div>
+                </div>
+            </div>
+
+            <div class="alert alert-info" id="nothing-to-pay" style="display:none">This plan is free.</div>
+
+            <div class="help-block" id="billInfo">
+                Your card will be billed &pound;{{ plan.amount/100|number_format(2) }} per month.
+            </div>
+
+            {{ form_end(form) }}
+
+            <a class="subscription-submit btn btn-success btn-loading">Subscribe</a>
+
+            <br><br>
+            <a href="{{ return_uri }}">Cancel and return to my account</a>
+
+
+        </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block pagescripts %}
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+        var billingPublicApiKey = '{{ billing_public_key }}';
+    </script>
+    <script src="/js/billing.js"></script>
+{% endblock %}
+
+
