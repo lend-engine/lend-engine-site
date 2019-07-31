@@ -5,9 +5,6 @@ namespace AppBundle\Services;
 /**
  * Class BillingService
  * @package AppBundle\Services
- *
- * Handles how features are mapped to billing plans
- *
  */
 class BillingService
 {
@@ -23,14 +20,17 @@ class BillingService
     }
 
     /**
-     * Returns the CURRENT billing plans for display in the UI
-     * Customers on legacy plans are mapped to one of the current plans in CustomConnectionFactory
+     * @param null $env
      * @return array
      */
-    public function getPlans()
+    public function getPlans($env = null)
     {
 
-        if ($this->env == 'prod') {
+        if ($env == null) {
+            $env = $this->env;
+        }
+
+        if ($env == 'prod') {
 
             // ALL PROD SERVERS
 

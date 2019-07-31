@@ -23,16 +23,16 @@ class BillingPaymentController extends Controller
         /** @var \AppBundle\Services\TenantService $tenantService */
         $tenantService = $this->get('service.tenant');
 
-        /** @var \AppBundle\Services\BillingService $billingService */
-        $billingService = $this->get('billing');
-        $plans = $billingService->getPlans();
-
         $selectedPlan = null;
         $amount = 0;
 
         $planCode   = $request->get('planCode');
         $token      = $request->get('token');
         $tenantCode = $request->get('account');
+
+        /** @var \AppBundle\Services\BillingService $billingService */
+        $billingService = $this->get('billing');
+        $plans = $billingService->getPlans();
 
         foreach ($plans AS $plan) {
             if ($planCode == $plan['stripeCode']) {
