@@ -23,7 +23,7 @@
             padding-top: 20px;
             font-size: 24px;
         }
-        tr.price-plans td {
+        tr.price-plans th {
             font-weight: bold;
             padding-top: 20px;
             font-size: 24px;
@@ -59,34 +59,37 @@
                         </div>
                     </div>
 
-                    {#<div class="alert alert-warning" style="text-align: center">#}
-                        {#Discounts available for non-profit organisations, charities and annual subscriptions. Just#}
-                        {#<a href="{{ path('page_contact') }}">get in touch</a>.#}
-                    {#</div>#}
+                    <span style="margin-bottom: 10px;" class="pull-right">
+                        <a class="btn btn-default {% if p == 'gbp' %}active{% endif %}" href="{{ path('page_pricing') }}?p=gbp">GBP</a>
+                        <a class="btn btn-default {% if p == 'usd' %}active{% endif %}" href="{{ path('page_pricing') }}?p=usd">USD</a>
+                    </span>
 
-                    <table cellspacing="0" cellpadding="0" class="table">
-                        <tbody>
+                    <table cellspacing="0" cellpadding="0" class="table" style="clear: both">
+                        <thead>
                         <tr class="price-plans">
-                            <td></td>
-                            <td style="width:130px">
+                            <th></th>
+                            <th style="width:130px">
                                 Free
-                            </td>
-                            <td style="width:130px">
+                            </th>
+                            <th style="width:130px">
                                 Starter
-                                <div>£5 / $7.50 </div>
+                                <div>{{ prices['starter'] }}</div>
                                 <div class="per-month">per month</div>
-                            </td>
-                            <td style="width:130px">
+                            </th>
+                            <th style="width:130px">
                                 Plus
-                                <div>£20 / $25</div>
+                                <div>{{ prices['plus'] }}</div>
                                 <div class="per-month">per month</div>
-                            </td>
-                            <td style="width:130px">
+                            </th>
+                            <th style="width:130px">
                                 Business
-                                <div>£40 / $50</div>
+                                <div>{{ prices['business'] }}</div>
                                 <div class="per-month">per month</div>
-                            </td>
+                            </th>
                         </tr>
+                        </thead>
+                        <tbody>
+
                         <tr>
                             <td>Unlimited team member logins to back-end (admin)</td>
                             <td>Yes</td>
@@ -412,6 +415,13 @@
                             <td>Yes</td>
                         </tr>
                         <tr>
+                            <td>Kits and bundles of items</td>
+                            <td>-</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
                             <td>
                                 Upload files and attachments to items, such as instructions.
                             </td>
@@ -436,11 +446,11 @@
                             <td>Yes</td>
                         </tr>
                         <tr>
-                            <td>Kits and bundles of items</td>
+                            <td>Servicing and maintenance</td>
                             <td>-</td>
                             <td>-</td>
-                            <td>-</td>
-                            <td><a href="{{ path('page_contact') }}">Contact us</a></td>
+                            <td>Yes</td>
+                            <td>Yes</td>
                         </tr>
 
 

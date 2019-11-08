@@ -1,0 +1,70 @@
+{% extends 'features/features_template.html.twig' %}
+
+{% block title %}Item maintenance and servicing lending libraries{% endblock %}
+
+{% block breadcrumb %}Service and maintenance{% endblock %}
+
+{% block featureContent %}
+
+    <h1>Item servicing and maintenance software</h1>
+
+    <p>
+        Use the Lend Engine to remind you when regular servicing is due, delegate to engineers or volunteers,
+        and create an audit trail of maintenance.
+    </p>
+
+    <p>
+        <img src="/images/screenshots/maintenance_list.png">
+    </p>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <h3>Regular service or maintenance schedules</h3>
+    <p>
+        <img src="/images/screenshots/maintenance_item.png">
+    </p>
+    <p>
+        If your items need regular servicing (perhaps an annual electrical test), then it's easy to schedule a repeating
+        service. When the next service is due, you (or your service provider) will get a reminder that work needs doing.
+        If it's the kind of work that prevents someone borrowing an item - perhaps insurane prevents you lending your items
+        where electrical test has expired - then that's easy to manage as well.
+    </p>
+
+    <h3>Ad-hoc cleaning or maintenance</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/images/screenshots/maintenance_schedule.png">
+        </div>
+        <div class="col-md-6">
+            <p>
+                Perhaps an item is found which needs repairing or cleaning. Simply move it to a 'repair' location and assign ad-hoc maintenance.
+                While it's in the repair location, users can't borrow it.
+            </p>
+        </div>
+    </div>
+
+
+    <h3>Maintenance after every loan</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/images/screenshots/maintenance_check_in.png">
+        </div>
+        <div class="col-md-6">
+            <p>
+                Some items need washing, servicing or cleaning after every loan. Lend Engine can be set up to schedule a maintenance
+                activity after each check-in. Simple.
+            </p>
+
+        </div>
+    </div>
+
+    <h3>Upload / attach files</h3>
+    <p>If you need to store service reports, or any other document, just attach it to the maintenance activity.</p>
+
+
+{% endblock %}

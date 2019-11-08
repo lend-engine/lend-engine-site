@@ -224,18 +224,6 @@ class StripeService
 
         return false;
 
-//        $response = \Stripe\Subscription::create([
-//            'customer' => $stripeCustomerId,
-//            'items'    => [
-//                'plan' => [
-//                    'id' => $planCode
-//                ]
-//            ],
-//            'expand' => ['latest_invoice.payment_intent']
-//        ]);
-
-
-
     }
 
     /**

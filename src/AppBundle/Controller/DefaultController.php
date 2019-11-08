@@ -54,8 +54,33 @@ class DefaultController extends Controller
      */
     public function pricingAction(Request $request)
     {
-//        $this->addFlash('error', "message");
-        return $this->render('default/pricing.html.twig', []);
+        if (!$p = $request->get('p')) {
+            $p = 'usd';
+        }
+
+        switch ($p) {
+            case 'usd':
+                $prices = [
+                    'free' => 0,
+                    'starter' => '$7.50',
+                    'plus' => '$25',
+                    'business' => '$50',
+                ];
+                break;
+            case 'gbp':
+                $prices = [
+                    'free' => 0,
+                    'starter' => '£5',
+                    'plus' => '£20',
+                    'business' => '£40',
+                ];
+                break;
+        }
+
+        return $this->render('default/pricing.html.twig', [
+            'p' => $p,
+            'prices' => $prices
+        ]);
     }
 
     /**

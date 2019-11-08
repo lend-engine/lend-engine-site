@@ -31,6 +31,7 @@ class FeaturesController extends Controller
             'payment-tracking-for-lending-libraries' => 'payments',
             'loan-management-software' => 'loans',
             'sites' => 'sites',
+            'maintenance-and-servicing' => 'maintenance',
             'costs' => 'costs',
             'member-management-software' => 'members',
             'self-serve-lending-library-platform' => 'member_site',
