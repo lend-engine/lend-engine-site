@@ -37,6 +37,7 @@ class FeaturesController extends Controller
             'self-serve-lending-library-platform' => 'member_site',
             'equipment-rental-software' => 'rentals',
             'languages' => 'languages',
+            'event-management-software' => 'events',
         ];
         return $this->render('features/'.$slugMap[$slug].'.html.twig', []);
     }
