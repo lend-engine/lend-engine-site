@@ -47,7 +47,7 @@ class BillingPaymentController extends Controller
             return $this->redirectToRoute('page_pricing');
         }
 
-        if ($tenant->getDomain()) {
+        if ($tenant->getDomain() && $tenant->getServer() == 'lend-engine-eu-plus') {
             $returnUri = 'https://'.$tenant->getDomain().'/admin/billing';
         } else {
             $returnUri = 'http://'.$tenantCode.'.lend-engine-app.com/admin/billing';
