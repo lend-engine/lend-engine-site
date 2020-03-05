@@ -203,5 +203,11 @@ class DefaultController extends Controller
         return $this->render('default/for_the_planet.html.twig', []);
     }
 
-
+    /**
+     * @Route("/support", name="support")
+     */
+    public function support(Request $request)
+    {
+        return $this->render('default/help.html.twig', []);
+    }
 }
