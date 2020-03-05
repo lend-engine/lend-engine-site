@@ -74,7 +74,10 @@ class BillingSuccessController extends Controller
         try {
             $client = new PostmarkClient($this->getParameter('postmark_api_key'));
             $message = $this->renderView('emails/billing_welcome.html.twig',
-                ['plan' => $planCode]
+                [
+                    'plan' => $planCode,
+                    'tenant' => $tenant
+                ]
             );
             $client->sendEmail(
                 "Lend Engine <hello@lend-engine.com>",
