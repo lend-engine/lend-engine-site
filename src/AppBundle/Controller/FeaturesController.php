@@ -27,6 +27,7 @@ class FeaturesController extends Controller
             'automation' => 'automation',
             'barcode-tracking' => 'barcodes',
             'equipment-tracking-software' => 'items',
+            'consumables-and-stock-items' => 'consumables',
             'event-booking-software' => 'events',
             'payment-tracking-for-lending-libraries' => 'payments',
             'loan-management-software' => 'loans',
