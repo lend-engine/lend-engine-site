@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\Billing;
 
 use AppBundle\Entity\Tenant;
+use AppBundle\Entity\TenantNote;
 use AppBundle\Form\Type\BillingType;
 use Postmark\Models\PostmarkException;
 use Postmark\PostmarkClient;

@@ -3,6 +3,7 @@
 namespace AppBundle\Services;
 
 use AppBundle\Entity\Tenant;
+use AppBundle\Entity\TenantNote;
 use Doctrine\ORM\EntityManager;
 use Stripe\Stripe;
 
@@ -241,7 +242,13 @@ class StripeService
         $tenant->setStatus(Tenant::STATUS_LIVE);
         $tenant->setSubscriptionId($subscriptionId);
 
+        // Add a note
+        $note = new TenantNote();
+        $note->setTenant($tenant);
+        $note->setNote("Subscribed to {$planCode} plan.");
+
         try {
+            $this->em->persist($note);
             $this->em->persist($tenant);
             $this->em->flush($tenant);
 
