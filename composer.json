@@ -24,7 +24,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "league/flysystem-aws-s3-v3": "dev-master",
         "oneup/flysystem-bundle": "@stable",
-        "oneup/uploader-bundle": "~1.4",
+        "oneup/uploader-bundle": "~1.9.3",
         "sensio/generator-bundle": "^3.0",
         "wildbit/postmark-php": "^2.0",
         "staffim/rollbar-bundle": "*",
