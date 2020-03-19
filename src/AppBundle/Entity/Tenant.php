@@ -141,6 +141,12 @@ class Tenant
     private $schemaVersion;
 
     /**
+     * @var boolean
+     * @ORM\Column(name="feed_opt_out", type="boolean", nullable=true)
+     */
+    private $feedOptOut;
+
+    /**
      * @ORM\OneToMany(targetEntity="TenantNote", mappedBy="tenant", cascade={"remove"})
      */
     private $notes;
@@ -599,6 +605,25 @@ class Tenant
         $now = new \DateTime();
         $age = $this->createdAt->diff($now);
         return $age->format('%a');
+    }
+
+    /**
+     * @return bool
+     */
+    public function getFeedOptOut()
+    {
+        return $this->feedOptOut;
+    }
+
+    /**
+     * @param $optOut
+     * @return $this
+     */
+    public function setFeedOptOut($optOut)
+    {
+        $this->feedOptOut = $optOut;
+
+        return $this;
     }
 
 }

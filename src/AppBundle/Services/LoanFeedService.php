@@ -19,18 +19,15 @@ class LoanFeedService
     {
         /** @var \AppBundle\Repository\CoreLoanRepository $loanRepo */
         $loanRepo = $this->em->getRepository('AppBundle:CoreLoan');
-
-        // Don't show loans from CrispVideo
-        // Hard coded for now... open this up to something more scalable and DB related when the need arises
-        $crispVideo = $this->em->getReference(\AppBundle\Entity\Tenant::class, 423);
-
-        $criteria = new Criteria();
-        $criteria->where(Criteria::expr()->neq('library', $crispVideo));
-        $criteria->where(Criteria::expr()->contains('image', 'jpg'));
-        $criteria->setMaxResults(6);
-        $criteria->orderBy(['createdAt' => SORT_DESC]);
-
-        $loans = $loanRepo->matching($criteria);
+        $builder = $loanRepo->createQueryBuilder('l');
+        $builder->select('l');
+        $builder->join('l.library', 't');
+        $builder->where('t.feedOptOut != 1');
+        $builder->andWhere("l.image LIKE '%jpg'");
+        $builder->setMaxResults(6);
+        $builder->orderBy('l.createdAt', 'DESC');
+        $query = $builder->getQuery();
+        $loans = $query->getResult();
 
         return $loans;
     }
