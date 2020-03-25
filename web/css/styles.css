@@ -216,8 +216,12 @@ img {
 
 #home p {
     font-weight: 400;
-    font-style: italic;
-    line-height: 2em;
+    margin-bottom: 20px;
+}
+
+#home li {
+    font-weight: 400;
+    font-size: 16px;
 }
 
 #home img {

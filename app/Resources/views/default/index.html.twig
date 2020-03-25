@@ -8,84 +8,126 @@
         <div class="overlay">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <p> </p>
                         <h1>Software for Lending Libraries</h1>
                         <p class="tm-white">
-                            Tools or toys, cameras, bikes ... lend anything. <br />
-                            Manage inventory, members, payments and loans.
+                            Tools. Camera gear. Sports kit. Toys. Medical equipment. Community items. Machinery. Educational items. Lend anything.
                         </p>
-                        <img src="/images/software-img.png" class="img-responsive" alt="home img">
                     </div>
-                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/images/screenshots/lend_engine_demo_site.png" class="img-thumbnail img-responsive">
+                    </div>
+                    <div class="col-md-6 content-box">
+                        <h2>Complete control of your items, members, loans &amp; maintenance.</h2>
+                       <p>
+                           Lend Engine is a powerful, easy to use online platform for any organisation that lends items to members.
+                       </p>
+                        <p>
+                            <strong>Leave your spreadsheets, notebooks, or whiteboards behind</strong>;
+                            manage your items, members and loans into a modern, shared system
+                            where members and staff can access everything they need, at any time.
+                        </p>
+                        <p>Just a few of the features include:</p>
+                        <ul>
+                            <li>Custom item check out and check in routines</li>
+                            <li>Self serve or staff-only</li>
+                            <li>Online item catalogue</li>
+                            <li>Kits, consumables &amp; services as well as loan items</li>
+                            <li>Expandable database with custom fields</li>
+                            <li>Automated emails to save you time and reduce overdues</li>
+                            <li>Take card payments online, via Stripe</li>
+                            <li>Print and scan barcode labels</li>
+                        </ul>
+                        <br>
+                        <p>
+                            For a full feature list, see the menus above.
+                        </p>
+                        <br><br>
+                        <p>
+                            <a class="btn btn-lg btn-success" href="{{ path('signup') }}">Sign up for a free account</a>
+                            <a class="btn btn-lg btn-default" href="{{ path('page_contact') }}">Schedule a demo</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="divider">
-        <div class="container">
-            <div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 content-box wow fadeInUp">
+                <h3>Manage all your items</h3>
+                <p>
+                    An online database to store all your item information.
+                    Custom fields, multiple images,
+                    <a href="{{ path('features', {slug: "sites"}) }}">multiple item locations</a>,
+                    <a href="{{ path('features', {slug: "maintenance-and-servicing"}) }}">schedule maintenance</a>.
+                    Build kits,
+                    <a href="{{ path('features', {slug: "consumables-and-stock-items"}) }}">sell inventory or consumables</a>. Add services and consultancy to loans.
+                    And much more.
+                </p>
 
-                <div class="col-md-4 wow fadeInUp content-box" data-wow-delay="0.3s">
-                    <img src="/images/item-list.png" class="img-responsive">
-                    <h3>Manage items</h3>
-                    <p>
-                        An online database to store all your item information.
-                        Custom fields, multiple images, multiple item locations and more...
-                    </p>
-                </div>
+                <h3>Track loans & reservations</h3>
+                <p>
+                    <a href="{{ path('features', {slug: "loan-management-software"}) }}">Online equipment management software</a>
+                    for item check in, check out, reserve items, send overdue reminders and more.
+                    Add custom fields to track extra information and bring your reports to life.
+                </p>
 
-                <div class="col-md-4 wow fadeInUp content-box" data-wow-delay="0.4s">
-                    <img src="/images/contact.png" class="img-responsive">
-                    <h3>Manage members</h3>
-                    <p>
-                        Record information about your members, their memberships, payments and fees.
-                        Use custom fields to store additional data.
-                        See detailed member history.
-                    </p>
-                </div>
+                <h3>Manage members</h3>
+                <p>
+                    <a href="{{ path('features', {slug: "member-management-software"}) }}">Membership management software</a>
+                    to record information about your members, their memberships,
+                    payments and fees.
+                    Use custom fields to store additional data.
+                    See detailed member history, send emails, add notes.
+                </p>
 
-                <div class="col-md-4 wow fadeInUp content-box" data-wow-delay="0.5s">
-                    <img src="/images/loan-list.png" class="img-responsive">
-                    <h3>Track loans & reservations</h3>
-                    <p>
-                        Check in, check out, reserve items, send overdue reminders and more.
-                        Add custom fields to track extra information and bring your reports to life.
-                    </p>
-                </div>
+                <h3>Fully configurable</h3>
+                <p>
+                    Set up the system just as you need it with unlimited item locations, multiple staff members,
+                    and custom fields.
+                </p>
+
             </div>
-            <br />
-
-            <div class="row">
-
-                <div class="col-md-4 wow fadeInUp content-box" data-wow-delay="0.6s">
-                    <img src="/images/report.png" class="img-responsive">
-                    <h3>Produce reports</h3>
-                    <p>
-                        Gain insight into your lending organisation like you've never had before with a selection of flexible reports.
-                    </p>
-                </div>
-
-                <div class="col-md-4 wow fadeInUp content-box" data-wow-delay="0.7s">
-                    <img src="/images/locations.png" class="img-responsive">
-                    <h3>Fully configurable</h3>
-                    <p>
-                        Set up the system just as you need it with unlimited item locations, multiple staff members,
-                        and custom fields.
-                    </p>
-                </div>
-
-                <div class="col-md-4 wow fadeInUp content-box" data-wow-delay="0.8s">
-                    <img src="/images/item.png" class="img-responsive">
-                    <h3>Everything in one place</h3>
-                    <p>
-                        Store everything there is to know about an item in your online database.
-                        The Lend Engine will also automatically record item history.
-                    </p>
-                </div>
+            <div class="col-md-8 content-box wow fadeInUp ">
+                <img src="/images/screenshots/lend_engine_item.png" class="img-thumbnail img-responsive">
             </div>
         </div>
-    </section>
+    </div>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 content-box wow fadeInUp ">
+                <img src="/images/screenshots/lend_engine_admin.png" class="img-thumbnail img-responsive">
+            </div>
+            <div class="col-md-4 content-box wow fadeInUp">
+                <h3>Insight &amp; Reports</h3>
+                <p>
+                    Now it's easy to see what's going on in your lending organisation.
+                </p>
+                <p>
+                    - Which items are most popular?<br>
+                    - Or not being loaned out?<br>
+                    - Where does your revenue come from?<br>
+                    - Which items cost you the most?<br>
+                    - Which memberships are about to expire?<br>
+                    - Where are your members?<br>
+                    - What items are overdue?<br>
+                    ... and much more
+                </p>
+                <p>
+                    All data can be exported too, for full analysis.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
 {% endblock %}
