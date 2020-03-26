@@ -8,12 +8,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DocsController extends Controller
 {
-
     /**
      * @Route("/help/docs", name="docs_intro")
      */
     public function docsIntro(Request $request)
     {
-        return $this->redirectToRoute('features_items');
+        return $this->redirect('https://www.lend-engine.com/support');
     }
 }
