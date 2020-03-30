@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block h1 %}Local businesses that offer food and other services{% endblock %}
+
+{% block body %}
+
+    <style>
+        #iFrame {
+            width: 100%;
+            height: 600px;
+            border: 0;
+        }
+    </style>
+    <section id="title">
+        <div class="container">
+            <h1>
+                Local businesses that offer food and other services
+            </h1>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <iframe id="iFrame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR8I_M9srlN8B5iXC37jrO0wkUgfL-ePgtba_XLTz-JS8IF8CsbA6pWwrRY_kcsBqwV6lch9e0ihVqz/pubhtml?widget=true&amp;headers=false"></iframe>
+        </div>
+    </section>
+
+{% endblock %}
