@@ -211,11 +211,4 @@ class DefaultController extends Controller
         return $this->render('default/help.html.twig', []);
     }
 
-    /**
-     * @Route("/local-businesses", name="local_businesses")
-     */
-    public function cardi(Request $request)
-    {
-        return $this->render('default/cardi.html.twig', []);
-    }
 }
