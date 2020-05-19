@@ -44,7 +44,11 @@ class RegistrationController extends Controller
             if ($existingTenant = $repo->findOneBy(['stub' => $subDomain])) {
 
                 // Use it and re-send information
-                $dbSchema = $existingTenant->getDbSchema();
+                if (!$dbSchema = $existingTenant->getDbSchema()) {
+                    $this->addFlash('error', 'Error creating your account. Please try again.');
+                    return $this->redirectToRoute('signup');
+                }
+
                 $status = $existingTenant->getStatus();
 
                 if ($status == 'PENDING' || $status == 'DEPLOYING') {
@@ -70,6 +74,7 @@ class RegistrationController extends Controller
                     $this->addFlash('success', "We've sent an email to ".$toEmail." with a link to activate your account.");
                 } catch (\Exception $e) {
                     $this->addFlash('error', "There was an error creating your account.");
+                    return $this->redirectToRoute('signup');
                 }
 
             }
