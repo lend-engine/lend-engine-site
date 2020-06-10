@@ -211,4 +211,12 @@ class DefaultController extends Controller
         return $this->render('default/help.html.twig', []);
     }
 
+    /**
+     * @Route("/join-our-team", name="roles")
+     */
+    public function roles(Request $request)
+    {
+        return $this->render('default/roles.html.twig', []);
+    }
+
 }

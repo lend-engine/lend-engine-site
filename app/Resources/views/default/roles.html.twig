@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block h1 %}About the Lend Engine{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="container">
+            <h1>
+                Be part of the lending revolution : join our team
+            </h1>
+        </div>
+    </section>
+
+    <section id="feature1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        <strong>We're growing our team</strong>, and looking for people who are passionate about sustainability,
+                        specifically in the area of lending libraries, libraries of things and the "borrow, don't buy" concept.
+                        <a href="{{ path('for_the_planet') }}">We are a not-for-profit organisation</a> and currently don't have budget for paid roles;
+                        however paid positions are on our longer term plan.
+                    </p>
+                    <p>
+                        If can spare a few hours a week, and you'd like to help more libraries discover and get going on Lend Engine,
+                        then <a href="{{ path('page_contact') }}">send us an email with your CV</a>.
+                    </p>
+                    <p>
+                        We're looking for people who can fill the following roles:
+                    </p>
+
+                    <br><h3>SEO and search optimisation</h3>
+                    <p>
+                        To help more libraries, they need to know about us.
+                        Web search is a big component in our drive for more awareness.
+                        We need to design a strategy, and then execute on it. Your role would be to assess our current position,
+                        recommend improvements, make those improvements, and keep improving things!
+                    </p>
+                    <p>
+                        <a href="{{ path('page_contact') }}" class="btn btn-success btn-signup">I'm an SEO guru. Let's talk.</a>
+                    </p>
+
+                    <br><br><h3>Funding applications</h3>
+                    <p>
+                        There are grants and funds available to help organisations who are committed to a sustainable future.
+                        Your job would be to hunt these down and write applications.
+                        Income from the software platform keeps the Lend Engine technology running, with some spare for our
+                        <a href="{{ path('for_the_planet') }}">100% for the planet</a> policy... but doesn't yet cover staffing costs.
+                        If you can secure funding, this could be a paid role.
+                    </p>
+                    <p>
+                        <a href="{{ path('page_contact') }}" class="btn btn-success btn-signup">Yes, I can help!</a>
+                    </p>
+
+                    <br><br><h3>Community and partnership building</h3>
+                    <p>
+                        Regardless of whether a lending library uses Lend Engine, we'd love to talk to them and get them talking with
+                        other libraries. The sector is still young, and there's so much we can all learn from each other.
+                        The community builder role will involve searching for libraries of things, toy libraries, tool libraries and so on,
+                        inviting them to join our Facebook group and sign up for our newsletter.
+                    </p>
+                    <p>
+                        There are lots of other organisations with a similar set of goals as ours.
+                        Repair cafés, Community hubs, Brands, Manufacturers, Retailers, Sharing networks, Transition towns. And plenty more. Your role
+                        could include getting in touch with anyone you think we could work with to get more people borrowing,
+                        and less people buying and throwing away.
+                    </p>
+                    <p>
+                        You could arrange webinars, online meetups, write newsletters, contribute to other organisations' newsletters ...
+                        there's a lot of potential to get really creative.
+                    </p>
+                    <p>
+                        <a href="{{ path('page_contact') }}" class="btn btn-success btn-signup">I'm a social butterfly, count me in.</a>
+                    </p>
+
+                    <br><br><h3>Design and branding</h3>
+                    <p>
+                        This is a nice, simple short-term project. We'd like a new logo and branding.
+                        Send us your ideas! Or if you know a designer that would like to get contribute some time to a good cause,
+                        please share this page with them.
+                    </p>
+                    <p>
+                        <a href="{{ path('page_contact') }}" class="btn btn-success btn-signup">Yes, I can help!</a>
+                    </p>
+
+                    <br><br><h3>Library liaison</h3>
+                    <p>
+                        Hundreds of libraries use Lend Engine to run their day to day operations.
+                        Because the platform is so easy to use, most of them have got up and running without any help from us at HQ -
+                        but as a result may be missing out on some features, or spending time on things that perhaps could be done in a more efficient way.
+                        Library liaison will involve online meetings with libraries that use Lend Engine, to help them use the platform better.
+                    </p>
+                    <p>
+                        It will also involve getting in touch with libraries just starting out with the Lend Engine, to
+                        help them learn about the features they might want, to help them configure the platform, and to ensure they get the most from it.
+                    </p>
+                    <p>
+                        There is potential for multiple people in this role; so we can cover all time zones.
+                    </p>
+                    <p>
+                        <a href="{{ path('page_contact') }}" class="btn btn-success btn-signup">I love to help ... tell me more</a>
+                    </p>
+
+                    <br><br><h3>Training and documentation</h3>
+                    <p>
+                        The Lend Engine is pretty easy to use, but we still need to help new users learn the ropes.
+                        We have a comprehensive user guide that needs constantly updating,
+                        and we would like to launch a series of tutorial videos too.
+                    </p>
+                    <p>
+                        <a href="{{ path('page_contact') }}" class="btn btn-success btn-signup">I can make tutorial videos, let's talk</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    {#<a href="{{ path('page_contact') }}" class="btn btn-success btn-signup">Yes, I can help!</a>#}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
