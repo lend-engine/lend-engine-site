@@ -36,9 +36,16 @@ class RegistrationController extends Controller
             $subDomain = preg_replace('/[^a-z0-9\s ]+/i', "", $subDomain);
 
             $toEmail = $form->get('ownerEmail')->getData();
+            $toName  = $form->get('ownerName')->getData();
 
             // Remove any common typos from the email
             $toEmail = str_replace(" .Com", ".com", $toEmail);
+            
+            // Simple anti-spam
+            if (!strstr($toName, ' ')) {
+                $this->addFlash('error', "Please enter a real name.");
+                return $this->redirectToRoute('signup');
+            }
 
             /** @var $existingTenant \AppBundle\Entity\Tenant */
             if ($existingTenant = $repo->findOneBy(['stub' => $subDomain])) {
