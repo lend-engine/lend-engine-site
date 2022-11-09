@@ -37,6 +37,7 @@ class RegistrationController extends Controller
 
             $toEmail = $form->get('ownerEmail')->getData();
             $toName  = $form->get('ownerName')->getData();
+            $org     = $form->get('name')->getData();
 
             // Remove any common typos from the email
             $toEmail = str_replace(" .Com", ".com", $toEmail);
@@ -51,7 +52,7 @@ class RegistrationController extends Controller
                 $this->addFlash('error', "Your data was invalid. Please try again.");
                 return $this->redirectToRoute('signup');
             }
-            
+
             /** @var $existingTenant \AppBundle\Entity\Tenant */
             if ($existingTenant = $repo->findOneBy(['stub' => $subDomain])) {
 
