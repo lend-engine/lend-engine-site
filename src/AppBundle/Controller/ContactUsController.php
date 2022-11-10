@@ -31,6 +31,11 @@ class ContactUsController extends Controller
             $message    = $form->get('message')->getData();
             $library    = $form->get('library')->getData();
 
+            if (strlen($message) < 30) {
+                $this->addFlash('error', "Form error");
+                return $this->redirectToRoute('page_contact');
+            }
+
             try {
 
                 $client = new PostmarkClient($key);
