@@ -83,30 +83,3 @@ hype_mailchimp:
     api_key: "%env(MAILCHIMP_API_KEY)%"
     default_list: "temp"
     ssl: true
-
-# File system bridge to AWS
-oneup_flysystem:
-    adapters:
-        product_adapter_local:
-            local:
-                directory: "%kernel.root_dir%/../web/images/products"
-        product_adapter:
-             awss3v3:
-                 client: lendengine.s3_client
-                 bucket: lend-engine
-                 prefix: ''
-
-    filesystems:
-        product_image_fs:
-            adapter: product_adapter
-            mount:   product_image_fs
-
-# Image and file uploader
-oneup_uploader:
-    mappings:
-        files:
-            frontend: dropzone
-            namer: uploader.file_namer
-            storage:
-                type: flysystem
-                filesystem: oneup_flysystem.product_image_fs_filesystem

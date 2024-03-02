@@ -16,13 +16,10 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Hype\MailchimpBundle\HypeMailchimpBundle(),
-            new Oneup\FlysystemBundle\OneupFlysystemBundle(),
-            new Oneup\UploaderBundle\OneupUploaderBundle(),
             new Staffim\RollbarBundle\StaffimRollbarBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new Sensio\Bundle\DistributionBundle\SensioDistributionBundle(),
-            new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

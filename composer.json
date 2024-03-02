@@ -1,8 +1,8 @@
 {
-    "name": "Lend-engine site",
+    "name": "lend-engine/lend-engine-site",
     "license": "MIT",
     "type": "project",
-    "description": "Lend-engine site",
+    "description": "lend-engine-site",
     "autoload": {
         "psr-4": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
@@ -11,26 +11,25 @@
         "psr-4": { "Tests\\": "tests/" }
     },
     "require": {
-        "php": "~7.2.0",
+        "php": "~7.4.0",
         "symfony/symfony": "3.4.*",
+        "symfony/monolog-bundle": "~3.0",
         "doctrine/orm": "^2.5",
-        "doctrine/doctrine-bundle": "^1.6",
-        "doctrine/doctrine-migrations-bundle": "^1.0",
-        "doctrine/doctrine-cache-bundle": "^1.2",
-        "friendsofsymfony/user-bundle": "~2.0",
-        "symfony/monolog-bundle": "^2.8",
-        "sensio/distribution-bundle": "^5.0",
-        "sensio/framework-extra-bundle": "^3.0.2",
-        "incenteev/composer-parameter-handler": "^2.0",
-        "league/flysystem-aws-s3-v3": "dev-master",
-        "oneup/flysystem-bundle": "@stable",
-        "oneup/uploader-bundle": "~1.9.3",
-        "sensio/generator-bundle": "^3.0",
-        "wildbit/postmark-php": "^2.0",
-        "staffim/rollbar-bundle": "*",
+        "doctrine/doctrine-bundle": "^1.9",
+        "doctrine/doctrine-migrations-bundle": "^1.3",
         "ahmedsamy/hype-mailchimp-bundle": "~1.3",
+        "ext-mbstring": "*",
+        "ext-gd": "*",
+        "ext-intl": "*",
+        "friendsofsymfony/user-bundle": "~2.0",
+        "incenteev/composer-parameter-handler": "^2.0",
         "kriswallsmith/buzz": "~0.16.1",
-        "stripe/stripe-php": "^6.40"
+        "laminas/laminas-code": "^3.4",
+        "sensio/distribution-bundle": "^5.0",
+        "sensio/framework-extra-bundle": "^5.2",
+        "stripe/stripe-php": "6.*",
+        "staffim/rollbar-bundle": "^1.3",
+        "wildbit/postmark-php": "^2.6"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.1"
@@ -47,6 +46,13 @@
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "warmup": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",

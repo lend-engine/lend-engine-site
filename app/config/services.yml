@@ -9,28 +9,6 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
 
-    lendengine.s3_client:
-        class: Aws\S3\S3Client
-        arguments:
-            -
-                version: 'latest' # or 'latest'
-                region:  "us-west-2" # 'eu-central-1' for example
-                credentials:
-                    key:    "%aws_key%"
-                    secret: "%aws_secret%"
-
-
-    uploader.file_namer:
-        class: AppBundle\Uploader\Naming\FileNamer
-
-    uploader.upload_listener:
-        class: AppBundle\EventListener\UploadListener
-        arguments:
-            - "@doctrine.orm.entity_manager"
-            - "@service_container"
-        tags:
-            - { name: kernel.event_listener, event: oneup_uploader.post_persist, method: onUpload }
-
     service.fos_user_mailer:
         class: AppBundle\Mailer\FOSMailer
         arguments:
