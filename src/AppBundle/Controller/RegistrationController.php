@@ -48,10 +48,10 @@ class RegistrationController extends Controller
                 return $this->redirectToRoute('signup');
             }
 
-            if ($toName == $org) {
-                $this->addFlash('error', "Your data was invalid. Please try again.");
-                return $this->redirectToRoute('signup');
-            }
+//            if ($toName == $org) {
+//                $this->addFlash('error', "Your data was invalid. Please try again.");
+//                return $this->redirectToRoute('signup');
+//            }
 
             /** @var $existingTenant \AppBundle\Entity\Tenant */
             if ($existingTenant = $repo->findOneBy(['stub' => $subDomain])) {

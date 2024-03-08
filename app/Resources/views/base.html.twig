@@ -70,7 +70,7 @@
     </div>
 {% endfor %}
 {% for flash_message in app.session.flashbag.get('error') %}
-    <div class="alert-danger" style="padding: 10px;">
+    <div class="alert-danger" style="padding: 10px; margin-top: 50px;">
         <div class="container">
             {{ flash_message|nl2br }}
         </div>
